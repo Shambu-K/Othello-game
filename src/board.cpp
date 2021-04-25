@@ -71,11 +71,12 @@ void OthelloBoard::displayMoves()
     for(auto x : legalMoves)
     {
         a = x.first.first + 'A';
-        print("({} , {}) : \n", (char)(x.first.first + 'A'), x.first.second + 1);
+        print("{}{} : ", (char)(x.first.second + 'A'),  (x.first.first + 1));
         for(auto y : legalMoves[x.first])
         {
-            print("\t({} , {})\n", (char)(y.first + 'A'), y.second + 1);
+            print("{}{} ",(char)(y.second + 'A'), (y.first + 1));
         }
+        print("\n");
     }
     print("\n");
 }
