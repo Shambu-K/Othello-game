@@ -7,7 +7,7 @@ all:
 	cd $(SRC); make; mv $(EXECUTABLE) ..;
 
 run:
-	./$(EXECUTABLE);
+	make all; ./$(EXECUTABLE);
 
 clean:
 	rm $(EXECUTABLE); cd $(SRC); make clean;
