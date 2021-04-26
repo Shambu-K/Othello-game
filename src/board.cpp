@@ -73,19 +73,20 @@ void OthelloBoard::displayBoard(piece col)
             }
             print("{}", content_cross);
         }
-        print("\e[0m\n");
+        print("\e[0m {} \n", i);
         if(i<boardSize)
             print("               \e[48;5;34m{}\e[0m\n", mid_line_str);
         else
             print("               \e[48;5;34m{}\e[0m\n", end_line_str);
     }
+    print("                 A   B   C   D   E   F   G   H\n");
     if(col==piece::WHITE)
     {
-        print("It is WHITE's turn\n");
+        print("\nIt is WHITE's turn\n");
     }
     else if(col == piece::BLACK)
     {
-        print("Its is BLACK's turn\n");
+        print("\nIt is BLACK's turn\n");
     }
     this->displayScores();
     this->displayMoves();
@@ -94,11 +95,11 @@ void OthelloBoard::displayBoard(piece col)
 void OthelloBoard::displayMoves()
 {
     char a, b;
-    print("Legal Moves : \n");
+    print("\nLegal Moves : \n");
     for(auto x : legalMoves)
     {
         a = x.first.first + 'A';
-        print("{}{} : ", (char)(x.first.second + 'A'),  (x.first.first + 1));
+        print("\t{}{} : ", (char)(x.first.second + 'A'),  (x.first.first + 1));
         for(auto y : legalMoves[x.first])
         {
             print("{}{} ",(char)(y.second + 'A'), (y.first + 1));
@@ -119,7 +120,7 @@ void OthelloBoard::displayScores()
             if(boardConfiguration[i][j]==piece::WHITE)  whiteScore++;
         }
     }
-    print("BLACK : {}\n", blackScore);
+    print("\nBLACK : {}\n", blackScore);
     print("WHITE : {}\n", whiteScore);
 }
 
@@ -207,7 +208,7 @@ bool OthelloBoard::placeMove(piece clr, std::pair<unsigned int, unsigned int> co
 {
     if(legalMoves[coord].empty())
     {
-        print("Illegal Move!");
+        print("Illegal Move!\n");
     //std::this_thread::sleep_for(std::chrono::seconds(20));
         return false;
     }

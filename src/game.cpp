@@ -41,7 +41,7 @@ bool OthelloGame::checkGameOver()
     if(whitePlayer.pass && blackPlayer.pass)
     {
         if(board.blackScore>board.whiteScore)   print("BLACK WINS!\n");
-        if(board.blackScore<board.whiteScore)   print("WHITE WINS!\n");
+        else if(board.blackScore<board.whiteScore)   print("WHITE WINS!\n");
         else print("IT'S A TIE!\n");
         return true;
     }
