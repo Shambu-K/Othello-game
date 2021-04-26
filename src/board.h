@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <map>
-
+#include <string>
 
 
 enum class piece
@@ -18,6 +18,22 @@ enum class piece
 class OthelloBoard
 {
     public:
+    const std::string top_start{"\u250F"};
+	const std::string top_line{"\u2501"};
+	const std::string top_cross{"\u2533"};
+	const std::string top_end{"\u2513"};
+
+	const std::string middle_start{"\u2523"};
+	const std::string middle_line{"\u2501"};
+	const std::string middle_cross{"\u254B"};
+	const std::string middle_end{"\u252B"};
+
+	const std::string bottom_start{"\u2517"};
+	const std::string bottom_line{"\u2501"};
+	const std::string bottom_cross{"\u253B"};
+	const std::string bottom_end{"\u251B"};
+
+	const std::string content_cross{"\u2503"};
     unsigned int boardSize = 8;
     unsigned int blackScore, whiteScore;
     std::vector<std::vector<piece>> boardConfiguration;

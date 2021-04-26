@@ -6,7 +6,11 @@
 #include <thread>
 #define CLEAR_SCREEN "\e[1;1H\e[2J"
 #define print fmt::print
-
+#define EMPTY_PIECE "   "
+#define BLACK_PIECE " \e[38;5;232m\u25CF\e[38;5;255m "
+#define WHITE_PIECE " \e[38;5;255m\u25CF\e[38;5;255m "
+#define B_LEGAL_PIECE " \e[38;5;232m\u25CB\e[38;5;255m "
+#define W_LEGAL_PIECE " \e[38;5;255m\u25CB\e[38;5;255m "
 
 /**
  *  @brief This function is used to initialize the board with the four initial central pieces at the beginning of the game
@@ -29,29 +33,52 @@ void OthelloBoard::initializeBoard()
 /**
  * @brief This is a function to display the board on the command line.
 */
-void OthelloBoard::displayBoard(piece col)
+void OthelloBoard::displayBoard(piece col)  //messed up! Fix this
 {
     system("clear");
     print("--------------------OTHELLO--------------------\n\n");
-    print("                A B C D E F G H\n");
-    print("               -----------------\n");
+    print("                 A   B   C   D   E   F   G   H\n");
+    std::string top_line_str("");
+    std::string mid_line_str("");
+    std::string end_line_str("");
+	top_line_str += top_start;
+	mid_line_str += middle_start;
+	end_line_str += bottom_start;
+
+	top_line_str += top_line + top_line + top_line;
+	mid_line_str += middle_line + middle_line + middle_line;
+	end_line_str += bottom_line + bottom_line + bottom_line;
+	for (int i = 1; i < boardSize; i++)
+	{
+		top_line_str += top_cross + top_line + top_line + top_line;
+	    mid_line_str += middle_cross + middle_line + middle_line + middle_line;
+	    end_line_str += bottom_cross + bottom_line + bottom_line + bottom_line;
+	}
+	top_line_str += top_end;
+    mid_line_str += middle_end;
+    end_line_str += bottom_end;
+    print("               \e[48;5;34m{}\e[0m\n", top_line_str);
     for(int i = 1; i<=boardSize; i++)
     {
-        print("            {} | ", i);
+        print("             {} \e[48;5;34m{}", i, content_cross);
         for(int j = 1; j<=boardSize; j++)
         {
             switch(boardConfiguration[i-1][j-1])
             {
-                case piece::EMPTY : print(". ");    break;
-                case piece::WHITE : print("W ");    break;
-                case piece::BLACK : print("B ");    break;
-                case piece::LEGAL_WHITE : print("w ");  break;
-                case piece::LEGAL_BLACK : print("b ");  break;
+                case piece::EMPTY : print("{}",EMPTY_PIECE);    break;
+                case piece::WHITE : print("{}", WHITE_PIECE);    break;
+                case piece::BLACK : print("{}", BLACK_PIECE);    break;
+                case piece::LEGAL_WHITE : print("{}", W_LEGAL_PIECE);  break;
+                case piece::LEGAL_BLACK : print("{}", B_LEGAL_PIECE);  break;
             }
+            print("{}", content_cross);
         }
-        print("|\n");
+        print("\e[0m\n");
+        if(i<boardSize)
+            print("               \e[48;5;34m{}\e[0m\n", mid_line_str);
+        else
+            print("               \e[48;5;34m{}\e[0m\n", end_line_str);
     }
-    print("               -----------------\n");
     if(col==piece::WHITE)
     {
         print("It is WHITE's turn\n");
