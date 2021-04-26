@@ -33,7 +33,7 @@ void OthelloBoard::initializeBoard()
 /**
  * @brief This is a function to display the board on the command line.
 */
-void OthelloBoard::displayBoard(piece col)  //messed up! Fix this
+void OthelloBoard::displayBoard(piece col)  
 {
     system("clear");
     print("--------------------OTHELLO--------------------\n\n");
