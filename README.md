@@ -8,7 +8,7 @@ A basic version of Terminal based Othello game
 sudo apt-get update
 sudo apt install g++-10
 ```
-- fmt
+- fmt library
 ```sh
 sudo apt update
 sudo apt install libfmt-dev
