@@ -15,3 +15,9 @@ sudo apt install libfmt-dev
 ```
 
 ## Build
+```sh
+git clone https://github.com/GauthamBellamkonda/Othello_Game.git
+cd Othello_Game
+mkdir objs
+make run      #to build and run the executable
+```
