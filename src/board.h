@@ -17,7 +17,6 @@ enum class piece
 
 class OthelloBoard
 {
-    public:
     const std::string top_start{"\u250F"};
 	const std::string top_line{"\u2501"};
 	const std::string top_cross{"\u2533"};
@@ -34,19 +33,21 @@ class OthelloBoard
 	const std::string bottom_end{"\u251B"};
 
 	const std::string content_cross{"\u2503"};
-    unsigned int boardSize = 8;
-    unsigned int blackScore, whiteScore;
     std::vector<std::vector<piece>> boardConfiguration;
     std::vector<std::pair<unsigned int,unsigned int>> flipCoins;
     std::vector<std::pair<unsigned int,unsigned int>> flippedCoins;
-    std::map<std::pair<unsigned int, unsigned int>, std::vector<std::pair<unsigned int, unsigned int>>> legalMoves;
-    void initializeBoard();
     void displayBoard(piece col);
     void displayMoves();
     void displayScores();
     void clearMoves();
     void searchLegalMoves(piece col);
     std::vector<std::pair<unsigned int, unsigned int>>& getFlipCoins(piece clr, std::pair<unsigned int, unsigned int> coord, std::pair<int ,int> dir);
+
+    public :
+    unsigned int blackScore, whiteScore;
+    unsigned int boardSize = 8;
+    std::map<std::pair<unsigned int, unsigned int>, std::vector<std::pair<unsigned int, unsigned int>>> legalMoves;
+    void initializeBoard();
     bool placeMove(piece clr, std::pair<unsigned int, unsigned int> coord);
     void updateBoard(piece clr);
     

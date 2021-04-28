@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <chrono>
 #include <thread>
+#include <fstream>
 #define CLEAR_SCREEN "\e[1;1H\e[2J"
 #define print fmt::print
 #define EMPTY_PIECE "   "
@@ -13,7 +14,9 @@
 #define W_LEGAL_PIECE " \e[38;5;255m\u25CB\e[38;5;255m "
 
 /**
- *  @brief This function is used to initialize the board with the four initial central pieces at the beginning of the game
+ * \brief This function is used to initialize the board with the four initial central pieces at the beginning of the game
+ * 
+ * This function also initialises the legalMoves map. It also automatically calls the displayBoard() function to display the board first time.
 */
 void OthelloBoard::initializeBoard()
 {
@@ -31,13 +34,24 @@ void OthelloBoard::initializeBoard()
 }
 
 /**
- * @brief This is a function to display the board on the command line.
+ * \brief This is a function to display the board on the command line.
+ * 
+ * This function clears everything previously present in the terminal, and displays new board configuration. 
+ * This function calls displayScores() and displayMoves() to display scores of both the players and legal moves of the current player.
+ * 
+ * \param col is used to specify whose turn it is currently.
 */
 void OthelloBoard::displayBoard(piece col)  
 {
     system("clear");
-    print("--------------------OTHELLO--------------------\n\n");
-    print("                 A   B   C   D   E   F   G   H\n");
+    
+    std::ifstream f("resources/title1.txt");
+
+    if (f.is_open())
+        std::cout << "\e[38;5;39m" << f.rdbuf() << "\e[38;5;255m";
+
+
+    print("              		              A   B   C   D   E   F   G   H\n");
     std::string top_line_str("");
     std::string mid_line_str("");
     std::string end_line_str("");
@@ -57,10 +71,10 @@ void OthelloBoard::displayBoard(piece col)
 	top_line_str += top_end;
     mid_line_str += middle_end;
     end_line_str += bottom_end;
-    print("               \e[48;5;34m{}\e[0m\n", top_line_str);
+    print("            		            \e[48;5;34m{}\e[0m\n", top_line_str);
     for(int i = 1; i<=boardSize; i++)
     {
-        print("             {} \e[48;5;34m{}", i, content_cross);
+        print("           		          {} \e[48;5;34m{}", i, content_cross);
         for(int j = 1; j<=boardSize; j++)
         {
             switch(boardConfiguration[i-1][j-1])
@@ -75,11 +89,11 @@ void OthelloBoard::displayBoard(piece col)
         }
         print("\e[0m {} \n", i);
         if(i<boardSize)
-            print("               \e[48;5;34m{}\e[0m\n", mid_line_str);
+            print("            		            \e[48;5;34m{}\e[0m\n", mid_line_str);
         else
-            print("               \e[48;5;34m{}\e[0m\n", end_line_str);
+            print("                                    \e[48;5;34m{}\e[0m\n", end_line_str);
     }
-    print("                 A   B   C   D   E   F   G   H\n");
+    print("                  		      A   B   C   D   E   F   G   H\n");
     if(col==piece::WHITE)
     {
         print("\nIt is WHITE's turn\n");
@@ -92,6 +106,9 @@ void OthelloBoard::displayBoard(piece col)
     this->displayMoves();
 }
 
+/**
+ * \brief This function is used to display the legal moves of the current player from legalMoves map.
+*/
 void OthelloBoard::displayMoves()
 {
     char a, b;

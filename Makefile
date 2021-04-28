@@ -9,7 +9,7 @@ all:
 	cd $(SRC); make; mv $(EXECUTABLE) ..; mv $(OBJECTS) ../objs/;
 
 run:
-	make all; ./$(EXECUTABLE);
+	make all; gnome-terminal --window --maximize --title "Othello" -- ./$(EXECUTABLE) ;
 
 clean:
 	rm $(EXECUTABLE); cd $(OBJS); rm *.o;

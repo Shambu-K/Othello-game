@@ -2,6 +2,7 @@
 #include <iostream>
 int main()
 {
+    
     OthelloGame game;
     game.initializeGame(false, false);
     while(!game.checkGameOver())
