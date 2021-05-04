@@ -5,7 +5,6 @@
 #include <chrono>
 #include <thread>
 #include <fstream>
-#define CLEAR_SCREEN "\e[1;1H\e[2J"
 #define print fmt::print
 #define EMPTY_PIECE "   "
 #define BLACK_PIECE " \e[38;5;232m\u25CF\e[38;5;255m "
@@ -20,6 +19,8 @@
 */
 void OthelloBoard::initializeBoard()
 {
+
+fputs( "\x1b[8;50;106t", stdout );
     boardConfiguration.resize(boardSize);
     for(int i = 0; i<boardSize; i++)
     {
@@ -45,7 +46,7 @@ void OthelloBoard::displayBoard(piece col)
 {
     system("clear");
     
-    std::ifstream f("resources/title1.txt");
+    std::ifstream f("resources/title2.txt");
 
     if (f.is_open())
         std::cout << "\e[38;5;39m" << f.rdbuf() << "\e[38;5;255m";
