@@ -12,4 +12,4 @@ run:
 	make all; ./$(EXECUTABLE); 
 
 clean:
-	rm $(EXECUTABLE); cd $(OBJS); rm *.o;
+	rm -f $(EXECUTABLE); cd $(OBJS); rm -f *.o;
