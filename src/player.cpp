@@ -1,7 +1,7 @@
 #include "player.h"
 #include <iostream>
 #include <fmt/core.h>
-#include <curses.h>
+
 #define print fmt::print
 
 void OthelloPlayer::initializePlayer(color _col, bool _isAI, unsigned int _boardSize)
@@ -34,9 +34,7 @@ std::optional<std::pair<unsigned int, unsigned int>> OthelloPlayer::getMoveHuman
     {
         pass = true;
         print("\nNo legal Moves\n");
-        print("\nPress a key to continue...");
-    getch();
-        return {};
+        //Add neccessary code here
     }
     do
     {
