@@ -1,5 +1,8 @@
 #include "game.h"
 #include <iostream>
+#include <fmt/core.h>
+#include <curses.h>
+#define print fmt::print
 int main()
 {
     
@@ -10,5 +13,6 @@ int main()
         game.makeMove(color::_BLACK);
         game.makeMove(color::_WHITE);
     }
-    std::cout << "Game ended Successfully!\n";
+    print("\nPress a key to continue...");
+    getch();
 }

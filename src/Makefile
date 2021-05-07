@@ -1,8 +1,8 @@
-.PHONY: clean debug run
+.PHONY: clean run
 
 CXX = g++-10
-CXXFLAGS = -std=c++20
-FMTFLAG = -lfmt
+CXXFLAGS = -std=c++20  #-Wall -Werror -pedantic -pedantic-errors
+FMTFLAG = -lfmt -lcurses
 SOURCES = board.cpp player.cpp game.cpp main.cpp
 OBJECTS = board.o player.o game.o main.o
 EXECUTABLE = othello.exe
@@ -16,10 +16,8 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -c $<
 
 clean:
-	rm -rf $(EXECUTABLE) $(OBJECTS) debug.exe *.stackdump *~ *.dSYM/
+	rm -rf $(EXECUTABLE) $(OBJECTS)
 
-debug:
-	$(CXX) $(CXXFLAGS) -g -o debug.exe $(SOURCES)
 
 run:
 	./$(EXECUTABLE)

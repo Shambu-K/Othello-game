@@ -226,8 +226,7 @@ bool OthelloBoard::placeMove(piece clr, std::pair<unsigned int, unsigned int> co
 {
     if(legalMoves[coord].empty())
     {
-        print("Illegal Move!\n");
-    //std::this_thread::sleep_for(std::chrono::seconds(20));
+        print("\nIllegal Move!\n");
         return false;
     }
         

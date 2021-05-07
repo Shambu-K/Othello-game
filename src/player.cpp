@@ -1,6 +1,7 @@
 #include "player.h"
 #include <iostream>
 #include <fmt/core.h>
+#include <curses.h>
 #define print fmt::print
 
 void OthelloPlayer::initializePlayer(color _col, bool _isAI, unsigned int _boardSize)
@@ -32,11 +33,9 @@ std::optional<std::pair<unsigned int, unsigned int>> OthelloPlayer::getMoveHuman
     if(legalMoves.empty())
     {
         pass = true;
-        print("No legal Moves\n");
-        print("Enter any non-empty string to continue:");
-        std::cin >> str;
-        while (std::cin.get() != '\n');          // clear buffer
-        std::cout << std::endl;
+        print("\nNo legal Moves\n");
+        print("\nPress a key to continue...");
+    getch();
         return {};
     }
     do
@@ -49,12 +48,12 @@ std::optional<std::pair<unsigned int, unsigned int>> OthelloPlayer::getMoveHuman
         }
         else
         {
-            print("Invalid Move!");
+            print("\nInvalid Move!\n");
             validMove = false;
         }
         
     } while (!validMove);
-    print("Confirmation\n");
+
     return std::make_pair(coord.first, coord.second);
 }
 
