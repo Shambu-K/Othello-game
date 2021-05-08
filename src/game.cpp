@@ -38,7 +38,8 @@ void OthelloGame::makeMove(color col)
 
 bool OthelloGame::checkGameOver()
 {
-    if(whitePlayer.pass && blackPlayer.pass)
+    
+    if((whitePlayer.pass && blackPlayer.pass)||board.turnNum==((board.boardSize)*(board.boardSize) -4))
     {
         if(board.blackScore>board.whiteScore)   print("BLACK WINS!\n");
         else if(board.blackScore<board.whiteScore)   print("WHITE WINS!\n");

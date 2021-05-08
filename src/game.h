@@ -12,4 +12,5 @@ class OthelloGame
     void initializeGame(bool isBlackAI, bool isWhiteAI);
     void makeMove(color col);
     bool checkGameOver();
+    
 };

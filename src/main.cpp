@@ -14,5 +14,9 @@ int main()
         game.makeMove(color::_WHITE);
     }
         //Add neccessary code here
+        print("\nPress any key to continue:");
+        __CONIO_H obj1;
+        obj1.getch();
+        obj1.getch();
     
 }

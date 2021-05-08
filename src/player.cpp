@@ -35,6 +35,13 @@ std::optional<std::pair<unsigned int, unsigned int>> OthelloPlayer::getMoveHuman
         pass = true;
         print("\nNo legal Moves\n");
         //Add neccessary code here
+        print("\nPress any key to continue:");
+        __CONIO_H obj1;
+        obj1.getch();
+        obj1.getch();
+        
+        
+        return {};
     }
     do
     {
@@ -61,6 +68,7 @@ std::optional<std::pair<unsigned int, unsigned int>> OthelloPlayer::getCoordinat
     std::pair<unsigned int, unsigned int> coord;
     print("Enter the coordinate where you want to place your move : ");
     std::cin >> str;
+    
     if(str.length()!=2)
     {
         return {};

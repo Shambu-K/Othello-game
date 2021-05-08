@@ -31,6 +31,7 @@ fputs( "\x1b[8;50;106t", stdout );
     boardConfiguration[2][3] = boardConfiguration[3][2] = boardConfiguration[4][5] = boardConfiguration[5][4] = piece::LEGAL_BLACK;
     legalMoves[{2,3}] = legalMoves[{3,2}] = {{3,3}};
     legalMoves[{4,5}] = legalMoves[{5,4}] = {{4,4}};
+    turnNum = 0;
     this->displayBoard(piece::BLACK);
 }
 
@@ -140,6 +141,7 @@ void OthelloBoard::displayScores()
     }
     print("\nBLACK : {}\n", blackScore);
     print("WHITE : {}\n", whiteScore);
+    print("Turn Number: {}\n", turnNum);
 }
 
 piece opposite(piece col)
@@ -233,7 +235,7 @@ bool OthelloBoard::placeMove(piece clr, std::pair<unsigned int, unsigned int> co
     else
     {
     this->clearMoves();
-
+    turnNum++;
     boardConfiguration[coord.first][coord.second] = clr;
     for(auto x : legalMoves[{coord.first, coord.second}])
     {
