@@ -9,7 +9,7 @@ all:
 	cd $(SRC); make; mv $(EXECUTABLE) ..; mv $(OBJECTS) ../objs/;
 
 run:
-	make all; ./$(EXECUTABLE); 
+	make all; gnome-terminal --maximize -- ./$(EXECUTABLE); 
 
 clean:
 	rm -f $(EXECUTABLE); cd $(OBJS); rm -f *.o;
