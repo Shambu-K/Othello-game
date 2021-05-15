@@ -78,7 +78,7 @@ void print_all(std::string* names, sf::Vector2u tileSize, const int* tiles, unsi
             sf::Sprite sprite(texture);
             sprite.setPosition(i*tileSize.x*1.f,j*tileSize.y*1.f);
             window->draw(sprite);
-            //adding the pieces to window
+            //adding the pieces to window here
         }
     }
 }
