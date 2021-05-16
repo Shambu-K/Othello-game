@@ -20,6 +20,12 @@ void print_all(std::string* names, sf::Vector2u tileSize, const int* tiles, unsi
         }
     }
 }
+bool is_mouse_on_board(sf::Vector2i position)
+{
+    if((0<position.x&&position.x)<480&&(20<position.y&&position.y<500))
+        return true;
+    else return false;
+}
 
 int main(){
         sf::RenderWindow window(sf::VideoMode(480,500),"Trial3");  
@@ -69,9 +75,6 @@ int main(){
         }
         //board configuration
         int num_of_times=0;
-        sf::Clock clock;
-        sf::Time elapsed;
-        float time_elapsed=0;
         std::string names[]={
             "null.png", "white.png", "black.png", "possible.png"
         };
@@ -83,26 +86,20 @@ int main(){
                             window.close();
                         }
                 }
-                sf::Vector2i position_all = sf::Mouse::getPosition(window);
+                sf::Vector2i position = sf::Mouse::getPosition(window);
                 if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
                 {
-                    sf::Vector2i position = sf::Mouse::getPosition(window);
                     int locationx=position.x/60;
                     int locationy=(position.y-20)/60;
-                    if((0<position.x&&position.x<480)&&(20<position.y&&position.y<500))
+                    if(is_mouse_on_board(position))
                     {
-                        elapsed=clock.getElapsedTime();
-                        if(elapsed.asSeconds() >= 0.4)
-                        {
-                            level[locationx + locationy*8]=num_of_times%2 + 1;
-                            num_of_times++;
-                            //std::cout<<elapsed.asSeconds()<<std::endl;
-                            clock.restart();
-                            elapsed.Zero;
-                        }
+                        level[locationx + locationy*8]=num_of_times%2 + 1;
+                        num_of_times++;
+                        while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                        {}
                        
                     }
-                    if((0<position_all.x&&position_all.x<floatrec.width)&&(0<position_all.y&&position_all.y<20))
+                    if((0<position.x&&position.x<floatrec.width)&&(0<position.y&&position.y<20))
                     {
                         for(unsigned i=0;i<64;i++)
                         {
@@ -115,7 +112,7 @@ int main(){
                 window.clear(sf::Color::White);
                 print_all(names,sf::Vector2u(60.f,60.f),level,8,8,&window);
                 //setting up the window
-                if((0<position_all.x&&position_all.x<floatrec.width)&&(0<position_all.y&&position_all.y<20))
+                if((0<position.x&&position.x<floatrec.width)&&(0<position.y&&position.y<20))
                 {
                     window.draw(rectangle);
                 }
