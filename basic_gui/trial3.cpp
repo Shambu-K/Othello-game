@@ -27,6 +27,20 @@ bool is_mouse_on_board(sf::Vector2i position)
         return true;
     else return false;
 }
+void define_button(sf::VertexArray& rectangle,sf::Vector2f position_rect,unsigned width, unsigned height)
+{
+    //sf::VertexArray rectangle(sf::Quads,4);
+    rectangle[0].position = position_rect;
+    rectangle[1].position = sf::Vector2f(position_rect.x + width,position_rect.y);
+    rectangle[2].position = sf::Vector2f(position_rect.x + width,position_rect.y + height);
+    rectangle[3].position = sf::Vector2f(position_rect.x ,position_rect.y + height);
+    // define the color of the rectangle's points
+    rectangle[0].color = sf::Color(200,200,200,100);
+    rectangle[1].color = sf::Color(200,200,200,100);
+    rectangle[2].color = sf::Color(49,245,250);
+    rectangle[3].color = sf::Color(49,245,235);
+
+};
 void no_legal_moves(sf::Vector2i position_window,sf::RenderWindow *window,sf::Font font)
 {
     
@@ -44,30 +58,37 @@ void no_legal_moves(sf::Vector2i position_window,sf::RenderWindow *window,sf::Fo
     window1_position.y=(window_size.y - No_moves_size.y)/2 + window_position.y;
     No_moves.setPosition(window1_position);
 
-    sf::RectangleShape rectangle (sf::Vector2f(No_moves_size.x/6,No_moves_size.y/6));
-    rectangle.setFillColor(sf::Color(200,200,200));
-    sf::Vector2f rectangle_size = rectangle.getSize();
-    rectangle.setPosition(sf::Vector2f(4*No_moves_size.x/5,4*No_moves_size.y/5));
-    sf::FloatRect rectangle_boundaries= rectangle.getGlobalBounds();
-    //rectangle.setOutlineColor(sf::Color::Black);
-    //rectangle.setOutlineThickness(1);
+    sf::VertexArray rectangle(sf::Quads,4);
+    sf::Vector2f rectangle_coordinates(3*No_moves_size.x/4,4*No_moves_size.y/5);
+    unsigned rectangle_width=No_moves_size.x/5;
+    unsigned rectangle_height=No_moves_size.x/8;
+    define_button(rectangle,rectangle_coordinates,rectangle_width,rectangle_height);
+    sf::FloatRect rectangle_boundaries;
+    rectangle_boundaries.left=rectangle_coordinates.x;
+    rectangle_boundaries.top=rectangle_coordinates.y;
+    rectangle_boundaries.width=rectangle_width;
+    rectangle_boundaries.height=rectangle_height;
 
     sf::Text text;
     text.setFont(font);
     text.setString("No legal moves possible");
     text.setCharacterSize(14);
     text.setFillColor(sf::Color::Black);
-    text.setPosition((No_moves_size.x)/10 ,(No_moves_size.y)/3);
+    sf::FloatRect text_local_boundaries=text.getLocalBounds();
+    text.setPosition((No_moves_size.x-text_local_boundaries.width)/3,(No_moves_size.y-text_local_boundaries.height)/3);
+   // text.setPosition(No_moves_size.x/10,No_moves_size.y/10);
+    
 
     sf::Text ok;
     ok.setFont(font);
     ok.setString("Ok");
     ok.setCharacterSize(14);
     ok.setFillColor(sf::Color::Black);
-    ok.setPosition(5*(No_moves_size.x)/6,5*(No_moves_size.y)/6);
+    sf::FloatRect ok_local_boundaries=ok.getLocalBounds();
+    ok.setPosition(rectangle_boundaries.left+(rectangle_boundaries.width- ok_local_boundaries.width)/2,rectangle_boundaries.top+(rectangle_boundaries.height - ok_local_boundaries.height)/2);
     sf::FloatRect ok_boundaries= ok.getGlobalBounds();
 
-    sf::RectangleShape ok_rectangle (sf::Vector2f(ok_boundaries.width*1.3,ok_boundaries.height*1.1));
+    sf::RectangleShape ok_rectangle (sf::Vector2f(ok_boundaries.width*1.3,ok_boundaries.height*1.3));
     ok_rectangle.setPosition(sf::Vector2f(ok_boundaries.left,ok_boundaries.top));
     ok_rectangle.setOutlineColor(sf::Color::Black);
     ok_rectangle.setOutlineThickness(0.5);
@@ -114,31 +135,31 @@ int main(){
         //creating window
         window.setVerticalSyncEnabled(true);
         //setting the window
+        sf::Vector2u window_size = window.getSize();
+
         sf::Font font;
         if(!font.loadFromFile("arial.ttf"))
             return -1;
         sf::Text text;
-
         // select the font
         text.setFont(font); // font is a sf::Font
-
         // set the string to display
         text.setString("New Game");
-
         // set the character size
-        text.setCharacterSize(18); // in pixels, not points!
-        
+        text.setCharacterSize(12); // in pixels, not points!
         // set the color
         text.setFillColor(sf::Color::Black);
-
         // set the text style
-       // text.setStyle(sf::Text::);
+        text.setPosition(window_size.x /50,window_size.y /100);
+        sf::FloatRect text_boundaries= text.getGlobalBounds();
+       
+        sf::RectangleShape rectangle(sf::Vector2f(text_boundaries.width*1.2,20.f));
+        rectangle.setFillColor(sf::Color(49,245,235));
+        rectangle.setPosition(sf::Vector2f(text_boundaries.left*0.5,0));
 
-        text.setPosition(0.f,0.f);
-        sf::FloatRect floatrec= text.getGlobalBounds();
-        sf::RectangleShape rectangle(sf::Vector2f(floatrec.width,20.f));
-        rectangle.setFillColor(sf::Color::Blue);
-        rectangle.setPosition(sf::Vector2f(0.f,0.f));
+        sf::VertexArray main_menu(sf::Quads,4);
+        define_button(main_menu,sf::Vector2f(0,0),480,20);
+
          int level_base[] =
         {
         0, 0, 0, 0, 0, 0, 0, 0,
@@ -186,7 +207,7 @@ int main(){
                         turned=true;
                        
                     }
-                    if((0<position.x&&position.x<floatrec.width)&&(0<position.y&&position.y<20))
+                    if((text_boundaries.left<position.x&&position.x<(text_boundaries.left+ text_boundaries.width))&&(text_boundaries.top<position.y&&position.y<(text_boundaries.top+ text_boundaries.height)))
                     {
                         for(unsigned i=0;i<64;i++)
                         {
@@ -199,12 +220,12 @@ int main(){
                 window.clear(sf::Color::White); 
                 print_all(names,sf::Vector2u(60.f,60.f),level,8,8,&window);
                 //setting up the window
-                if((0<position.x&&position.x<floatrec.width)&&(0<position.y&&position.y<20))
+                if((text_boundaries.left<position.x&&position.x<(text_boundaries.left+ text_boundaries.width))&&(0<position.y&&position.y<(text_boundaries.top+ text_boundaries.height)))
                 {
                     window.draw(rectangle);
                 }
                 num++;
-              
+                window.draw(main_menu);
                 window.draw(text);
                 window.display();      
                 //displaying the window  
