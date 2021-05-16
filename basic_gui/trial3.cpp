@@ -150,7 +150,7 @@ int main(){
         // set the color
         text.setFillColor(sf::Color::Black);
         // set the text style
-        text.setPosition(window_size.x /50,window_size.y /100);
+        text.setPosition(window_size.x /50,window_size.y /400);
         sf::FloatRect text_boundaries= text.getGlobalBounds();
        
         sf::RectangleShape rectangle(sf::Vector2f(text_boundaries.width*1.2,20.f));
@@ -181,7 +181,7 @@ int main(){
         int num=0;
         bool turned =false;
         std::string names[]={
-            "null.png", "white.png", "black.png", "possible.png"
+            "mygreen.png", "mywhite.png", "myblack.png", "mygray.png"
         };
         //enter the names of the images of pieces
         while(window.isOpen()){
