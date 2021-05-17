@@ -13,10 +13,9 @@ int main()
         game.makeMove(color::_BLACK);
         game.makeMove(color::_WHITE);
     }
-        //Add neccessary code here
-        print("\nPress any key to continue:");
-        __CONIO_H obj1;
-        obj1.getch();
-        obj1.getch();
+        
+    system("bash src/press_any_key_to_continue.sh");
+        return 0;
+        
     
 }

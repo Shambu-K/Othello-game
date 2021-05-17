@@ -1,7 +1,8 @@
 #include "player.h"
 #include <iostream>
 #include <fmt/core.h>
-
+#include <chrono>
+#include <thread>
 #define print fmt::print
 
 void OthelloPlayer::initializePlayer(color _col, bool _isAI, unsigned int _boardSize)
@@ -34,13 +35,8 @@ std::optional<std::pair<unsigned int, unsigned int>> OthelloPlayer::getMoveHuman
     {
         pass = true;
         print("\nNo legal Moves\n");
-        //Add neccessary code here
-        print("\nPress any key to continue:");
-        __CONIO_H obj1;
-        obj1.getch();
-        obj1.getch();
-        
-        
+        system("bash src/press_any_key_to_continue.sh");
+        //std::this_thread::sleep_for(std::chrono::seconds(20));
         return {};
     }
     do

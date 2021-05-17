@@ -6,7 +6,6 @@
 #include <map>
 #include <optional>
 #include <string>
-#include <conio.h>
 
 enum class color{
     _BLACK,

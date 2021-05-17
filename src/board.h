@@ -34,6 +34,7 @@ class OthelloBoard
 
 	const std::string content_cross{"\e[38;5;255m\u2503"};
     std::vector<std::vector<piece>> boardConfiguration;
+    //int arr[64];
     std::vector<std::pair<unsigned int,unsigned int>> flipCoins;
     std::vector<std::pair<unsigned int,unsigned int>> flippedCoins;
     void displayBoard(piece col);
