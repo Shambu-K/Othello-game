@@ -61,7 +61,7 @@ void no_legal_moves(sf::Vector2i position_window,sf::RenderWindow *window,sf::Fo
     sf::VertexArray rectangle(sf::Quads,4);
     sf::Vector2f rectangle_coordinates(3*No_moves_size.x/4,4*No_moves_size.y/5);
     unsigned rectangle_width=No_moves_size.x/5;
-    unsigned rectangle_height=No_moves_size.x/8;
+    unsigned rectangle_height=No_moves_size.x/10;
     define_button(rectangle,rectangle_coordinates,rectangle_width,rectangle_height);
     sf::FloatRect rectangle_boundaries;
     rectangle_boundaries.left=rectangle_coordinates.x;
@@ -82,10 +82,10 @@ void no_legal_moves(sf::Vector2i position_window,sf::RenderWindow *window,sf::Fo
     sf::Text ok;
     ok.setFont(font);
     ok.setString("Ok");
-    ok.setCharacterSize(14);
+    ok.setCharacterSize(12);
     ok.setFillColor(sf::Color::Black);
     sf::FloatRect ok_local_boundaries=ok.getLocalBounds();
-    ok.setPosition(rectangle_boundaries.left+(rectangle_boundaries.width- ok_local_boundaries.width)/2,rectangle_boundaries.top+(rectangle_boundaries.height - ok_local_boundaries.height)/2);
+    ok.setPosition(rectangle_boundaries.left+(rectangle_boundaries.width- ok_local_boundaries.width)/2,rectangle_boundaries.top+(rectangle_boundaries.height - ok_local_boundaries.height)/3);
     sf::FloatRect ok_boundaries= ok.getGlobalBounds();
 
     sf::RectangleShape ok_rectangle (sf::Vector2f(ok_boundaries.width*1.3,ok_boundaries.height*1.3));
@@ -136,6 +136,13 @@ int main(){
         window.setVerticalSyncEnabled(true);
         //setting the window
         sf::Vector2u window_size = window.getSize();
+
+        auto image=sf::Image();
+        if(!image.loadFromFile("icon.png"))
+        {
+            return -1;
+        }
+        window.setIcon(image.getSize().x,image.getSize().y,image.getPixelsPtr());
 
         sf::Font font;
         if(!font.loadFromFile("arial.ttf"))
