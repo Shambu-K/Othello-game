@@ -138,7 +138,7 @@ int main(){
         sf::Vector2u window_size = window.getSize();
 
         auto image=sf::Image();
-        if(!image.loadFromFile("icon.png"))
+        if(!image.loadFromFile("icon2.png"))
         {
             return -1;
         }
