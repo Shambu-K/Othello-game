@@ -17,22 +17,6 @@ enum class piece
 
 class OthelloBoard
 {
-    const std::string top_start{"\e[38;5;255m\u250F"};
-	const std::string top_line{"\e[38;5;255m\u2501"};
-	const std::string top_cross{"\e[38;5;255m\u2533"};
-	const std::string top_end{"\e[38;5;255m\u2513"};
-
-	const std::string middle_start{"\e[38;5;255m\u2523"};
-	const std::string middle_line{"\e[38;5;255m\u2501"};
-	const std::string middle_cross{"\e[38;5;255m\u254B"};
-	const std::string middle_end{"\e[38;5;255m\u252B"};
-
-	const std::string bottom_start{"\e[38;5;255m\u2517"};
-	const std::string bottom_line{"\e[38;5;255m\u2501"};
-	const std::string bottom_cross{"\e[38;5;255m\u253B"};
-	const std::string bottom_end{"\e[38;5;255m\u251B"};
-
-	const std::string content_cross{"\e[38;5;255m\u2503"};
     std::vector<std::vector<piece>> boardConfiguration;
     //int arr[64];
     std::vector<std::pair<unsigned int,unsigned int>> flipCoins;

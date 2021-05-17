@@ -5,12 +5,29 @@
 #include <chrono>
 #include <thread>
 #include <fstream>
+
 #define print fmt::print
+
 #define EMPTY_PIECE "   "
 #define BLACK_PIECE " \e[38;5;232m\u25CF\e[38;5;255m "
 #define WHITE_PIECE " \e[38;5;255m\u25CF\e[38;5;255m "
 #define B_LEGAL_PIECE " \e[38;5;232m\u25CB\e[38;5;255m "
 #define W_LEGAL_PIECE " \e[38;5;255m\u25CB\e[38;5;255m "
+
+#define TOP_START       "\e[38;5;255m\u250F"
+#define TOP_LINE        "\e[38;5;255m\u2501"
+#define TOP_CROSS       "\e[38;5;255m\u2533"
+#define TOP_END         "\e[38;5;255m\u2513"
+#define MIDDLE_START    "\e[38;5;255m\u2523"
+#define MIDDLE_LINE     "\e[38;5;255m\u2501"
+#define MIDDLE_CROSS    "\e[38;5;255m\u254B"
+#define MIDDLE_END      "\e[38;5;255m\u252B"
+#define BOTTOM_START    "\e[38;5;255m\u2517"
+#define BOTTOM_LINE     "\e[38;5;255m\u2501"
+#define BOTTOM_CROSS    "\e[38;5;255m\u253B"
+#define BOTTOM_END      "\e[38;5;255m\u251B"
+#define CONTENT_CROSS   "\e[38;5;255m\u2503"
+
 
 /**
  * \brief This function is used to initialize the board with the four initial central pieces at the beginning of the game
@@ -57,26 +74,47 @@ void OthelloBoard::displayBoard(piece col)
     std::string top_line_str("");
     std::string mid_line_str("");
     std::string end_line_str("");
-	top_line_str += top_start;
-	mid_line_str += middle_start;
-	end_line_str += bottom_start;
+	top_line_str += TOP_START;
+	mid_line_str += MIDDLE_START;
+	end_line_str += BOTTOM_START;
 
-	top_line_str += top_line + top_line + top_line;
-	mid_line_str += middle_line + middle_line + middle_line;
-	end_line_str += bottom_line + bottom_line + bottom_line;
-	for (int i = 1; i < boardSize; i++)
+	top_line_str += TOP_LINE;
+	top_line_str += TOP_LINE;
+	top_line_str += TOP_LINE;
+	
+    mid_line_str += MIDDLE_LINE;
+    mid_line_str += MIDDLE_LINE;
+    mid_line_str += MIDDLE_LINE;
+	
+    end_line_str += BOTTOM_LINE;
+	end_line_str += BOTTOM_LINE;
+	end_line_str += BOTTOM_LINE;
+	
+    for (int i = 1; i < boardSize; i++)
 	{
-		top_line_str += top_cross + top_line + top_line + top_line;
-	    mid_line_str += middle_cross + middle_line + middle_line + middle_line;
-	    end_line_str += bottom_cross + bottom_line + bottom_line + bottom_line;
+		top_line_str += TOP_CROSS;
+        top_line_str += TOP_LINE;
+        top_line_str += TOP_LINE;
+        top_line_str += TOP_LINE;
+        
+	    mid_line_str += MIDDLE_CROSS;
+        mid_line_str += MIDDLE_LINE;
+        mid_line_str += MIDDLE_LINE;
+        mid_line_str += MIDDLE_LINE;
+        
+	    end_line_str += BOTTOM_CROSS;
+        end_line_str += BOTTOM_LINE;
+        end_line_str += BOTTOM_LINE;
+        end_line_str += BOTTOM_LINE;
+
 	}
-	top_line_str += top_end;
-    mid_line_str += middle_end;
-    end_line_str += bottom_end;
+	top_line_str += TOP_END;
+    mid_line_str += MIDDLE_END;
+    end_line_str += BOTTOM_END;
     print("            		            \e[48;5;34m{}\e[0m\n", top_line_str);
     for(int i = 1; i<=boardSize; i++)
     {
-        print("           		          {} \e[48;5;34m{}", i, content_cross);
+        print("           		          {} \e[48;5;34m{}", i, CONTENT_CROSS);
         for(int j = 1; j<=boardSize; j++)
         {
             switch(boardConfiguration[i-1][j-1])
@@ -87,7 +125,7 @@ void OthelloBoard::displayBoard(piece col)
                 case piece::LEGAL_WHITE : print("{}", W_LEGAL_PIECE);  break;
                 case piece::LEGAL_BLACK : print("{}", B_LEGAL_PIECE);  break;
             }
-            print("{}", content_cross);
+            print("{}", CONTENT_CROSS);
         }
         print("\e[0m {} \n", i);
         if(i<boardSize)
