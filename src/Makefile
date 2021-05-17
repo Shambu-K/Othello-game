@@ -2,7 +2,7 @@
 
 
 CXX = g++-10
-CXXFLAGS = -std=c++20 #-Wall -Werror -pedantic -pedantic-errors
+CXXFLAGS = -std=c++20 -Wall -Werror -pedantic -pedantic-errors
 FMTFLAG = -lfmt
 SOURCES = board.cpp player.cpp game.cpp main.cpp
 OBJECTS = board.o player.o game.o main.o

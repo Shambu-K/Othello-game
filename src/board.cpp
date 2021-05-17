@@ -9,24 +9,24 @@
 #define print fmt::print
 
 #define EMPTY_PIECE "   "
-#define BLACK_PIECE " \e[38;5;232m\u25CF\e[38;5;255m "
-#define WHITE_PIECE " \e[38;5;255m\u25CF\e[38;5;255m "
-#define B_LEGAL_PIECE " \e[38;5;232m\u25CB\e[38;5;255m "
-#define W_LEGAL_PIECE " \e[38;5;255m\u25CB\e[38;5;255m "
+#define BLACK_PIECE " \033[38;5;232m\u25CF\033[38;5;255m "
+#define WHITE_PIECE " \033[38;5;255m\u25CF\033[38;5;255m "
+#define B_LEGAL_PIECE " \033[38;5;232m\u25CB\033[38;5;255m "
+#define W_LEGAL_PIECE " \033[38;5;255m\u25CB\033[38;5;255m "
 
-#define TOP_START       "\e[38;5;255m\u250F"
-#define TOP_LINE        "\e[38;5;255m\u2501"
-#define TOP_CROSS       "\e[38;5;255m\u2533"
-#define TOP_END         "\e[38;5;255m\u2513"
-#define MIDDLE_START    "\e[38;5;255m\u2523"
-#define MIDDLE_LINE     "\e[38;5;255m\u2501"
-#define MIDDLE_CROSS    "\e[38;5;255m\u254B"
-#define MIDDLE_END      "\e[38;5;255m\u252B"
-#define BOTTOM_START    "\e[38;5;255m\u2517"
-#define BOTTOM_LINE     "\e[38;5;255m\u2501"
-#define BOTTOM_CROSS    "\e[38;5;255m\u253B"
-#define BOTTOM_END      "\e[38;5;255m\u251B"
-#define CONTENT_CROSS   "\e[38;5;255m\u2503"
+#define TOP_START       "\033[38;5;255m\u250F"
+#define TOP_LINE        "\033[38;5;255m\u2501"
+#define TOP_CROSS       "\033[38;5;255m\u2533"
+#define TOP_END         "\033[38;5;255m\u2513"
+#define MIDDLE_START    "\033[38;5;255m\u2523"
+#define MIDDLE_LINE     "\033[38;5;255m\u2501"
+#define MIDDLE_CROSS    "\033[38;5;255m\u254B"
+#define MIDDLE_END      "\033[38;5;255m\u252B"
+#define BOTTOM_START    "\033[38;5;255m\u2517"
+#define BOTTOM_LINE     "\033[38;5;255m\u2501"
+#define BOTTOM_CROSS    "\033[38;5;255m\u253B"
+#define BOTTOM_END      "\033[38;5;255m\u251B"
+#define CONTENT_CROSS   "\033[38;5;255m\u2503"
 
 
 /**
@@ -39,7 +39,7 @@ void OthelloBoard::initializeBoard()
 
 fputs( "\x1b[8;50;106t", stdout );
     boardConfiguration.resize(boardSize);
-    for(int i = 0; i<boardSize; i++)
+    for(unsigned int i = 0; i<boardSize; i++)
     {
         boardConfiguration[i].resize(boardSize, piece::EMPTY);
     }
@@ -67,7 +67,7 @@ void OthelloBoard::displayBoard(piece col)
     std::ifstream f("resources/title2.txt");
 
     if (f.is_open())
-        std::cout << "\e[38;5;39m" << f.rdbuf() << "\e[38;5;255m";
+        std::cout << "\033[38;5;39m" << f.rdbuf() << "\033[38;5;255m";
 
 
     print("              		              A   B   C   D   E   F   G   H\n");
@@ -90,7 +90,7 @@ void OthelloBoard::displayBoard(piece col)
 	end_line_str += BOTTOM_LINE;
 	end_line_str += BOTTOM_LINE;
 	
-    for (int i = 1; i < boardSize; i++)
+    for (unsigned int i = 1; i < boardSize; i++)
 	{
 		top_line_str += TOP_CROSS;
         top_line_str += TOP_LINE;
@@ -111,11 +111,11 @@ void OthelloBoard::displayBoard(piece col)
 	top_line_str += TOP_END;
     mid_line_str += MIDDLE_END;
     end_line_str += BOTTOM_END;
-    print("            		            \e[48;5;34m{}\e[0m\n", top_line_str);
-    for(int i = 1; i<=boardSize; i++)
+    print("            		            \033[48;5;34m{}\033[0m\n", top_line_str);
+    for(unsigned int i = 1; i<=boardSize; i++)
     {
-        print("           		          {} \e[48;5;34m{}", i, CONTENT_CROSS);
-        for(int j = 1; j<=boardSize; j++)
+        print("           		          {} \033[48;5;34m{}", i, CONTENT_CROSS);
+        for(unsigned int j = 1; j<=boardSize; j++)
         {
             switch(boardConfiguration[i-1][j-1])
             {
@@ -127,11 +127,11 @@ void OthelloBoard::displayBoard(piece col)
             }
             print("{}", CONTENT_CROSS);
         }
-        print("\e[0m {} \n", i);
+        print("\033[0m {} \n", i);
         if(i<boardSize)
-            print("            		            \e[48;5;34m{}\e[0m\n", mid_line_str);
+            print("            		            \033[48;5;34m{}\033[0m\n", mid_line_str);
         else
-            print("                                    \e[48;5;34m{}\e[0m\n", end_line_str);
+            print("                                    \033[48;5;34m{}\033[0m\n", end_line_str);
     }
     print("                  		      A   B   C   D   E   F   G   H\n");
     if(col==piece::WHITE)
@@ -151,11 +151,10 @@ void OthelloBoard::displayBoard(piece col)
 */
 void OthelloBoard::displayMoves()
 {
-    char a, b;
+    
     print("\nLegal Moves : \n");
     for(auto x : legalMoves)
     {
-        a = x.first.first + 'A';
         print("\t{}{} : ", (char)(x.first.second + 'A'),  (x.first.first + 1));
         for(auto y : legalMoves[x.first])
         {
@@ -169,9 +168,9 @@ void OthelloBoard::displayMoves()
 void OthelloBoard::displayScores()
 {
     blackScore = whiteScore = 0;
-    for(int i = 0; i<boardSize; i++)
+    for(unsigned int i = 0; i<boardSize; i++)
     {
-        for(int j = 0; j<boardSize; j++)
+        for(unsigned int j = 0; j<boardSize; j++)
         {
             if(boardConfiguration[i][j]==piece::BLACK)  blackScore++;
             if(boardConfiguration[i][j]==piece::WHITE)  whiteScore++;
@@ -191,9 +190,9 @@ piece opposite(piece col)
 
 void OthelloBoard::clearMoves()
 {
-    for(int i = 0; i<boardSize; i++)
+    for(unsigned int i = 0; i<boardSize; i++)
     {
-        for(int j = 0; j<boardSize; j++)
+        for(unsigned int j = 0; j<boardSize; j++)
         {
             if((boardConfiguration[i][j]==piece::LEGAL_WHITE) || (boardConfiguration[i][j]==piece::LEGAL_BLACK))
             {
@@ -211,9 +210,9 @@ void OthelloBoard::searchLegalMoves(piece clr)
 {
     legalMoves.clear();
     this->clearMoves();
-    for(int i = 0; i<boardSize; i++)
+    for(unsigned int i = 0; i<boardSize; i++)
     {
-        for(int j = 0; j<boardSize; j++)
+        for(unsigned int j = 0; j<boardSize; j++)
         {
             if((boardConfiguration[i][j]==piece::EMPTY))
             {

@@ -69,11 +69,11 @@ std::optional<std::pair<unsigned int, unsigned int>> OthelloPlayer::getCoordinat
     {
         return {};
     }
-    if((str[0]-'A')>=0 && (str[0]-'A')<boardSize && (str[1]-'1')>=0 && (str[1]-'1')<boardSize)
+    if((str[0]-'A')>=0 && (unsigned int)(str[0]-'A')<boardSize && (str[1]-'1')>=0 && (unsigned int)(str[1]-'1')<boardSize)
     {
         return std::make_pair(str[1]-'1', str[0]-'A' );
     }
-    else if((str[0]-'a')>=0 && (str[0]-'a')<boardSize && (str[1]-'1')>=0 && (str[1]-'1')<boardSize)
+    else if((str[0]-'a')>=0 && (unsigned int)(str[0]-'a')<boardSize && (str[1]-'1')>=0 && (unsigned int)(str[1]-'1')<boardSize)
     {
         return std::make_pair(str[1]-'1', str[0]-'a');
     }

@@ -35,7 +35,7 @@ class OthelloBoard
     void initializeBoard();
     bool placeMove(piece clr, std::pair<unsigned int, unsigned int> coord);
     void updateBoard(piece clr);
-    int turnNum;
+    unsigned int turnNum;
     
 };
 
