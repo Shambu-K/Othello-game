@@ -39,9 +39,9 @@ void print_all(std::string* names, const int* tiles, unsigned int width, unsigne
     }
 }
 
-bool is_mouse_on_board(sf::Vector2i position)
+bool is_mouse_on_board(sf::Vector2i position,sf::Image image,unsigned width,unsigned height)
 {
-    if((0<position.x&&position.x)<480&&(20<position.y&&position.y<500))
+    if((0<position.x)&&(position.x<(width*image.getSize().x))&&((20<position.y)&&(position.y<(height*image.getSize().y + 20))))
         return true;
     else return false;
 }
@@ -201,6 +201,9 @@ int main(){
             level[i]=level_base[i];
         }
         //board configuration
+        unsigned board_width=8;
+        unsigned board_height=8;
+
         int num_of_times=0;
         int num=0;
         bool turned =false;
@@ -232,7 +235,7 @@ int main(){
                     sf::Vector2u location;
                     location.x=position.x/image.getSize().x;
                     location.y=(position.y-20)/image.getSize().y;
-                    if(is_mouse_on_board(position))
+                    if(is_mouse_on_board(position,image,board_width,board_height))
                     {
                         level[location.x + location.y*8]=num_of_times%2 + 1;
                         
@@ -305,7 +308,7 @@ int main(){
                 window.display();      
                 //displaying the window  
                 
-                if (sf::Mouse::isButtonPressed(sf::Mouse::Left)&&window.hasFocus()&&is_mouse_on_board(position)&&turned)
+                if (sf::Mouse::isButtonPressed(sf::Mouse::Left)&&window.hasFocus()&&is_mouse_on_board(position,image,board_width,board_height)&&turned)
                 {                    
                     while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
                     {}                    
