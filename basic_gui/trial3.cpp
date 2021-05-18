@@ -5,7 +5,6 @@
 class TIMER_T
 {
     public:
-    sf::Clock clock;
     sf::Time time;
     sf::Font font;
     sf::Text name;
@@ -17,7 +16,7 @@ class TIMER_T
     sf::FloatRect name_boundaries;
 };
 
-void print_all(std::string* names, sf::Vector2u tileSize, const int* tiles, unsigned int width, unsigned int height,sf::RenderWindow* window)
+void print_all(std::string* names, const int* tiles, unsigned int width, unsigned int height,sf::RenderWindow* window)
 {
     for(unsigned i=0;i<width;i++)
     {
@@ -29,9 +28,11 @@ void print_all(std::string* names, sf::Vector2u tileSize, const int* tiles, unsi
             if(!texture.loadFromFile(names[tilenumber]))
                 return ;
             //getting information from images of pieces of board
+            
             sf::Sprite sprite(texture);
+            sf::FloatRect sprite_bounds=sprite.getLocalBounds();
             texture.setSmooth(true);
-            sprite.setPosition(i*tileSize.x*1.f,20.f+j*tileSize.y*1.f);
+            sprite.setPosition(i*sprite_bounds.width*1.f,20.f+j*sprite_bounds.height*1.f);
             window->draw(sprite);
             //adding the pieces to window here
         }
@@ -60,9 +61,39 @@ void define_button(sf::VertexArray& rectangle,sf::Vector2f position_rect,unsigne
 
 };
 
+void pop_up(sf::String error_name,sf::Font font,sf::RenderWindow* window, sf::Time pop_up_time,unsigned pop_timelimit,float& vary)
+{
+    sf::Vector2u window_size=window->getSize();
+    if(pop_up_time.asSeconds()<=0.5)
+    {
+        vary=pop_up_time.asSeconds();
+    }
+    else if (pop_up_time.asSeconds()>=pop_timelimit-0.5)
+    {
+        vary=3-pop_up_time.asSeconds();
+    }
+   
+    sf::VertexArray pop_rectangle(sf::Quads,4);
+    sf::Vector2f pop_rectangle_position(0,window_size.y*(20-vary*2)/20 );
+    sf::Vector2u pop_rectangle_size(window_size.x,window_size.y*vary/10);
+    define_button(pop_rectangle,pop_rectangle_position,pop_rectangle_size.x,pop_rectangle_size.y);
 
+    
+    sf::Text error_text;
+    error_text.setFont(font);
+    error_text.setString(error_name);
+    error_text.setCharacterSize(12);
+    error_text.setFillColor(sf::Color::Black);
+    sf::FloatRect error_text_boundaries = error_text.getLocalBounds();
+    sf::Vector2f error_text_position(pop_rectangle_position.x + (pop_rectangle_size.x-error_text_boundaries.width)/2,pop_rectangle_position.y + (pop_rectangle_size.y-error_text_boundaries.height)/2); 
+    //sf::Vector2f error_text_position(10.f,500.f);
+    error_text.setPosition(error_text_position);
 
-void define_timer(TIMER_T& timer,sf::Font font,sf::String name,sf::Vector2f position)
+    window->draw(pop_rectangle);
+    if(vary>=0.4)window->draw(error_text);
+}
+
+void define_timer(TIMER_T& timer,sf::Clock clock,unsigned time_left,bool initiate,sf::Font font,sf::String name,sf::Vector2f position)
 {
     timer.font =font;
     timer.name_string=name;
@@ -76,8 +107,9 @@ void define_timer(TIMER_T& timer,sf::Font font,sf::String name,sf::Vector2f posi
     timer.name.setStyle(sf::Text::Bold | sf::Text::Underlined);
     timer.name_boundaries=timer.name.getGlobalBounds();
 
-    timer.time =timer.clock.getElapsedTime();
-    unsigned elapsed_time =300000- timer.time.asMilliseconds();
+    timer.time =clock.getElapsedTime();
+    unsigned elapsed_time =time_left- timer.time.asMilliseconds();
+    if(initiate)elapsed_time=time_left;
     unsigned millisecs =elapsed_time%1000;
     unsigned seconds = (elapsed_time/1000)%60;
     unsigned minutes = elapsed_time/60000;
@@ -89,116 +121,27 @@ void define_timer(TIMER_T& timer,sf::Font font,sf::String name,sf::Vector2f posi
 
     timer.digital_timer.setFont(timer.font);
     timer.digital_timer.setString(timer.digital_string);
-    timer.digital_timer.setCharacterSize(12);
+    timer.digital_timer.setCharacterSize(13);
     timer.digital_timer.setFillColor(sf::Color::Black);
-    timer.digital_timer.setPosition(sf::Vector2f(timer.position.x,timer.position.y + timer.name_boundaries.height*1.2));
+    timer.digital_timer.setPosition(sf::Vector2f(timer.position.x,timer.position.y + timer.name_boundaries.height*1.4));
     timer.digital_timer_boundaries=timer.digital_timer.getGlobalBounds();
 
 }
 
-void no_legal_moves(sf::Vector2i position_window,sf::RenderWindow *window,sf::Font font)
-{
-    
-    sf::Vector2i location;
-    location.x =position_window.x/60;
-    location.y =(position_window.y-20)/60;
-    sf::Vector2u window_size= window->getSize();
-    sf::Vector2i window_position = window->getPosition();
-    
-    sf::RenderWindow No_moves(sf::VideoMode(window_size.x/2,window_size.y/3),"No legal moves");
-    No_moves.setVerticalSyncEnabled(true);
-    sf::Vector2u No_moves_size =No_moves.getSize();
-    sf::Vector2i window1_position;
-    window1_position.x=(window_size.x - No_moves_size.x)/2 +window_position.x;
-    window1_position.y=(window_size.y - No_moves_size.y)/2 + window_position.y;
-    No_moves.setPosition(window1_position);
 
-    sf::VertexArray rectangle(sf::Quads,4);
-    sf::Vector2f rectangle_coordinates(3*No_moves_size.x/4,4*No_moves_size.y/5);
-    unsigned rectangle_width=No_moves_size.x/5;
-    unsigned rectangle_height=No_moves_size.x/10;
-    define_button(rectangle,rectangle_coordinates,rectangle_width,rectangle_height);
-    sf::FloatRect rectangle_boundaries;
-    rectangle_boundaries.left=rectangle_coordinates.x;
-    rectangle_boundaries.top=rectangle_coordinates.y;
-    rectangle_boundaries.width=rectangle_width;
-    rectangle_boundaries.height=rectangle_height;
-
-    sf::Text text;
-    text.setFont(font);
-    text.setString("No legal moves possible");
-    text.setCharacterSize(14);
-    text.setFillColor(sf::Color::Black);
-    sf::FloatRect text_local_boundaries=text.getLocalBounds();
-    text.setPosition((No_moves_size.x-text_local_boundaries.width)/3,(No_moves_size.y-text_local_boundaries.height)/3);
-   // text.setPosition(No_moves_size.x/10,No_moves_size.y/10);
-    
-
-    sf::Text ok;
-    ok.setFont(font);
-    ok.setString("Ok");
-    ok.setCharacterSize(12);
-    ok.setFillColor(sf::Color::Black);
-    sf::FloatRect ok_local_boundaries=ok.getLocalBounds();
-    ok.setPosition(rectangle_boundaries.left+(rectangle_boundaries.width- ok_local_boundaries.width)/2,rectangle_boundaries.top+(rectangle_boundaries.height - ok_local_boundaries.height)/3);
-    sf::FloatRect ok_boundaries= ok.getGlobalBounds();
-
-    sf::RectangleShape ok_rectangle (sf::Vector2f(rectangle_boundaries.width,rectangle_boundaries.height));
-    ok_rectangle.setPosition(sf::Vector2f(rectangle_boundaries.left,rectangle_boundaries.top));
-    //ok_rectangle.setOutlineColor(sf::Color::Black);
-    //ok_rectangle.setOutlineThickness(0.5);
-    ok_rectangle.setFillColor(sf::Color(49,245,235));
-
-    while (No_moves.isOpen())
-    {
-        sf::Event event;
-        while (No_moves.pollEvent(event))
-        {
-            if(event.type==sf::Event::Closed)
-            {
-                No_moves.close();
-            }
-        }
-        sf::Vector2i position = sf::Mouse::getPosition(No_moves);
-        No_moves.clear(sf::Color(240,240,240));
-        
-        No_moves.draw(rectangle);
-        
-        if(rectangle_boundaries.left<position.x && position.x<(rectangle_boundaries.left + rectangle_boundaries.width) && rectangle_boundaries.top<position.y&&
-                    position.y<(rectangle_boundaries.top + rectangle_boundaries.height))        
-        {
-            No_moves.draw(ok_rectangle);
-            if(sf::Mouse::isButtonPressed(sf::Mouse::Left)&&No_moves.hasFocus())
-            {
-                No_moves.close();
-                while (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-                {
-                    /* code */
-                }
-                
-            }
-
-        }
-        No_moves.draw(ok);
-        No_moves.draw(text);
-        No_moves.display();
-    }
-    
-    
-}
 int main(){
-        sf::RenderWindow window(sf::VideoMode(720,500),"Trial3");  
+        sf::RenderWindow window(sf::VideoMode(720,600),"Trial3");  
         //creating window
         window.setVerticalSyncEnabled(true);
         //setting the window
         sf::Vector2u window_size = window.getSize();
 
-        auto image=sf::Image();
-        if(!image.loadFromFile("icon2.png"))
+        auto icon=sf::Image();
+        if(!icon.loadFromFile("icon2.png"))
         {
             return -1;
         }
-        window.setIcon(image.getSize().x,image.getSize().y,image.getPixelsPtr());
+        window.setIcon(icon.getSize().x,icon.getSize().y,icon.getPixelsPtr());
 
         sf::Font font;
         if(!font.loadFromFile("arial.ttf"))
@@ -223,11 +166,23 @@ int main(){
         sf::VertexArray main_menu(sf::Quads,4);
         define_button(main_menu,sf::Vector2f(0,0),480,20);
 
+        sf::Clock pop_up_clock;
+        sf::Time pop_up_time;
+        unsigned pop_up_timelimit=3;
+
+        sf::Clock clock;
+        unsigned white_time_left=300000;
+        unsigned black_time_left=300000;
+        bool initiate=true;
+        bool run_time=false;
+        sf::Vector2f white_position=sf::Vector2f(500.f,50.f);
+        sf::Vector2f black_position=sf::Vector2f(600.f,50.f);
+
         TIMER_T white_timer;
-        define_timer(white_timer,font,"white",sf::Vector2f(500.f,50.f)); 
+        define_timer(white_timer,clock,white_time_left,initiate,font,"white",white_position); 
 
         TIMER_T black_timer;
-        define_timer(black_timer,font,"black",sf::Vector2f(600.f,50.f));
+        define_timer(black_timer,clock,black_time_left,initiate,font,"black",black_position);
 
          int level_base[] =
         {
@@ -249,10 +204,17 @@ int main(){
         int num_of_times=0;
         int num=0;
         bool turned =false;
+        bool pop=false;
+        float pop_vary=0;
         std::string names[]={
             "mygreen.png", "mywhite.png", "myblack.png", "mygray.png"
         };
         //enter the names of the images of pieces
+
+        auto image =sf::Image();
+        if(!image.loadFromFile(names[1]))
+            return -1;
+
         while(window.isOpen()){
                 sf::Event event;
                 while(window.pollEvent(event))
@@ -264,30 +226,53 @@ int main(){
                 }
                 sf::Vector2i position = sf::Mouse::getPosition(window);
                 
+                window.clear(sf::Color(220,220,220)); 
                 if (sf::Mouse::isButtonPressed(sf::Mouse::Left)&&window.hasFocus())
                 {
                     sf::Vector2u location;
-                    location.x=position.x*12/window_size.x;
-                    location.y=(position.y-20)*8/window_size.y;
+                    location.x=position.x/image.getSize().x;
+                    location.y=(position.y-20)/image.getSize().y;
                     if(is_mouse_on_board(position))
                     {
                         level[location.x + location.y*8]=num_of_times%2 + 1;
+                        
+                        sf::Time temp;
+                        temp =clock.restart();
+                        if(num_of_times%2==0)
+                        {
+                            white_time_left=white_time_left-temp.asMilliseconds();
+                        }
+                        else
+                            black_time_left=black_time_left-temp.asMilliseconds();
+                        
                         num_of_times++;
                         turned=true;
-                       
                     }
-                    if((text_boundaries.left<position.x&&position.x<(text_boundaries.left+ text_boundaries.width))&&(text_boundaries.top<position.y&&position.y<(text_boundaries.top+ text_boundaries.height)))
+                    else if((text_boundaries.left<position.x&&position.x<(text_boundaries.left+ text_boundaries.width))&&(text_boundaries.top<position.y&&position.y<(text_boundaries.top+ text_boundaries.height)))
                     {
                         for(unsigned i=0;i<64;i++)
                         {
                             level[i]=level_base[i];
+                            
                         }
+                        white_time_left=300000;
+                        black_time_left=300000;
+                        define_timer(white_timer,clock,white_time_left,initiate,font,"white",white_position); 
+                        define_timer(black_timer,clock,black_time_left,initiate,font,"black",black_position);
+                        sf::Time temp=clock.restart();
+
+                    }
+                    else
+                    {
+                        pop=true;
+                        sf::Time temp=pop_up_clock.restart();
+                        pop_vary=0;
                     }
                 }
                 //setting up command when left mouse button is clicked
 
-                window.clear(sf::Color(220,220,220)); 
-                print_all(names,sf::Vector2u(60.f,60.f),level,8,8,&window);
+                
+                print_all(names,level,8,8,&window);
                 //setting up the window
                 if((text_boundaries.left<position.x&&position.x<(text_boundaries.left+ text_boundaries.width))&&(0<position.y&&position.y<(text_boundaries.top+ text_boundaries.height)))
                 {
@@ -295,14 +280,22 @@ int main(){
                 }
                 if(num_of_times%2==0)
                 {
-                define_timer(white_timer,font,"white",sf::Vector2f(500.f,50.f));
+                define_timer(white_timer,clock,white_time_left,run_time,font,"white",white_position);
+                }
+                else
+                {
+                    define_timer(black_timer,clock,black_time_left,run_time,font,"black",black_position);
                 }
 
-                if(num_of_times%2==1)
+                num++;
+                pop_up_time=pop_up_clock.getElapsedTime();
+                if(pop)
                 {
-                    define_timer(black_timer,font,"black",sf::Vector2f(600.f,50.f));
+                    pop_up("No legal moves",font,&window,pop_up_time,pop_up_timelimit,pop_vary);
                 }
-                //num++;
+                if(pop_up_time.asSeconds()>pop_up_timelimit)
+                pop=false;
+                
                 window.draw(main_menu);
                 window.draw(text);
                 window.draw(white_timer.name);
@@ -311,16 +304,14 @@ int main(){
                 window.draw(black_timer.digital_timer);
                 window.display();      
                 //displaying the window  
-                /*if(num==1)
-                {
-                    no_legal_moves(position,&window,font);
-                }*/
+                
                 if (sf::Mouse::isButtonPressed(sf::Mouse::Left)&&window.hasFocus()&&is_mouse_on_board(position)&&turned)
                 {                    
                     while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
                     {}                    
                     turned=false;
                 }
+                
         }     
 
 }
