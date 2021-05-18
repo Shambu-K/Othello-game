@@ -1,5 +1,21 @@
 #include<SFML/Graphics.hpp>
 #include<iostream>
+#include<string>
+
+class TIMER_T
+{
+    public:
+    sf::Clock clock;
+    sf::Time time;
+    sf::Font font;
+    sf::Text name;
+    sf::Text digital_timer;
+    sf::Vector2f position;
+    sf::String name_string;
+    std::string digital_string;
+    sf::FloatRect digital_timer_boundaries;
+    sf::FloatRect name_boundaries;
+};
 
 void print_all(std::string* names, sf::Vector2u tileSize, const int* tiles, unsigned int width, unsigned int height,sf::RenderWindow* window)
 {
@@ -21,12 +37,14 @@ void print_all(std::string* names, sf::Vector2u tileSize, const int* tiles, unsi
         }
     }
 }
+
 bool is_mouse_on_board(sf::Vector2i position)
 {
     if((0<position.x&&position.x)<480&&(20<position.y&&position.y<500))
         return true;
     else return false;
 }
+
 void define_button(sf::VertexArray& rectangle,sf::Vector2f position_rect,unsigned width, unsigned height)
 {
     //sf::VertexArray rectangle(sf::Quads,4);
@@ -41,6 +59,43 @@ void define_button(sf::VertexArray& rectangle,sf::Vector2f position_rect,unsigne
     rectangle[3].color = sf::Color(49,245,235);
 
 };
+
+
+
+void define_timer(TIMER_T& timer,sf::Font font,sf::String name,sf::Vector2f position)
+{
+    timer.font =font;
+    timer.name_string=name;
+    timer.position=position;
+
+    timer.name.setFont(timer.font);
+    timer.name.setString(timer.name_string);
+    timer.name.setCharacterSize(12);
+    timer.name.setFillColor(sf::Color::Black);
+    timer.name.setPosition(timer.position);
+    timer.name.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    timer.name_boundaries=timer.name.getGlobalBounds();
+
+    timer.time =timer.clock.getElapsedTime();
+    unsigned elapsed_time =300000- timer.time.asMilliseconds();
+    unsigned millisecs =elapsed_time%1000;
+    unsigned seconds = (elapsed_time/1000)%60;
+    unsigned minutes = elapsed_time/60000;
+    timer.digital_string = std::to_string(minutes);
+    timer.digital_string.append(":");
+    timer.digital_string.append(std::to_string(seconds));
+    timer.digital_string.append(":");
+    timer.digital_string.append(std::to_string(millisecs));
+
+    timer.digital_timer.setFont(timer.font);
+    timer.digital_timer.setString(timer.digital_string);
+    timer.digital_timer.setCharacterSize(12);
+    timer.digital_timer.setFillColor(sf::Color::Black);
+    timer.digital_timer.setPosition(sf::Vector2f(timer.position.x,timer.position.y + timer.name_boundaries.height*1.2));
+    timer.digital_timer_boundaries=timer.digital_timer.getGlobalBounds();
+
+}
+
 void no_legal_moves(sf::Vector2i position_window,sf::RenderWindow *window,sf::Font font)
 {
     
@@ -88,11 +143,11 @@ void no_legal_moves(sf::Vector2i position_window,sf::RenderWindow *window,sf::Fo
     ok.setPosition(rectangle_boundaries.left+(rectangle_boundaries.width- ok_local_boundaries.width)/2,rectangle_boundaries.top+(rectangle_boundaries.height - ok_local_boundaries.height)/3);
     sf::FloatRect ok_boundaries= ok.getGlobalBounds();
 
-    sf::RectangleShape ok_rectangle (sf::Vector2f(ok_boundaries.width*1.3,ok_boundaries.height*1.3));
-    ok_rectangle.setPosition(sf::Vector2f(ok_boundaries.left,ok_boundaries.top));
-    ok_rectangle.setOutlineColor(sf::Color::Black);
-    ok_rectangle.setOutlineThickness(0.5);
-    ok_rectangle.setFillColor(sf::Color::Transparent);
+    sf::RectangleShape ok_rectangle (sf::Vector2f(rectangle_boundaries.width,rectangle_boundaries.height));
+    ok_rectangle.setPosition(sf::Vector2f(rectangle_boundaries.left,rectangle_boundaries.top));
+    //ok_rectangle.setOutlineColor(sf::Color::Black);
+    //ok_rectangle.setOutlineThickness(0.5);
+    ok_rectangle.setFillColor(sf::Color(49,245,235));
 
     while (No_moves.isOpen())
     {
@@ -108,7 +163,7 @@ void no_legal_moves(sf::Vector2i position_window,sf::RenderWindow *window,sf::Fo
         No_moves.clear(sf::Color(240,240,240));
         
         No_moves.draw(rectangle);
-        No_moves.draw(ok);
+        
         if(rectangle_boundaries.left<position.x && position.x<(rectangle_boundaries.left + rectangle_boundaries.width) && rectangle_boundaries.top<position.y&&
                     position.y<(rectangle_boundaries.top + rectangle_boundaries.height))        
         {
@@ -124,6 +179,7 @@ void no_legal_moves(sf::Vector2i position_window,sf::RenderWindow *window,sf::Fo
             }
 
         }
+        No_moves.draw(ok);
         No_moves.draw(text);
         No_moves.display();
     }
@@ -131,7 +187,7 @@ void no_legal_moves(sf::Vector2i position_window,sf::RenderWindow *window,sf::Fo
     
 }
 int main(){
-        sf::RenderWindow window(sf::VideoMode(480,500),"Trial3");  
+        sf::RenderWindow window(sf::VideoMode(720,500),"Trial3");  
         //creating window
         window.setVerticalSyncEnabled(true);
         //setting the window
@@ -149,9 +205,9 @@ int main(){
             return -1;
         sf::Text text;
         // select the font
-        text.setFont(font); // font is a sf::Font
+        text.setFont(font); 
         // set the string to display
-        text.setString("New Game");
+        text.setString("New game");
         // set the character size
         text.setCharacterSize(12); // in pixels, not points!
         // set the color
@@ -166,6 +222,12 @@ int main(){
 
         sf::VertexArray main_menu(sf::Quads,4);
         define_button(main_menu,sf::Vector2f(0,0),480,20);
+
+        TIMER_T white_timer;
+        define_timer(white_timer,font,"white",sf::Vector2f(500.f,50.f)); 
+
+        TIMER_T black_timer;
+        define_timer(black_timer,font,"black",sf::Vector2f(600.f,50.f));
 
          int level_base[] =
         {
@@ -205,8 +267,8 @@ int main(){
                 if (sf::Mouse::isButtonPressed(sf::Mouse::Left)&&window.hasFocus())
                 {
                     sf::Vector2u location;
-                    location.x=position.x/60;
-                    location.y=(position.y-20)/60;
+                    location.x=position.x*12/window_size.x;
+                    location.y=(position.y-20)*8/window_size.y;
                     if(is_mouse_on_board(position))
                     {
                         level[location.x + location.y*8]=num_of_times%2 + 1;
@@ -224,22 +286,35 @@ int main(){
                 }
                 //setting up command when left mouse button is clicked
 
-                window.clear(sf::Color::White); 
+                window.clear(sf::Color(220,220,220)); 
                 print_all(names,sf::Vector2u(60.f,60.f),level,8,8,&window);
                 //setting up the window
                 if((text_boundaries.left<position.x&&position.x<(text_boundaries.left+ text_boundaries.width))&&(0<position.y&&position.y<(text_boundaries.top+ text_boundaries.height)))
                 {
                     window.draw(rectangle);
                 }
-                num++;
+                if(num_of_times%2==0)
+                {
+                define_timer(white_timer,font,"white",sf::Vector2f(500.f,50.f));
+                }
+
+                if(num_of_times%2==1)
+                {
+                    define_timer(black_timer,font,"black",sf::Vector2f(600.f,50.f));
+                }
+                //num++;
                 window.draw(main_menu);
                 window.draw(text);
+                window.draw(white_timer.name);
+                window.draw(white_timer.digital_timer);
+                window.draw(black_timer.name);
+                window.draw(black_timer.digital_timer);
                 window.display();      
                 //displaying the window  
-                if(num==1)
+                /*if(num==1)
                 {
                     no_legal_moves(position,&window,font);
-                }
+                }*/
                 if (sf::Mouse::isButtonPressed(sf::Mouse::Left)&&window.hasFocus()&&is_mouse_on_board(position)&&turned)
                 {                    
                     while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
