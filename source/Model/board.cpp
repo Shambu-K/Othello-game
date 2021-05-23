@@ -324,7 +324,6 @@ int OthelloBoard::computeMessage()
     }
     return 0;
 }
-
 void OthelloBoard::notifyObservers()
 {
     message=computeMessage();
