@@ -1,0 +1,61 @@
+Renderer.1 {
+    TextColor = rgb(100, 100, 100);
+    Texture = "themes/BabyBlue.png" Part(269, 40, 90, 60) Middle(30, 0, 30, 60) Smooth;
+    TextureDisabled = None;
+    TextureDown = "themes/BabyBlue.png" Part(177, 40, 90, 60) Middle(30, 0, 30, 60) Smooth;
+    TextureDownFocused = None;
+    TextureDownHover = None;
+    TextureFocused = None;
+    TextureHover = "themes/BabyBlue.png" Part(361, 40, 90, 60) Middle(30, 0, 30, 60) Smooth;
+}
+
+Button.playButton {
+    Position = (260, 260);
+    Renderer = &1;
+    Size = (90, 22);
+    Text = Play;
+    TextSize = 13;
+}
+
+Button.quitButton {
+    Position = (450, 260);
+    Renderer = &1;
+    Size = (90, 22);
+    Text = Quit;
+    TextSize = 13;
+}
+
+Label.Title {
+    AutoSize = true;
+    Position = (270, 60);
+    Size = (279.4, 96);
+    Text = Othello;
+    TextSize = 72;
+    VerticalAlignment = Center;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = #3C3C3C;
+        Borders = (0, 0, 0, 0);
+        TextColor = #3C3C3C;
+        TextureBackground = None;
+
+        Scrollbar {
+            ArrowBackgroundColor = #F5F5F5;
+            ArrowBackgroundColorHover = white;
+            ArrowColor = #3C3C3C;
+            ArrowColorHover = black;
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = #DCDCDC;
+            ThumbColorHover = #E6E6E6;
+            TrackColor = #F5F5F5;
+        }
+    }
+}

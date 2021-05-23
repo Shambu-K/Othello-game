@@ -1,0 +1,69 @@
+Renderer.1 {
+}
+
+Group.nlm {
+    Position = (210, 560);
+    Renderer = &1;
+    Size = (350, 30);
+
+    Label.nlmLabel {
+        AutoSize = true;
+        Position = (10, 0);
+        Size = (226.2, 18);
+        Text = "There are no legal moves for black";
+        TextSize = 13;
+        UserData = "";
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextureBackground = None;
+        }
+    }
+
+    Button.nlmOk {
+        Position = (260, 0);
+        Text = Okay;
+        TextSize = 13;
+
+        Renderer {
+            TextColor = rgb(190, 190, 190);
+            TextColorHover = rgb(250, 250, 250);
+            Texture = "themes/Black.png" Part(50, 22, 45, 50) Middle(10, 0) Smooth;
+            TextureDisabled = None;
+            TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = "themes/Black.png" Part(47, 74, 45, 50) Middle(10, 0) Smooth;
+            TextureHover = "themes/Black.png" Part(0, 126, 45, 50) Middle(10, 0) Smooth;
+        }
+    }
+}
+
+Group.illegalMove {
+    Position = (200, 560);
+    Renderer = &1;
+    Size = (350, 20);
+
+    Label.illegalMoveLabel {
+        AutoSize = true;
+        Position = (120, 0);
+        Size = (82.2, 18);
+        Text = "Illegal Move!";
+        TextSize = 13;
+
+        Renderer {
+            TextColor = rgb(100, 100, 100);
+            TextureBackground = None;
+
+            Scrollbar {
+                TextureArrowDown = "themes/BabyBlue.png" Part(20, 2, 16, 16) Smooth;
+                TextureArrowUp = "themes/BabyBlue.png" Part(2, 2, 16, 16) Smooth;
+                TextureThumb = "themes/BabyBlue.png" Part(414, 2, 16, 32) Smooth;
+                TextureTrack = "themes/BabyBlue.png" Part(432, 2, 16, 32) Smooth;
+            }
+        }
+    }
+}
