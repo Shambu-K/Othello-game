@@ -24,19 +24,75 @@ GameplayGUI::GameplayGUI(unsigned int boardSize)
             gui2.add(cellButtons[i][j]);
         }
     }
+        sf::Sprite sprite;
+        texture.loadFromFile("./View/Images/background.png");
+        sprite.setTexture(texture);
+        background_nlm = tgui::Picture::create(texture);
+        background_nlm->setPosition(0, 570);
+        background_nlm->setVisible(false);
+        gui2.add(background_nlm);
+
         nlm_message = tgui::Label::create();
-        nlm_message->setPosition(300, 500);
+        nlm_message->setPosition(300, 580);
+        nlm_message->setVisible(false);
         gui2.add(nlm_message);
+
         scoreLabel = tgui::Label::create();
-        scoreLabel->setPosition(600, 200);
+        scoreLabel->setPosition(575, 150);
         scoreLabel->setText("2:2");
         scoreLabel->setTextSize(50);
         gui2.add(scoreLabel);
 
+        passButton = tgui::Button::create();
+        passButton->setPosition(600, 450);
+        passButton->setText("Pass");
+        gui2.add(passButton);
 
+        quitButton = tgui::Button::create();
+        quitButton->setPosition(650, 450);
+        quitButton->setText("Quit");
+        gui2.add(quitButton);
+
+        moveHistory = tgui::ChatBox::create();
+        moveHistory->setSize(200, 200);
+        moveHistory->setPosition(550, 220);
+        gui2.add(moveHistory);
 }
 
-void GameplayGUI::update(int message, std::vector<std::vector<piece>> boardConfiguration, int blackScore, int whiteScore)
+void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vector<piece>> boardConfiguration, int blackScore, int whiteScore, std::string move)
+{
+    updateBoard(boardConfiguration);
+    updateScore(blackScore, whiteScore);
+    updateMoveHistory(currentPlayer, move);
+
+
+    if(nlm_message->isVisible())
+    {
+            nlm_message->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 500);
+            background_nlm->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 500);
+    }
+    
+
+    if(message==1)
+    {   //display nlm for black
+        nlm_message->setText("No legal moves for Black Player");
+        nlm_message->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+        background_nlm->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+    }
+    else if(message==2)
+    {   //display nlm for white
+        nlm_message->setText("No legal moves for White Player!");
+        nlm_message->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+        background_nlm->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+    }
+    else if(message==3)
+    {   //display game over
+        nlm_message->setText("Game Over");
+        nlm_message->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+    }
+}
+
+void GameplayGUI::updateBoard(std::vector<std::vector<piece>> boardConfiguration)
 {
     sf::Texture texture;
     std::string file;
@@ -62,25 +118,22 @@ void GameplayGUI::update(int message, std::vector<std::vector<piece>> boardConfi
         }
         i++;
     }
-
-    scoreLabel->setText(std::to_string(blackScore) + " : " + std::to_string(whiteScore));
-
-    if(message==1)
-    {   //display nlm for black
-        nlm_message->setText("No legal moves for Black Player");
-        nlm_message->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 2000);
-        nlm_message->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 2000);
-
-    }
-    else if(message==2)
-    {   //display nlm for white
-        nlm_message->setText("No legal moves for White Player!");
-        nlm_message->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 2000);
-        nlm_message->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 2000);
-    }
-    else if(message==3)
-    {   //display game over
-
-    }
 }
 
+void GameplayGUI::updateScore(int blackScore, int whiteScore)
+{
+    scoreLabel->setText(std::to_string(blackScore) + " : " + std::to_string(whiteScore));
+}
+
+void GameplayGUI::updateMoveHistory(piece currentPlayer, std::string move)
+{
+    std::string player;
+    if(currentPlayer==piece::BLACK)
+        player = "WHITE";
+    else if(currentPlayer==piece::WHITE)
+        player = "BLACK";
+    else if(currentPlayer==piece::EMPTY)
+        player = "The game has started";
+    
+    moveHistory->addLine(player + " : " + move);
+}

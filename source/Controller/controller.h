@@ -11,7 +11,8 @@ class Controller
     OthelloBoard model;
     GameplayGUI view;
     void connect_bitmap_buttons();
-    void connect_nlm_ok_button(); 
+    void connect_other_buttons(); 
+    int pass_count = 0;
     Controller();
 };
 

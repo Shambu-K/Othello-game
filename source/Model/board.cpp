@@ -49,8 +49,6 @@ OthelloBoard::OthelloBoard()
     legalMoves[{2,3}] = legalMoves[{3,2}] = {{3,3}};
     legalMoves[{4,5}] = legalMoves[{5,4}] = {{4,4}};
     turnNum = 0;
-    //std::cout<< "This is from OthelloBoard() constructor" << std::endl;
-
 }
 
 /**
@@ -274,19 +272,26 @@ bool OthelloBoard::placeMove(std::pair<unsigned int, unsigned int> coord)
         
     else
     {
-        this->clearMoves();
         turnNum++;
         boardConfiguration[coord.first][coord.second] = currentPlayer;
         for(auto x : legalMoves[{coord.first, coord.second}])
         {
             boardConfiguration[x.first][x.second] = currentPlayer;
         }
+        a = (char)(coord.second + 65);
+        b = (char)(coord.first + 49);
+        s = "";
+        s = s + a;
+        s = s + b;
+        moveLog.push_back(s);
+        return true;
     }
-    return true;
 }
 
 void OthelloBoard::updateBoard()
 {
+    this->clearMoves();
+    message = computeMessage();
     switchPlayer();
     this->searchLegalMoves(currentPlayer);
     for(auto x : legalMoves)
@@ -310,25 +315,43 @@ void OthelloBoard::switchPlayer()
 void OthelloBoard::registerObserver(Observer *observer)
 {
     observer_list.push_back(observer);
-    notifyObservers();
 }
+
+
 
 int OthelloBoard::computeMessage()
 {
-    if(legalMoves.empty())
+    switchPlayer();
+    piece cplayer = currentPlayer;
+    switchPlayer();
+    piece nplayer = currentPlayer;
+    searchLegalMoves(cplayer);
+    if(!legalMoves.empty())
     {
-        if(currentPlayer==piece::BLACK)
-            return 1;
-        else if(currentPlayer==piece::WHITE)
-            return 2;   
+        return 0;
     }
-    return 0;
+    else 
+    {
+        searchLegalMoves(nplayer);
+        if(legalMoves.empty())
+            {return 3;}
+        if(cplayer==piece::BLACK)
+            {return 1;}
+        if(cplayer==piece::WHITE)
+            {return 2;}
+    }
 }
+
 void OthelloBoard::notifyObservers()
 {
-    message=computeMessage();
     for(Observer* observer : observer_list)
     {
-        observer->update(message, boardConfiguration, blackScore, whiteScore);
+        observer->update(currentPlayer, message, boardConfiguration, blackScore, whiteScore, s);
     }
+}
+
+void OthelloBoard::movePassed()
+{
+    s = "PASS";
+    moveLog.push_back(s);
 }

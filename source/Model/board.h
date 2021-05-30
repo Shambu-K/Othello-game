@@ -32,6 +32,10 @@ class OthelloBoard : public Subject
     void notifyObservers() override;
     int message = 0;
     int computeMessage();
+    void movePassed();
+    std::vector<std::string> moveLog;
+    std::string s = "";
+    char a, b;
 };
 
 

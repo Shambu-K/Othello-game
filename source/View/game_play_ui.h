@@ -11,12 +11,21 @@ class GameplayGUI : public Observer
     sf::Texture texture;
     
     std::vector<std::vector<tgui::BitmapButton::Ptr>> cellButtons;
+    tgui::Button::Ptr passButton;
+    tgui::Button::Ptr quitButton;
+    tgui::ButtonRenderer render;
     tgui::Label::Ptr nlm_message;
     tgui::Label::Ptr endgame_label;
     tgui::Label::Ptr scoreLabel;
+    tgui::ChatBox::Ptr moveHistory;
+    tgui::Picture::Ptr background_nlm;
     GameplayGUI(unsigned int boardSize);
-    void update(int message, std::vector<std::vector<piece>> boardConfiguration, int blackScore, int whiteScore) override;
+    void update(piece currentPlayer, int message, std::vector<std::vector<piece>> boardConfiguration, int blackScore, int whiteScore, std::string move) override;
     std::string files[5] = {"./View/Images/green.png", "./View/Images/white.png", "./View/Images/black.png", "./View/Images/legalblack.png", "./View/Images/legalblack.png"};
+    void updateBoard(std::vector<std::vector<piece>> boardConfiguration);
+    void updateScore(int blackScore, int whiteScore);
+    void updateMoveHistory(piece currentPlayer, std::string move);
+
 };
 
 #endif

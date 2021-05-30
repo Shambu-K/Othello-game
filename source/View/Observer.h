@@ -6,7 +6,7 @@
 class Observer
 {
     public:
-    virtual void update(int message, std::vector<std::vector<piece>> boardConfiguration, int blackScore, int whiteScore)=0;
+    virtual void update(piece currentPlayer, int message, std::vector<std::vector<piece>> boardConfiguration, int blackScore, int whiteScore, std::string move)=0;
 };
 
 #endif

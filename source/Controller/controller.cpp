@@ -2,12 +2,17 @@
 #include <iostream>
 Controller::Controller() : model(), view(DEFAULT_BOARD_SIZE)
 {
+    model.registerObserver(&view);
+    view.updateBoard(model.boardConfiguration);
+    view.updateMoveHistory(piece::EMPTY, "");
+    view.updateScore(model.blackScore, model.whiteScore);
     connect_bitmap_buttons();
+    connect_other_buttons();
+    view.gui2.mainLoop();
 }
 
 void Controller::connect_bitmap_buttons()
 {
-    model.registerObserver(&view);
 
     for(unsigned int i = 0; i<DEFAULT_BOARD_SIZE; i++)
     {
@@ -17,13 +22,29 @@ void Controller::connect_bitmap_buttons()
                 
                 if(model.placeMove(std::make_pair(i, j)))
                 {
+                    pass_count = 0;
                     model.updateBoard();
                     model.notifyObservers();
                 }
                 });
         }
     }
-    
-    view.gui2.mainLoop();
 }
 
+void Controller::connect_other_buttons()
+{
+    view.passButton->onPress([&]() {
+        pass_count++;
+        model.movePassed();
+        model.updateBoard();
+        if(pass_count==2)
+        {
+            model.message = 3;
+        }
+        model.notifyObservers();
+    });
+
+    view.quitButton->onPress([&]() {
+        view.window2.close();
+    });
+}

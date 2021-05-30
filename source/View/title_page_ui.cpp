@@ -9,7 +9,7 @@ int main()
     tgui::Button::Ptr quitbutton = gui.get<tgui::Button>("quitButton");
     quitbutton->onMousePress([&]{ window.close(); });
     tgui::Button::Ptr playButton = gui.get<tgui::Button>("playButton");
-    playButton->onMousePress([&]{ //add code here 
+    playButton->onMousePress([&]{ //add code here
         Controller controller;
     });
     gui.mainLoop();
