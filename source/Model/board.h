@@ -11,7 +11,6 @@ class OthelloBoard : public Subject
 {
     public :
     std::vector<std::vector<piece>> boardConfiguration;
-    //int arr[64];
     std::vector<std::pair<unsigned int,unsigned int>> flipCoins;
     std::vector<std::pair<unsigned int,unsigned int>> flippedCoins;
     void computeScores();

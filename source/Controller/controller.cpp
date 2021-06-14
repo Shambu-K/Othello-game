@@ -25,6 +25,7 @@ void Controller::connect_bitmap_buttons()
                     pass_count = 0;
                     model.updateBoard();
                     model.notifyObservers();
+                    model.switchPlayer();
                 }
                 });
         }
@@ -42,6 +43,7 @@ void Controller::connect_other_buttons()
             model.message = 3;
         }
         model.notifyObservers();
+        model.switchPlayer();
     });
 
     view.quitButton->onPress([&]() {

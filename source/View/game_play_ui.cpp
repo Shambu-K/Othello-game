@@ -66,12 +66,11 @@ void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vect
     updateMoveHistory(currentPlayer, move);
 
 
-    if(nlm_message->isVisible())
+    if(nlm_message->isVisible() && message==0)
     {
             nlm_message->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 500);
             background_nlm->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 500);
     }
-    
 
     if(message==1)
     {   //display nlm for black
@@ -89,6 +88,12 @@ void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vect
     {   //display game over
         nlm_message->setText("Game Over");
         nlm_message->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+    }
+    else if(message==4)
+    {   //display Illegal Move
+        nlm_message->setText("Illegal Move!!");
+        nlm_message->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+        background_nlm->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
     }
 }
 
@@ -129,11 +134,11 @@ void GameplayGUI::updateMoveHistory(piece currentPlayer, std::string move)
 {
     std::string player;
     if(currentPlayer==piece::BLACK)
-        player = "WHITE";
-    else if(currentPlayer==piece::WHITE)
         player = "BLACK";
+    else if(currentPlayer==piece::WHITE)
+        player = "WHITE";
     else if(currentPlayer==piece::EMPTY)
-        player = "The game has started";
+        player = "The game has started:";
     
     moveHistory->addLine(player + " : " + move);
 }
