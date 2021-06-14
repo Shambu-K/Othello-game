@@ -2,6 +2,14 @@
 #include <thread>
 #include <chrono>
 #include <string>
+#include "fmt/core.h"
+#include <iostream>
+#include <cstdlib>
+#include <chrono>
+#include <thread>
+#include <fstream>
+
+#define print fmt::print
 
 GameplayGUI::GameplayGUI(unsigned int boardSize)
 {
@@ -57,6 +65,12 @@ GameplayGUI::GameplayGUI(unsigned int boardSize)
         moveHistory->setSize(200, 200);
         moveHistory->setPosition(550, 220);
         gui2.add(moveHistory);
+
+        gameOver = tgui::Panel::create({"100%", "100%"});
+        gameOverMessage = tgui::Label::create("Game Over!");
+        scoreGameOver = tgui::Label::create();
+        newGame = tgui::Button::create("New Game");
+        mainMenu = tgui::Button::create("Back to Main Menu");
 }
 
 void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vector<piece>> boardConfiguration, int blackScore, int whiteScore, std::string move)
@@ -86,8 +100,10 @@ void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vect
     }
     else if(message==3)
     {   //display game over
-        nlm_message->setText("Game Over");
-        nlm_message->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+        showGameOver(blackScore, whiteScore);
+
+
+        
     }
     else if(message==4)
     {   //display Illegal Move
@@ -141,4 +157,26 @@ void GameplayGUI::updateMoveHistory(piece currentPlayer, std::string move)
         player = "The game has started:";
     
     moveHistory->addLine(player + " : " + move);
+}
+
+void GameplayGUI::showGameOver(int blackScore, int whiteScore)
+{    
+    gameOver->getRenderer()->setBackgroundColor({0, 0, 100, 180});
+    gui2.add(gameOver);
+
+    gameOverMessage = tgui::Label::create("Game Over!");
+    gameOverMessage->setTextSize(72);
+    gameOverMessage->setPosition(200, 20);
+    gameOver->add(gameOverMessage);
+
+    scoreGameOver->setText("BLACK : " + std::to_string(blackScore) + "\nWHITE : " + std::to_string(whiteScore));
+    scoreGameOver->setTextSize(50);
+    scoreGameOver->setPosition(300, 100);
+    gameOver->add(scoreGameOver);
+
+    mainMenu->setPosition(350, 300);
+    gameOver->add(mainMenu);
+
+    newGame->setPosition(350, 400);
+    gameOver->add(newGame);
 }

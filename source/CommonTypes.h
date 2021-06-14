@@ -1,6 +1,7 @@
 #ifndef _COMMON_TYPES_H
 #define _COMMON_TYPES_H
 #define DEFAULT_BOARD_SIZE 8
+
 enum class piece
 {
     BLACK,

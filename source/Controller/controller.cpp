@@ -49,4 +49,12 @@ void Controller::connect_other_buttons()
     view.quitButton->onPress([&]() {
         view.window2.close();
     });
+
+    view.mainMenu->onPress([&]() {
+        view.window2.close();
+    });
+
+    view.newGame->onPress([&]() {
+        // Reset the entire game!!!
+    });
 }
