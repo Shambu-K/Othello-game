@@ -10,7 +10,10 @@ int main()
     quitbutton->onMousePress([&]{ window.close(); });
     tgui::Button::Ptr playButton = gui.get<tgui::Button>("playButton");
     playButton->onMousePress([&]{ //add code here
+        window.setVisible(false);
         Controller controller;
+        window.setVisible(true);
+        
     });
     gui.mainLoop();
 }

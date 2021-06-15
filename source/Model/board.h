@@ -35,6 +35,9 @@ class OthelloBoard : public Subject
     std::vector<std::string> moveLog;
     std::string s = "";
     char a, b;
+    void reset();
+    void initialise();
+    int pass_count = 0;
 };
 
 

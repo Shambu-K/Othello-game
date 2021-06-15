@@ -22,12 +22,20 @@ OthelloBoard::OthelloBoard()
     {
         boardConfiguration[i].resize(boardSize, piece::EMPTY);
     }
+    initialise();
+}
+
+void OthelloBoard::initialise()
+{
     boardConfiguration[boardSize/2][boardSize/2] = boardConfiguration[boardSize/2 - 1][boardSize/2 - 1] = piece::WHITE;
     boardConfiguration[boardSize/2 - 1][boardSize/2] = boardConfiguration[boardSize/2][boardSize/2 - 1] = piece::BLACK;
     boardConfiguration[2][3] = boardConfiguration[3][2] = boardConfiguration[4][5] = boardConfiguration[5][4] = piece::LEGAL_BLACK;
     legalMoves[{2,3}] = legalMoves[{3,2}] = {{3,3}};
     legalMoves[{4,5}] = legalMoves[{5,4}] = {{4,4}};
+    message = 0;
     turnNum = 0;
+    s = "";
+    pass_count = 0;
 }
 
 /**
@@ -238,4 +246,21 @@ void OthelloBoard::movePassed()
 {
     s = "PASS";
     moveLog.push_back(s);
+}
+
+void OthelloBoard::reset()
+{
+    moveLog.clear();
+    legalMoves.clear();
+    blackScore = 2; 
+    whiteScore = 2;
+    currentPlayer = piece::BLACK;
+    boardConfiguration.clear();
+    s = "";
+    boardConfiguration.resize(boardSize);
+    for(unsigned int i = 0; i<boardSize; i++)
+    {
+        boardConfiguration[i].resize(boardSize, piece::EMPTY);
+    }
+    initialise();
 }

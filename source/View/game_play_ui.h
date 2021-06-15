@@ -11,8 +11,7 @@ class GameplayGUI : public Observer
     sf::Texture texture;
     
     std::vector<std::vector<tgui::BitmapButton::Ptr>> cellButtons;
-    tgui::Button::Ptr passButton;
-    tgui::Button::Ptr quitButton;
+    tgui::Button::Ptr passButton, quitButton, newGameButton;
     tgui::ButtonRenderer render;
     tgui::Label::Ptr nlm_message;
     tgui::Label::Ptr endgame_label;
@@ -29,7 +28,6 @@ class GameplayGUI : public Observer
     void updateScore(int blackScore, int whiteScore);
     void updateMoveHistory(piece currentPlayer, std::string move);
     void showGameOver(int blackScore, int whiteScore);
-
 };
 
 #endif

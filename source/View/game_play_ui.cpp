@@ -61,6 +61,11 @@ GameplayGUI::GameplayGUI(unsigned int boardSize)
         quitButton->setText("Quit");
         gui2.add(quitButton);
 
+        newGameButton = tgui::Button::create();
+        newGameButton->setPosition(600, 470);
+        newGameButton->setText("New Game");
+        gui2.add(newGameButton);
+
         moveHistory = tgui::ChatBox::create();
         moveHistory->setSize(200, 200);
         moveHistory->setPosition(550, 220);

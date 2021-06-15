@@ -22,7 +22,7 @@ void Controller::connect_bitmap_buttons()
                 
                 if(model.placeMove(std::make_pair(i, j)))
                 {
-                    pass_count = 0;
+                    model.pass_count = 0;
                     model.updateBoard();
                     model.notifyObservers();
                     model.switchPlayer();
@@ -35,10 +35,10 @@ void Controller::connect_bitmap_buttons()
 void Controller::connect_other_buttons()
 {
     view.passButton->onPress([&]() {
-        pass_count++;
+        model.pass_count++;
         model.movePassed();
         model.updateBoard();
-        if(pass_count==2)
+        if(model.pass_count==2)
         {
             model.message = 3;
         }
@@ -50,11 +50,26 @@ void Controller::connect_other_buttons()
         view.window2.close();
     });
 
+    view.newGameButton->onPress([&]() {
+        model.reset();
+        
+        view.moveHistory->removeAllLines();
+        view.updateBoard(model.boardConfiguration);
+        view.updateMoveHistory(piece::EMPTY, "");
+        view.updateScore(model.blackScore, model.whiteScore);
+    });
+
     view.mainMenu->onPress([&]() {
         view.window2.close();
     });
 
     view.newGame->onPress([&]() {
         // Reset the entire game!!!
+        model.reset();
+        view.gui2.remove(view.gameOver);
+        view.moveHistory->removeAllLines();
+        view.updateBoard(model.boardConfiguration);
+        view.updateMoveHistory(piece::EMPTY, "");
+        view.updateScore(model.blackScore, model.whiteScore);
     });
 }
