@@ -166,7 +166,7 @@ void GameplayGUI::updateMoveHistory(piece currentPlayer, std::string move)
 
 void GameplayGUI::showGameOver(int blackScore, int whiteScore)
 {    
-    gameOver->getRenderer()->setBackgroundColor({0, 0, 100, 180});
+    gameOver->getRenderer()->setBackgroundColor({43, 102, 173, 180});
     gui2.add(gameOver);
 
     gameOverMessage = tgui::Label::create("Game Over!");
@@ -177,6 +177,7 @@ void GameplayGUI::showGameOver(int blackScore, int whiteScore)
     scoreGameOver->setText("BLACK : " + std::to_string(blackScore) + "\nWHITE : " + std::to_string(whiteScore));
     scoreGameOver->setTextSize(50);
     scoreGameOver->setPosition(300, 100);
+    scoreGameOver->getRenderer()->setTextColor({127,230,18});
     gameOver->add(scoreGameOver);
 
     mainMenu->setPosition(350, 300);
