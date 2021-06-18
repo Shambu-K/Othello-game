@@ -38,6 +38,7 @@ class OthelloBoard : public Subject
     void reset();
     void initialise();
     int pass_count = 0;
+    
 };
 
 

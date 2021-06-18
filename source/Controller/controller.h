@@ -12,7 +12,7 @@ class Controller
     GameplayGUI view;
     void connect_bitmap_buttons();
     void connect_other_buttons(); 
-    
+    sf::Clock blackTimer, whiteTimer;
     Controller();
 };
 

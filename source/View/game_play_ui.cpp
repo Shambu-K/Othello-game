@@ -13,6 +13,11 @@
 
 GameplayGUI::GameplayGUI(unsigned int boardSize)
 {
+
+    background = tgui::Picture::create("./index.png");
+    background->setSize("100%", "100%");
+    gui2.add(background);
+    
     sf::Texture texture;
     texture.loadFromFile(files[0]);
 

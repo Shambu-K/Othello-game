@@ -13,7 +13,6 @@ int main()
         window.setVisible(false);
         Controller controller;
         window.setVisible(true);
-        
     });
     gui.mainLoop();
 }

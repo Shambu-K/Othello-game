@@ -8,6 +8,7 @@ class GameplayGUI : public Observer
     public:
     sf::RenderWindow window2{{800, 600}, "Othello"};
     tgui::GuiSFML gui2{window2};
+    tgui::Picture::Ptr background;
     sf::Texture texture;
     
     std::vector<std::vector<tgui::BitmapButton::Ptr>> cellButtons;

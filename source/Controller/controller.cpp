@@ -1,5 +1,6 @@
 #include "controller.h"
 #include <iostream>
+
 Controller::Controller() : model(), view(DEFAULT_BOARD_SIZE)
 {
     model.registerObserver(&view);
@@ -8,7 +9,21 @@ Controller::Controller() : model(), view(DEFAULT_BOARD_SIZE)
     view.updateScore(model.blackScore, model.whiteScore);
     connect_bitmap_buttons();
     connect_other_buttons();
-    view.gui2.mainLoop();
+    // view.gui2.mainLoop();
+    while(view.window2.isOpen())
+    {
+        sf::Event event;
+        while (view.window2.pollEvent(event))
+        {
+        view.gui2.handleEvent(event);
+
+        if (event.type == sf::Event::Closed)
+            view.window2.close();
+        }
+        view.window2.clear();
+        view.gui2.draw();
+        view.window2.display();
+    }
 }
 
 void Controller::connect_bitmap_buttons()
