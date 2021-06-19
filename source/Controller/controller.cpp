@@ -113,7 +113,7 @@ void Controller::updateGameState(std::pair<unsigned int, unsigned int> coord)
 void Controller::AIPlay(OthelloBoard board)
 {
     std::pair<unsigned int, unsigned int> coord = AIplayer->play(board);
-    if(coord != INVALID_CELL)
+    if(coord != INVALID_COORD)
     {    
         updateGameState(coord);
     }

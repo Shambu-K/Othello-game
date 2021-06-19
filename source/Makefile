@@ -1,7 +1,7 @@
 CXX = g++
 SOURCES = Controller/controller.cpp Model/board.cpp View/*.cpp
 INCLUDE = ./ Controller/ Model/ View/
-TARGET = program
+TARGET = Othello
 FLAGS = -ltgui -lsfml-graphics -lsfml-window -lsfml-system -lfmt
 
 all:

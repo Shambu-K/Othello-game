@@ -8,7 +8,7 @@ class NoAI : public AI
     public:
     std::pair<unsigned int, unsigned int> play(OthelloBoard board) override
     {
-        return INVALID_CELL;
+        return INVALID_COORD;
     }
 };
 
