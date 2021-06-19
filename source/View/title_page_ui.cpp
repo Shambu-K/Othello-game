@@ -5,6 +5,9 @@ int main()
 {
     sf::RenderWindow window{{800, 600}, "Othello"};
     tgui::GuiSFML gui{window};
+     auto icon=sf::Image();
+    icon.loadFromFile("./View/Images/icon.png");
+    window.setIcon(icon.getSize().x,icon.getSize().y,icon.getPixelsPtr());
     gui.loadWidgetsFromFile("./View/Forms/title_page.txt");
     tgui::Button::Ptr quitbutton = gui.get<tgui::Button>("quitButton");
     quitbutton->onMousePress([&]{ window.close(); });

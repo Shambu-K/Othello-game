@@ -13,6 +13,9 @@
 
 GameplayGUI::GameplayGUI(unsigned int boardSize)
 {
+    auto icon=sf::Image();
+    icon.loadFromFile("./View/Images/icon.png");
+    window2.setIcon(icon.getSize().x,icon.getSize().y,icon.getPixelsPtr());
 
     background = tgui::Picture::create("./index.png");
     background->setSize("100%", "100%");
