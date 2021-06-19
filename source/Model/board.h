@@ -21,7 +21,7 @@ class OthelloBoard : public Subject
     unsigned int boardSize = 8;
     std::map<std::pair<unsigned int, unsigned int>, std::vector<std::pair<unsigned int, unsigned int>>> legalMoves;
     OthelloBoard();
-    bool placeMove(std::pair<unsigned int, unsigned int> coord);
+    void placeMove(std::pair<unsigned int, unsigned int> coord);
     void updateBoard();
     piece currentPlayer = piece::BLACK;
     void switchPlayer();
@@ -38,7 +38,7 @@ class OthelloBoard : public Subject
     void reset();
     void initialise();
     int pass_count = 0;
-    
+    bool isLegal(std::pair<unsigned int, unsigned int> coord);
 };
 
 

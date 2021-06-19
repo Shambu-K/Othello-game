@@ -136,13 +136,8 @@ std::vector<std::pair<unsigned int,unsigned int>>& OthelloBoard::getFlipCoins(pi
     return flipCoins;
 }
 
-/**
- * @brief This function is used to update the values in boardConfiguration
- */
-
-bool OthelloBoard::placeMove(std::pair<unsigned int, unsigned int> coord)
+bool OthelloBoard::isLegal(std::pair<unsigned int, unsigned int> coord)
 {
-    
     if(legalMoves[coord].empty())
     {
         print("\nIllegal Move!\n");
@@ -155,9 +150,20 @@ bool OthelloBoard::placeMove(std::pair<unsigned int, unsigned int> coord)
         notifyObservers();
         return false;
     }
-        
+
     else
     {
+        return true;
+    }
+}
+
+
+/**
+ * @brief This function is used to update the values in boardConfiguration
+ */
+
+void OthelloBoard::placeMove(std::pair<unsigned int, unsigned int> coord)
+{
         turnNum++;
         boardConfiguration[coord.first][coord.second] = currentPlayer;
         for(auto x : legalMoves[{coord.first, coord.second}])
@@ -170,8 +176,6 @@ bool OthelloBoard::placeMove(std::pair<unsigned int, unsigned int> coord)
         s = s + a;
         s = s + b;
         moveLog.push_back(s);
-        return true;
-    }
 }
 
 void OthelloBoard::updateBoard()

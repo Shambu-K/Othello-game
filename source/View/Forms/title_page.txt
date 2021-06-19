@@ -1,4 +1,30 @@
 Renderer.1 {
+    BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorHover = white;
+    BorderColor = #3C3C3C;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorFocused = #1E1EB4;
+    BorderColorHover = black;
+    Borders = (1, 1, 1, 1);
+    CheckColor = #3C3C3C;
+    CheckColorDisabled = #7D7D7D;
+    CheckColorHover = black;
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    TextColorHover = black;
+    TextDistanceRatio = 0.2;
+    TextureChecked = None;
+    TextureCheckedDisabled = None;
+    TextureCheckedFocused = None;
+    TextureCheckedHover = None;
+    TextureUnchecked = None;
+    TextureUncheckedDisabled = None;
+    TextureUncheckedFocused = None;
+    TextureUncheckedHover = None;
+}
+
+Renderer.2 {
     TextColor = rgb(100, 100, 100);
     Texture = "themes/BabyBlue.png" Part(269, 40, 90, 60) Middle(30, 0, 30, 60) Smooth;
     TextureDisabled = None;
@@ -10,16 +36,16 @@ Renderer.1 {
 }
 
 Button.playButton {
-    Position = (260, 260);
-    Renderer = &1;
+    Position = (200, 390);
+    Renderer = &2;
     Size = (90, 22);
     Text = Play;
     TextSize = 13;
 }
 
 Button.quitButton {
-    Position = (450, 260);
-    Renderer = &1;
+    Position = (490, 390);
+    Renderer = &2;
     Size = (90, 22);
     Text = Quit;
     TextSize = 13;
@@ -57,5 +83,47 @@ Label.Title {
             ThumbColorHover = #E6E6E6;
             TrackColor = #F5F5F5;
         }
+    }
+}
+
+RadioButtonGroup.radiobuttons {
+    Position = (330, 200);
+    Size = (150, 150);
+
+    Renderer {
+    }
+
+    RadioButton.RadioButton1 {
+        Renderer = &1;
+        Size = (18, 18);
+        Text = "Player vs Player";
+        TextSize = 13;
+    }
+
+    RadioButton.RadioButton2 {
+        Enabled = false;
+        Position = (0, 40);
+        Renderer = &1;
+        Size = (18, 18);
+        Text = "Player vs Random";
+        TextSize = 13;
+    }
+
+    RadioButton.RadioButton3 {
+        Checked = true;
+        Position = (0, 80);
+        Renderer = &1;
+        Size = (18, 18);
+        Text = "Player vs Greedy";
+        TextSize = 13;
+    }
+
+    RadioButton.RadioButton4 {
+        Enabled = false;
+        Position = (0, 120);
+        Renderer = &1;
+        Size = (18, 18);
+        Text = "Player vs Minimax";
+        TextSize = 13;
     }
 }

@@ -1,8 +1,9 @@
 #include "controller.h"
 #include <iostream>
 
-Controller::Controller() : model(), view(DEFAULT_BOARD_SIZE)
+Controller::Controller(int options) : model(), view(DEFAULT_BOARD_SIZE)
 {
+    decideAI(options);
     model.registerObserver(&view);
     view.updateBoard(model.boardConfiguration);
     view.updateMoveHistory(piece::EMPTY, "");
@@ -26,6 +27,18 @@ Controller::Controller() : model(), view(DEFAULT_BOARD_SIZE)
     }
 }
 
+void Controller::decideAI(int options)
+{
+    switch(options)
+    {
+        case 1 : AIplayer = new NoAI();         break;
+        // case 2 : AIplayer = new RandAI();       break;
+        case 3 : AIplayer = new GreedyAI();     break;
+        // case 4 : AIplayer = new MinimaxAI();    break;
+        default : AIplayer = new NoAI();
+    }
+}
+
 void Controller::connect_bitmap_buttons()
 {
 
@@ -35,12 +48,10 @@ void Controller::connect_bitmap_buttons()
         {
             view.cellButtons[i][j]->onPress([=]() {
                 
-                if(model.placeMove(std::make_pair(i, j)))
+                if(model.isLegal(std::make_pair(i, j)))
                 {
-                    model.pass_count = 0;
-                    model.updateBoard();
-                    model.notifyObservers();
-                    model.switchPlayer();
+                    updateGameState(std::make_pair(i, j));
+                    AIPlay(model);
                 }
                 });
         }
@@ -59,6 +70,7 @@ void Controller::connect_other_buttons()
         }
         model.notifyObservers();
         model.switchPlayer();
+        AIPlay(model);
     });
 
     view.quitButton->onPress([&]() {
@@ -87,4 +99,22 @@ void Controller::connect_other_buttons()
         view.updateMoveHistory(piece::EMPTY, "");
         view.updateScore(model.blackScore, model.whiteScore);
     });
+}
+
+void Controller::updateGameState(std::pair<unsigned int, unsigned int> coord)
+{
+    model.pass_count = 0;
+    model.placeMove(coord);
+    model.updateBoard();
+    model.notifyObservers();
+    model.switchPlayer();
+}
+
+void Controller::AIPlay(OthelloBoard board)
+{
+    std::pair<unsigned int, unsigned int> coord = AIplayer->play(board);
+    if(coord != INVALID_CELL)
+    {    
+        updateGameState(coord);
+    }
 }
