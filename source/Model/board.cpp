@@ -1,17 +1,15 @@
 #include "board.h"
-#include "fmt/core.h"
 #include <iostream>
 #include <cstdlib>
 #include <chrono>
 #include <thread>
 #include <fstream>
 
-#define print fmt::print
 
 /**
  * \brief This function is used to initialize the board with the four initial central pieces at the beginning of the game
- * 
- * This function also initialises the legalMoves map. 
+ *
+ * This function also initialises the legalMoves map.
 */
 OthelloBoard::OthelloBoard()
 {
@@ -40,10 +38,10 @@ void OthelloBoard::initialise()
 
 /**
  * \brief This is a function to display the board on the command line.
- * 
- * This function clears everything previously present in the terminal, and displays new board configuration. 
+ *
+ * This function clears everything previously present in the terminal, and displays new board configuration.
  * This function calls displayScores() and displayMoves() to display scores of both the players and legal moves of the current player.
- * 
+ *
  * \param col is used to specify whose turn it is currently.
 */
 
@@ -140,10 +138,10 @@ bool OthelloBoard::isLegal(std::pair<unsigned int, unsigned int> coord)
 {
     if(legalMoves[coord].empty())
     {
-        print("\nIllegal Move!\n");
-        print("You pressed {}, {}!!\n", coord.first, coord.second);
-        if(currentPlayer==piece::BLACK) print("Its black!");
-        else print("Its white!");
+        std::cout << "\nIllegal Move!\n" << std::endl;
+        std::cout << "You pressed " << coord.first << " , " << coord.second << std::endl;
+        if(currentPlayer==piece::BLACK) std::cout << "Its black!" << std::endl;
+        else std::cout << "Its white!" << std::endl;
         message = 4;
         s = "Illegal Move!";
         moveLog.push_back(s);
@@ -219,7 +217,7 @@ int OthelloBoard::computeMessage()
     {
         return 0;
     }
-    else 
+    else
     {
         searchLegalMoves(nplayer);
         if(legalMoves.empty())
@@ -256,7 +254,7 @@ void OthelloBoard::reset()
 {
     moveLog.clear();
     legalMoves.clear();
-    blackScore = 2; 
+    blackScore = 2;
     whiteScore = 2;
     currentPlayer = piece::BLACK;
     boardConfiguration.clear();

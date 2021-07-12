@@ -8,7 +8,7 @@ class GreedyAI : public AI
     public:
     std::pair<unsigned int, unsigned int> play(OthelloBoard board) override
     {
-        int max_Captures = 0;
+        unsigned int max_Captures = 0;
         std::pair<unsigned int, unsigned int> resultCoord;
         for(auto itr : board.legalMoves)
         {

@@ -46,8 +46,8 @@ void Controller::connect_bitmap_buttons()
     {
         for(unsigned int j = 0; j<DEFAULT_BOARD_SIZE; j++)
         {
-            view.cellButtons[i][j]->onPress([=]() {
-                
+            view.cellButtons[i][j]->onPress([=, this]() {
+
                 if(model.isLegal(std::make_pair(i, j)))
                 {
                     updateGameState(std::make_pair(i, j));
@@ -79,7 +79,7 @@ void Controller::connect_other_buttons()
 
     view.newGameButton->onPress([&]() {
         model.reset();
-        
+
         view.moveHistory->removeAllLines();
         view.updateBoard(model.boardConfiguration);
         view.updateMoveHistory(piece::EMPTY, "");
@@ -114,7 +114,7 @@ void Controller::AIPlay(OthelloBoard board)
 {
     std::pair<unsigned int, unsigned int> coord = AIplayer->play(board);
     if(coord != INVALID_COORD)
-    {    
+    {
         updateGameState(coord);
     }
 }

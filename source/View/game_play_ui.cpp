@@ -2,14 +2,12 @@
 #include <thread>
 #include <chrono>
 #include <string>
-#include "fmt/core.h"
 #include <iostream>
 #include <cstdlib>
 #include <chrono>
 #include <thread>
 #include <fstream>
 
-#define print fmt::print
 
 GameplayGUI::GameplayGUI(unsigned int boardSize)
 {
@@ -20,17 +18,17 @@ GameplayGUI::GameplayGUI(unsigned int boardSize)
     background = tgui::Picture::create("./index.png");
     background->setSize("100%", "100%");
     gui2.add(background);
-    
+
     sf::Texture texture;
     texture.loadFromFile(files[0]);
 
     cellButtons.resize(boardSize);
 
-    for(int i = 0; i<boardSize; i++)
+    for(unsigned int i = 0; i<boardSize; i++)
     {
         cellButtons[i].resize(boardSize);
 
-        for(int j = 0; j<boardSize; j++)
+        for(unsigned int j = 0; j<boardSize; j++)
         {
 
             cellButtons[i][j] = tgui::BitmapButton::create();
@@ -116,7 +114,7 @@ void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vect
         showGameOver(blackScore, whiteScore);
 
 
-        
+
     }
     else if(message==4)
     {   //display Illegal Move
@@ -168,12 +166,12 @@ void GameplayGUI::updateMoveHistory(piece currentPlayer, std::string move)
         player = "WHITE";
     else if(currentPlayer==piece::EMPTY)
         player = "The game has started:";
-    
+
     moveHistory->addLine(player + " : " + move);
 }
 
 void GameplayGUI::showGameOver(int blackScore, int whiteScore)
-{    
+{
     gameOver->getRenderer()->setBackgroundColor({43, 102, 173, 180});
     gui2.add(gameOver);
 
