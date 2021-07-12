@@ -171,12 +171,6 @@ void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vect
     {
         //calling showGameOver function
         showGameOver(blackScore, whiteScore);
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 8c94321a0806b503c511d7157f5148cd9a33b58e
     }
     //display Illegal Move
     else if(message==4)
@@ -238,21 +232,13 @@ void GameplayGUI::updateMoveHistory(piece currentPlayer, std::string move)
         player = "WHITE";
     else if(currentPlayer==piece::EMPTY)
         player = "The game has started:";
-<<<<<<< HEAD
-
-=======
     //adding the details of current move to the move history
->>>>>>> 8c94321a0806b503c511d7157f5148cd9a33b58e
     moveHistory->addLine(player + " : " + move);
 }
 
 void GameplayGUI::showGameOver(int blackScore, int whiteScore)
-<<<<<<< HEAD
-{
-=======
 {
     //setting the background of the game over
->>>>>>> 8c94321a0806b503c511d7157f5148cd9a33b58e
     gameOver->getRenderer()->setBackgroundColor({43, 102, 173, 180});
     //adding the gameover widget to game window
     gui2.add(gameOver);
