@@ -6,21 +6,32 @@
 class GameplayGUI : public Observer
 {
     public:
+    ///It is the game window
     sf::RenderWindow window2{{800, 600}, "Othello"};
+    ///It makes up the game window using tgui functions
     tgui::GuiSFML gui2{window2};
+    ///It is the background image of the game window
     tgui::Picture::Ptr background;
+    ///texture of the board pieces
     sf::Texture texture;
     
+    ///It is the vector button map of the pieces of the board
     std::vector<std::vector<tgui::BitmapButton::Ptr>> cellButtons;
     tgui::Button::Ptr passButton, quitButton, newGameButton;
-    tgui::ButtonRenderer render;
+    ///It contains the text of pop-up message
     tgui::Label::Ptr nlm_message;
-    tgui::Label::Ptr endgame_label;
+    ///It contains the current score of the game
     tgui::Label::Ptr scoreLabel;
+    ///It contains information of all the moves that were made
     tgui::ChatBox::Ptr moveHistory;
+    ///It contains the image of the background of pop-up message
     tgui::Picture::Ptr background_nlm;
+    ///It contains details of all widgets that are shown during game over
     tgui::Panel::Ptr gameOver;
-    tgui::Label::Ptr gameOverMessage, scoreGameOver;
+    ///It conatins the text of gameOver message
+    tgui::Label::Ptr gameOverMessage;
+    ///It contains the score of the game that is shown during game over
+    tgui::Label::Ptr scoreGameOver;
     tgui::Button::Ptr newGame, mainMenu;
     GameplayGUI(unsigned int boardSize);
     void update(piece currentPlayer, int message, std::vector<std::vector<piece>> boardConfiguration, int blackScore, int whiteScore, std::string move) override;

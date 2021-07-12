@@ -8,7 +8,10 @@
 #include <thread>
 #include <fstream>
 
-
+/** 
+ * @brief It creates the default version of game window
+ * @param boardSize It is the number of squares per side of board 
+ */
 GameplayGUI::GameplayGUI(unsigned int boardSize)
 {
     //loading the image of icon of the game to icon
@@ -130,6 +133,16 @@ GameplayGUI::GameplayGUI(unsigned int boardSize)
         mainMenu = tgui::Button::create("Back to Main Menu");
 }
 
+/**
+ * @brief This function takes the variables that are needed to be updated and updates them as per the move made byb user
+ * 
+ * @param currentPlayer This contains the details of who is the player that just made a move
+ * @param message This contains details regarding whether a pop-up message is to be shown ,if yes then which one
+ * @param boardConfiguration This contains details of configuration of board after the move is made
+ * @param blackScore This contains the value of score of black player
+ * @param whiteScore This contains the value of score of white player
+ * @param move This contains details of the move made by current player
+ */
 void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vector<piece>> boardConfiguration, int blackScore, int whiteScore, std::string move)
 {
     //calling the function updateBoard
@@ -184,6 +197,11 @@ void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vect
     }
 }
 
+/**
+ * @brief This is a sub-function of the update function that takes the boardconfiguration and updates the visual interface of the board
+ * 
+ * @param boardConfiguration This contains details of configuration of board after the move is made
+ */
 void GameplayGUI::updateBoard(std::vector<std::vector<piece>> boardConfiguration)
 {
     sf::Texture texture;
@@ -216,12 +234,24 @@ void GameplayGUI::updateBoard(std::vector<std::vector<piece>> boardConfiguration
     }
 }
 
+/**
+ * @brief This is a sub-function of the update function that takes the value of scores of both players and updates the visual interface of the user
+ * 
+ * @param blackScore This contains the value of score of black player
+ * @param whiteScore This contains the value of score of white player
+ */
 void GameplayGUI::updateScore(int blackScore, int whiteScore)
 {
     //updating the scores of the players
     scoreLabel->setText(std::to_string(blackScore) + " : " + std::to_string(whiteScore));
 }
 
+/**
+ * @brief This is sub-function of the update function that takes the details of the current player and move that has been made and updates the moveHistory which inturn is shown on the chatbox
+ * 
+ * @param currentPlayer This contains the details of who is the player that just made a move
+ * @param move This contains details of the move made by current player
+ */
 void GameplayGUI::updateMoveHistory(piece currentPlayer, std::string move)
 {
     std::string player;
@@ -236,6 +266,12 @@ void GameplayGUI::updateMoveHistory(piece currentPlayer, std::string move)
     moveHistory->addLine(player + " : " + move);
 }
 
+/**
+ * @brief This function handles the event of game over situation like showing the final scores of the players 
+ * 
+ * @param blackScore This contains the value of score of black player
+ * @param whiteScore This contains the value of score of white player
+ */
 void GameplayGUI::showGameOver(int blackScore, int whiteScore)
 {
     //setting the background of the game over
