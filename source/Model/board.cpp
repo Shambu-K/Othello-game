@@ -9,7 +9,6 @@
 /**
  * \brief This function is used to initialize the board with the four initial central pieces at the beginning of the game
  *
- * This function also initialises the legalMoves map.
 */
 OthelloBoard::OthelloBoard()
 {
@@ -23,6 +22,10 @@ OthelloBoard::OthelloBoard()
     initialise();
 }
 
+/**
+ * @brief  This function initialises/resets the board configuration and legalMoves map to default.
+ * 
+ */
 void OthelloBoard::initialise()
 {
     boardConfiguration[boardSize/2][boardSize/2] = boardConfiguration[boardSize/2 - 1][boardSize/2 - 1] = piece::WHITE;
@@ -45,6 +48,10 @@ void OthelloBoard::initialise()
  * \param col is used to specify whose turn it is currently.
 */
 
+/**
+ * @brief This function calculates the current scores of the players
+ * 
+ */
 void OthelloBoard::computeScores()
 {
     blackScore = whiteScore = 0;
@@ -58,6 +65,12 @@ void OthelloBoard::computeScores()
     }
 }
 
+/**
+ * @brief This function returns the color of the opposite player of given player
+ * 
+ * @param col This represents the color of the given player
+ * @return It returns the color of opposite player
+ */
 piece opposite(piece col)
 {
     if(col == piece::BLACK) return piece::WHITE;
@@ -65,6 +78,10 @@ piece opposite(piece col)
     return piece::BLACK;
 }
 
+/**
+ * @brief This function clears all the legal moves on the board configuration 
+ * 
+ */
 void OthelloBoard::clearMoves()
 {
     for(unsigned int i = 0; i<boardSize; i++)
@@ -80,9 +97,10 @@ void OthelloBoard::clearMoves()
 }
 
 /**
- * @brief This function is used to get Legalmoves and store them in legalMoves
-*/
-
+ * @brief This function searches all the possible legal moves for a particular player
+ * 
+ * @param clr This represents the color of the current player
+ */
 void OthelloBoard::searchLegalMoves(piece clr)
 {
     legalMoves.clear();
@@ -112,11 +130,18 @@ void OthelloBoard::searchLegalMoves(piece clr)
     }
 }
 
-
+/**
+ * @brief This function calculates the coins that can be flipped in a specific direction and store the details of them in flipcoins
+ * 
+ * @param clr This represents the color of the current plyer
+ * @param coord This reperesents the coordinates of the board piece around which we are searching for coins that can be flipped
+ * @param dir This represents the direction in which we are searching for coins that can be flipped
+ * @return std::vector<std::pair<unsigned int,unsigned int>>& 
+ */
 std::vector<std::pair<unsigned int,unsigned int>>& OthelloBoard::getFlipCoins(piece clr, std::pair<unsigned int, unsigned int> coord, std::pair<int ,int> dir)
 {
     flipCoins.clear();
-    for(coord.first+= dir.first, coord.second+=dir.second; coord.first<boardSize && coord.second<boardSize; coord.first+= dir.first, coord.second+=dir.second)
+    for(coord.first+= dir.first, coord.second+=dir.second;0<coord.first && coord.first<boardSize && 0<coord.second && coord.second<boardSize; coord.first+= dir.first, coord.second+=dir.second)
     {
         if(boardConfiguration[coord.first][coord.second]==opposite(clr))
         {
@@ -134,6 +159,11 @@ std::vector<std::pair<unsigned int,unsigned int>>& OthelloBoard::getFlipCoins(pi
     return flipCoins;
 }
 
+/**
+ * @brief This function checks if it is a legal move on a particular coordinate 
+ * 
+ * @param coord This represents the coordinate of the board piece which we are checking if a legal move can be made there
+ */
 bool OthelloBoard::isLegal(std::pair<unsigned int, unsigned int> coord)
 {
     if(legalMoves[coord].empty())
@@ -157,7 +187,9 @@ bool OthelloBoard::isLegal(std::pair<unsigned int, unsigned int> coord)
 
 
 /**
- * @brief This function is used to update the values in boardConfiguration
+ * @brief This function is used to update the values in boardConfiguration due to the move made on coord
+ * 
+ * @param coord This contains the coordinates of the board piece on which a move is made
  */
 
 void OthelloBoard::placeMove(std::pair<unsigned int, unsigned int> coord)
@@ -176,6 +208,10 @@ void OthelloBoard::placeMove(std::pair<unsigned int, unsigned int> coord)
         moveLog.push_back(s);
 }
 
+/**
+ * @brief This function updates the boardConfiguration and the score 
+ * 
+ */
 void OthelloBoard::updateBoard()
 {
     this->clearMoves();
@@ -193,6 +229,10 @@ void OthelloBoard::updateBoard()
     switchPlayer();
 }
 
+/**
+ * @brief This function changes the currentPlayer variable from one player to the opposite player
+ * 
+ */
 void OthelloBoard::switchPlayer()
 {
     if(currentPlayer==piece::BLACK)
@@ -201,11 +241,20 @@ void OthelloBoard::switchPlayer()
         currentPlayer = piece::BLACK;
 }
 
+/**
+ * @brief This function adds a observer to the observer list
+ * 
+ * @param observer 
+ */
 void OthelloBoard::registerObserver(Observer *observer)
 {
     observer_list.push_back(observer);
 }
 
+/**
+ * @brief This function computes which message is to be shown in pop-up message
+ * 
+ */
 int OthelloBoard::computeMessage()
 {
     switchPlayer();
@@ -236,6 +285,10 @@ int OthelloBoard::computeMessage()
     return 0;
 }
 
+/**
+ * @brief This function gives updates to all the observers on the observer list 
+ * 
+ */
 void OthelloBoard::notifyObservers()
 {
     for(Observer* observer : observer_list)
@@ -244,12 +297,20 @@ void OthelloBoard::notifyObservers()
     }
 }
 
+/**
+ * @brief This function updates the moveLog with a PASS move
+ * 
+ */
 void OthelloBoard::movePassed()
 {
     s = "PASS";
     moveLog.push_back(s);
 }
 
+/**
+ * @brief This function resets all the variables to the default new game situations
+ * 
+ */
 void OthelloBoard::reset()
 {
     moveLog.clear();
