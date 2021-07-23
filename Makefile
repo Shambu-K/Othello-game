@@ -1,4 +1,4 @@
-.PHONY: clean_cli run_cli clean_gui run_gui
+.PHONY: clean_cli run_cli clean run
 
 SRC = src/
 OBJS = objs/
@@ -15,11 +15,11 @@ run_cli:
 clean_cli:
 	rm -f $(EXECUTABLE); cd $(OBJS); rm -f *.o;
 
-all_gui:
+all:
 	cd $(SOURCE);make all;
 
-run_gui:
+run:
 	cd $(SOURCE) ; make run;
 
-clean_gui:
+clean:
 	cd $(SOURCE); make clean;
