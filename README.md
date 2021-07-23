@@ -75,7 +75,7 @@ How to play the game and some rules
 
 - First select the mode of play
 - Press the mouse where you want to place your coin
-- Press "pass" if you dont want to play your turn ("Remember if both players press pass at the same turn then the game will be over there")
+- Press "pass" if you dont want to play your turn (Remember if both players press pass at the same turn then the game will be over there).
 
 ### Using cli version
 
