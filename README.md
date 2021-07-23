@@ -23,8 +23,7 @@
   </ol>
 </details
 
-
-
+ 
 <!-- ABOUT THE PROJECT -->
 ## About the project
 A project with both single and double player based Othello game
@@ -51,7 +50,6 @@ sudo apt-get install libsfml-dev
 
 - tgui library
 ```sh
-sudo apt update
 sudo add-apt-repository ppa:texus/tgui
 sudo apt-get update
 sudo apt-get install libtgui-0.9-dev
@@ -76,20 +74,20 @@ make run_cli
 How to play the game and some rules
 
 ### Using gui version
-```sh
+
 - First select the mode of play
 - Press the mouse where you want to place your coin
 - Press "pass" if you dont want to play your turn ("Remember if both players press pass at the same turn then the game will be over there")
-```
+
 ### Using cli version
-```sh
+
 - Enter the coordinate of the block where you want to place your coin
 - The game will end if the board is totally filled
 - If you want to exit the game press "Crtl+C"
-```
+
 
 ## License
-Distributed under the GNU3 License. See [LICENSE](LICENSE) for more information.
+Distributed under the GNU GPL v3.0 License. See [LICENSE](LICENSE) for more information.
 
-[![Work in Repl.it](https://classroom.github.com/assets/work-in-replit-14baed9a392b3a25080506f3b7b6d57f295ec2978f6f33ec97e36a161684cbe9.svg)](https://classroom.github.com/online_ide?assignment_repo_id=402094&assignment_repo_type=GroupAssignmentRepo)
-
+<!-- [![Work in Repl.it](https://classroom.github.com/assets/work-in-replit-14baed9a392b3a25080506f3b7b6d57f295ec2978f6f33ec97e36a161684cbe9.svg)](https://classroom.github.com/online_ide?assignment_repo_id=402094&assignment_repo_type=GroupAssignmentRepo)
+ -->
