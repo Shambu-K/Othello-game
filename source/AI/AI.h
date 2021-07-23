@@ -16,7 +16,7 @@ class AI
      * 
      * It returns the best move based on the type of the AI.
      * 
-     * @param board his is the model of the game. It has data about the present board configuration, 
+     * @param board This is the model of the game. It has data about the present board configuration, 
      * the valid moves that AI can make, so that the AI can select the required move and place the move.
      * @return std::pair<unsigned int, unsigned int> The coordinate of the square in which the AI makes it move,
      */
