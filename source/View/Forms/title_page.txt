@@ -115,7 +115,7 @@ RadioButtonGroup.radiobuttons {
     }
 
     RadioButton.RadioButton2 {
-        Enabled = false;
+        Enabled = true;
         Position = (0, 80);
         Renderer = &2;
         Size = (18, 18);
