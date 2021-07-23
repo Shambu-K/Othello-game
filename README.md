@@ -1,7 +1,6 @@
 # Othello_Game
 
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+## Table of Contents
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -12,7 +11,7 @@
         <li><a href="#installing-dependencies">Installing Dependencies</a></li>
       </ul>
     </li>
-    <li><a href="#Build">Build</a></li>
+    <li><a href="#build">Build</a></li>
     <li>
       <a href="#usage">Usage</a></li>
       <ul>
@@ -21,7 +20,6 @@
       </ul>
     <li><a href="#license">License</a></li>
   </ol>
-</details
 
  
 <!-- ABOUT THE PROJECT -->
@@ -48,7 +46,7 @@ sudo apt update
 sudo apt-get install libsfml-dev
 ```
 
-- tgui library
+- TGUI library
 ```sh
 sudo add-apt-repository ppa:texus/tgui
 sudo apt-get update
