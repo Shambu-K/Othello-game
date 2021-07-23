@@ -9,10 +9,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Move to Source Folder
-      run: cd ./source/
-    - name: List Files
-      run: ls
     - name: Install SFML
       run: |
         sudo apt update
@@ -24,4 +20,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install libtgui-0.9-dev
     - name: Build
-      run: make all
+      run: |
+        cd source
+        ls
+        make all
