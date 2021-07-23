@@ -131,12 +131,5 @@ RadioButtonGroup.radiobuttons {
         TextSize = 13;
     }
 
-    RadioButton.RadioButton4 {
-        Enabled = false;
-        Position = (0, 120);
-        Renderer = &2;
-        Size = (18, 18);
-        Text = "Player vs Minimax";
-        TextSize = 13;
-    }
+   
 }

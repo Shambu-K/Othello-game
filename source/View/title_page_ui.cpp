@@ -26,10 +26,8 @@ int main()
     tgui::RadioButton::Ptr radioButton1 = gui.get<tgui::RadioButton>("RadioButton1");
     //setting up player vs greedy ai mode of play
     tgui::RadioButton::Ptr radioButton2 = gui.get<tgui::RadioButton>("RadioButton2");
-    //setting up player vs min_max ai mode of play
-    tgui::RadioButton::Ptr radioButton3 = gui.get<tgui::RadioButton>("RadioButton3");
     //setting up player vs random ai mode of play
-    tgui::RadioButton::Ptr radioButton4 = gui.get<tgui::RadioButton>("RadioButton4");
+    tgui::RadioButton::Ptr radioButton3 = gui.get<tgui::RadioButton>("RadioButton3");
 
     //handling the event of clicking the play button
     playButton->onMousePress([&]{
@@ -42,8 +40,6 @@ int main()
             option = 2;
         else if(checked == radioButton3)
             option = 3;
-        else if(checked == radioButton4)
-            option = 4;
         //makes the title page window invisible
         window.setVisible(false);
         //passing on which mode was selected to the controller(controller.cpp)
