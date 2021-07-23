@@ -6,6 +6,8 @@
 #include "CommonTypes.h"
 #include "AI/NoAI.h"
 #include "AI/GreedyAI.h"
+#include "AI/RandomAI.h"
+
 
 
 class Controller
