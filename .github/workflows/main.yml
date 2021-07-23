@@ -51,7 +51,9 @@ jobs:
         if [[ "$CACHE_HIT_TGUI" == 'true' ]]; then
           sudo cp --force --recursive ~/tgui/* /
         else
-          sudo apt-get update && sudo apt-get install libtgui-0.9-dev
+          sudo add-apt-repository ppa:texus/tgui
+          sudo apt-get update
+          sudo apt-get install libtgui-0.9-dev
           mkdir -p ~/tgui
           for dep in libtgui-0.9-dev; do
             dpkg -L $dep | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/tgui/
