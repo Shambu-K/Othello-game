@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Move to Source Folder
-      run: cd source/
+      run: cd ./source/
     - name: List Files
       run: ls
     - name: Install SFML
