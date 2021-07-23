@@ -25,6 +25,22 @@ GameplayGUI::GameplayGUI(unsigned int boardSize)
     background->setSize("100%", "100%");
     gui2.add(background);
 
+    for(unsigned int i = 0; i<boardSize; i++)
+    {
+        cellLetterLabels[i] = tgui::Label::create();
+        cellNumberLabels[i] = tgui::Label::create();
+        cellLetterLabels[i]->setText(char('A'+i));
+        cellNumberLabels[i]->setText(char('1'+i));
+        cellLetterLabels[i]->setTextSize(24);
+        cellNumberLabels[i]->setTextSize(24);
+        cellLetterLabels[i]->setPosition(i*60*1.f + 70.0f,20.0f);
+        cellNumberLabels[i]->setPosition(25.0f, i*60*1.f + 69.0f);
+        gui2.add(cellLetterLabels[i]);
+        gui2.add(cellNumberLabels[i]);
+    }
+    
+
+
     //loading the texture of green background of a game piece
     sf::Texture texture;
     texture.loadFromFile(files[0]);
@@ -45,7 +61,7 @@ GameplayGUI::GameplayGUI(unsigned int boardSize)
             //setting the size of board piece
             cellButtons[i][j]->setSize(60, 60);
             //setting the position of board piece
-            cellButtons[i][j]->setPosition(i*60*1.f,j*60*1.f);
+            cellButtons[i][j]->setPosition(i*60*1.f + 50.0f,j*60*1.f + 50.0f);
             //adding the board piece to game window
             gui2.add(cellButtons[i][j]);
         }

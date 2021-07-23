@@ -17,6 +17,8 @@ class GameplayGUI : public Observer
     
     ///It is the vector button map of the pieces of the board
     std::vector<std::vector<tgui::BitmapButton::Ptr>> cellButtons;
+    tgui::Label::Ptr cellLetterLabels[8];
+    tgui::Label::Ptr cellNumberLabels[8];
     tgui::Button::Ptr passButton, quitButton, newGameButton;
     ///It contains the text of pop-up message
     tgui::Label::Ptr nlm_message;

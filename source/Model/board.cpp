@@ -200,8 +200,8 @@ void OthelloBoard::placeMove(std::pair<unsigned int, unsigned int> coord)
         {
             boardConfiguration[x.first][x.second] = currentPlayer;
         }
-        a = (char)(coord.second + 65);
-        b = (char)(coord.first + 49);
+        a = (char)(coord.first + 65);
+        b = (char)(coord.second + 49);
         s = "";
         s = s + a;
         s = s + b;
