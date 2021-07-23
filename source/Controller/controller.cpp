@@ -1,6 +1,14 @@
-#include "controller.h"
+include "controller.h"
 #include <iostream>
 
+/**
+ * @brief Construct a new Controller:: Controller object based on the options the user selects in the title page
+ * It also initializes model and view objects and registers the view as an oberver to the model
+ * 
+ * It has the main game loop of the application
+ * 
+ * @param options This variable tells the mode of gameplay the user has selected in the title page.
+ */
 Controller::Controller(int options) : model(), view(DEFAULT_BOARD_SIZE)
 {
     decideAI(options);
@@ -27,6 +35,11 @@ Controller::Controller(int options) : model(), view(DEFAULT_BOARD_SIZE)
     }
 }
 
+/**
+ * @brief This functions selects the type of AI(Random, Greedy, NoAI) based on option selected by the user.
+ * 
+ * @param options This variable tells the mode of gameplay the user has selected in the title page.
+ */
 void Controller::decideAI(int options)
 {
     switch(options)
@@ -39,6 +52,13 @@ void Controller::decideAI(int options)
     }
 }
 
+/**
+ * @brief This function connects each of the 64 board buttons in view to a corresponding action in the model
+ * 
+ * This function is the main connection between the controller and the model, it captures the user interactions 
+ * and sends it to the model (which has the game logic).
+ * 
+ */
 void Controller::connect_bitmap_buttons()
 {
 
@@ -57,6 +77,11 @@ void Controller::connect_bitmap_buttons()
         }
     }
 }
+
+/**
+ * @brief This function connects the other buttons of the view (New Game, Quit, Pass, Main Menu) to a corresponding action.
+ * 
+ */
 
 void Controller::connect_other_buttons()
 {
@@ -101,6 +126,11 @@ void Controller::connect_other_buttons()
     });
 }
 
+/**
+ * @brief This function gets a coordinate from the user and passes it to the model to update the game state.
+ * 
+ * @param coord This variable is the coordinate of the square the user has clicked on.
+ */
 void Controller::updateGameState(std::pair<unsigned int, unsigned int> coord)
 {
     model.pass_count = 0;
@@ -109,6 +139,16 @@ void Controller::updateGameState(std::pair<unsigned int, unsigned int> coord)
     model.notifyObservers();
     model.switchPlayer();
 }
+
+/**
+ * @brief This function lets the AI play after every move the player makes.
+ * 
+ * If the AI is NoAI, the program waits until the second player has made a move. 
+ * Otherwise, it makes a move as soon as the first player makes a move,
+ * 
+ * @param board This is the model of the game. It has data about the present board configuration, 
+ * the valid moves that AI can make, so that the AI can select the required move and place the move.
+ */
 
 void Controller::AIPlay(OthelloBoard board)
 {
