@@ -7,6 +7,11 @@
 #include "Subject.h"
 #include "CommonTypes.h"
 
+/**
+ * @brief This class is the model of the application. It has all the game logic inside it.
+ * It is a derived class of Subject, and it is observed by View of the application.
+ * 
+ */
 class OthelloBoard : public Subject
 {
     public :

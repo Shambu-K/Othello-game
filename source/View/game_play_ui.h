@@ -3,6 +3,13 @@
 
 #include <TGUI/TGUI.hpp>
 #include "View/Observer.h"
+/**
+ * @brief This is the view part of the application. It gets game information from the model
+ * and displays it on the screen.
+ * 
+ * It is a derived class of Observer, as it observes from the model which acts like a Subject.
+ * 
+ */
 class GameplayGUI : public Observer
 {
     public:

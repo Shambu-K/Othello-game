@@ -8,7 +8,10 @@
 #include "AI/GreedyAI.h"
 #include "AI/RandomAI.h"
 
-
+/**
+ * @brief This class is the controller of the application. It integrates model and 
+ * the view of the application. It also takes input from the user and passes information to the model.
+ */
 
 class Controller
 {

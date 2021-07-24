@@ -3,6 +3,11 @@
 
 #include "View/Observer.h"
 
+/**
+ * @brief This is the Subject base class. The model is derived from it. 
+ * It is observed by the Observer class.
+ * 
+ */
 class Subject
 {
     virtual void registerObserver(Observer *observer) = 0;

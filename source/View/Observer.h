@@ -2,7 +2,11 @@
 #define _OBSERVER_H
 
 #include "CommonTypes.h"
-
+/**
+ * @brief This is an Observer base class. The View is derived from it. 
+ * It observes from the Subject class for any information.
+ * 
+ */
 class Observer
 {
     public:

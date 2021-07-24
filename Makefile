@@ -1,4 +1,4 @@
-.PHONY: clean_cli run_cli clean run
+.PHONY: all_cli clean_cli run_cli all clean run doc
 
 SRC = src/
 OBJS = objs/
@@ -23,3 +23,7 @@ run:
 
 clean:
 	cd $(SOURCE); make clean;
+
+doc:
+	doxygen Doxyfile;
+	xdg-open ./documentation/html/index.html
