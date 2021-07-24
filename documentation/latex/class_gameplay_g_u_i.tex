@@ -1,0 +1,387 @@
+\hypertarget{class_gameplay_g_u_i}{}\doxysection{Gameplay\+G\+UI Class Reference}
+\label{class_gameplay_g_u_i}\index{GameplayGUI@{GameplayGUI}}
+
+
+This is the view part of the application. It gets game information from the model and displays it on the screen.  
+
+
+
+
+{\ttfamily \#include $<$game\+\_\+play\+\_\+ui.\+h$>$}
+
+
+
+Inheritance diagram for Gameplay\+G\+UI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{class_gameplay_g_u_i__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Gameplay\+G\+UI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{class_gameplay_g_u_i__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gameplay_g_u_i_ae7e5a5e93f71e23e47da45f63ef1ad10}{Gameplay\+G\+UI}} (unsigned int board\+Size)
+\begin{DoxyCompactList}\small\item\em It creates the default version of game window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gameplay_g_u_i_a0f0ff34da0c2fb266f3452d47f8bf0cf}{update}} (\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} current\+Player, int message, std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} $>$$>$ board\+Configuration, int black\+Score, int white\+Score, std\+::string move) override
+\begin{DoxyCompactList}\small\item\em This function takes the variables that are needed to be updated and updates them as per the move made byb user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gameplay_g_u_i_ac644c599f72c9d7417462cc16dc68baf}{update\+Board}} (std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} $>$$>$ board\+Configuration)
+\begin{DoxyCompactList}\small\item\em This is a sub-\/function of the update function that takes the boardconfiguration and updates the visual interface of the board. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gameplay_g_u_i_a52f5413b591fb25c2884c1958d217dd5}{update\+Score}} (int black\+Score, int white\+Score)
+\begin{DoxyCompactList}\small\item\em This is a sub-\/function of the update function that takes the value of scores of both players and updates the visual interface of the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gameplay_g_u_i_a29f72b8b17905b14925e0e6f857b92e4}{update\+Move\+History}} (\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} current\+Player, std\+::string move)
+\begin{DoxyCompactList}\small\item\em This is sub-\/function of the update function that takes the details of the current player and move that has been made and updates the move\+History which inturn is shown on the chatbox. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gameplay_g_u_i_a6e91ee1976b01fa164ad9f3b35335afe}{show\+Game\+Over}} (int black\+Score, int white\+Score)
+\begin{DoxyCompactList}\small\item\em This function handles the event of game over situation like showing the final scores of the players. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Render\+Window \mbox{\hyperlink{class_gameplay_g_u_i_ac20580efc73c0ab16b3e514682f5f0b2}{window2}} \{\{800, 600\}, \char`\"{}Othello\char`\"{}\}
+\begin{DoxyCompactList}\small\item\em It is the game window. \end{DoxyCompactList}\item 
+tgui\+::\+Gui\+S\+F\+ML \mbox{\hyperlink{class_gameplay_g_u_i_aba5847a8518e93e31d503f903af1c0b2}{gui2}} \{\mbox{\hyperlink{class_gameplay_g_u_i_ac20580efc73c0ab16b3e514682f5f0b2}{window2}}\}
+\begin{DoxyCompactList}\small\item\em It makes up the game window using tgui functions. \end{DoxyCompactList}\item 
+tgui\+::\+Picture\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_ab458762ab71c5d86f58488d050a8aa9b}{background}}
+\begin{DoxyCompactList}\small\item\em It is the background image of the game window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{title__page_8txt_ab6054f2db641cd66812772eedda2d205}{sf\+::\+Texture}} \mbox{\hyperlink{class_gameplay_g_u_i_a4bfcea421a63c55c6a643b018fa9618e}{texture}}
+\begin{DoxyCompactList}\small\item\em texture of the board pieces \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ tgui\+::\+Bitmap\+Button\+::\+Ptr $>$ $>$ \mbox{\hyperlink{class_gameplay_g_u_i_a2211adf2f2929253a12546bd5de6b7af}{cell\+Buttons}}
+\begin{DoxyCompactList}\small\item\em It is the vector button map of the pieces of the board. \end{DoxyCompactList}\item 
+tgui\+::\+Label\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_af43ad3e83014a3859b920a99339deae3}{cell\+Letter\+Labels}} \mbox{[}8\mbox{]}
+\item 
+tgui\+::\+Label\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_ae454c898e19d1ca2a23620949b8c2b14}{cell\+Number\+Labels}} \mbox{[}8\mbox{]}
+\item 
+tgui\+::\+Button\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_a81b332fd063bb7d15429a7850ab56afa}{pass\+Button}}
+\item 
+tgui\+::\+Button\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_afd13b75ee04acd5b95f8bccc5c68c473}{quit\+Button}}
+\item 
+tgui\+::\+Button\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_a56974edde1f5d20054e18d4d64fb25c9}{new\+Game\+Button}}
+\item 
+tgui\+::\+Label\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_a75d5dc28434ebbe4747c9892e482de66}{nlm\+\_\+message}}
+\begin{DoxyCompactList}\small\item\em It contains the text of pop-\/up message. \end{DoxyCompactList}\item 
+tgui\+::\+Label\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_a9168bda3bda4319ea7b3cff51080fd49}{score\+Label}}
+\begin{DoxyCompactList}\small\item\em It contains the current score of the game. \end{DoxyCompactList}\item 
+tgui\+::\+Chat\+Box\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_a9fc88a02c7570a0d1136749c44c8f537}{move\+History}}
+\begin{DoxyCompactList}\small\item\em It contains information of all the moves that were made. \end{DoxyCompactList}\item 
+tgui\+::\+Picture\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_a4292dd1e762072a44c734a7f206d9ca7}{background\+\_\+nlm}}
+\begin{DoxyCompactList}\small\item\em It contains the image of the background of pop-\/up message. \end{DoxyCompactList}\item 
+tgui\+::\+Panel\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_aea37320dc5d1f1e65d2a1aa649d2d3f6}{game\+Over}}
+\begin{DoxyCompactList}\small\item\em It contains details of all widgets that are shown during game over. \end{DoxyCompactList}\item 
+tgui\+::\+Label\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_a08c0bc9494fb8f2efab44f260292e616}{game\+Over\+Message}}
+\begin{DoxyCompactList}\small\item\em It conatins the text of game\+Over message. \end{DoxyCompactList}\item 
+tgui\+::\+Label\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_a9f1a2a643309e202f38bfdb3fcf17a99}{score\+Game\+Over}}
+\begin{DoxyCompactList}\small\item\em It contains the score of the game that is shown during game over. \end{DoxyCompactList}\item 
+tgui\+::\+Button\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_a6a5063132ea43a708026dfc959c1344f}{new\+Game}}
+\item 
+tgui\+::\+Button\+::\+Ptr \mbox{\hyperlink{class_gameplay_g_u_i_aa916eae4c220333582101d42962263ef}{main\+Menu}}
+\item 
+std\+::string \mbox{\hyperlink{class_gameplay_g_u_i_a765520a342b16a97c1b4a1523e662fbc}{files}} \mbox{[}5\mbox{]} = \{\char`\"{}./View/Images/green.\+png\char`\"{}, \char`\"{}./View/Images/white.\+png\char`\"{}, \char`\"{}./View/Images/black.\+png\char`\"{}, \char`\"{}./View/Images/legalblack.\+png\char`\"{}, \char`\"{}./View/Images/legalblack.\+png\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the view part of the application. It gets game information from the model and displays it on the screen. 
+
+It is a derived class of \mbox{\hyperlink{class_observer}{Observer}}, as it observes from the model which acts like a \mbox{\hyperlink{class_subject}{Subject}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_gameplay_g_u_i_ae7e5a5e93f71e23e47da45f63ef1ad10}\label{class_gameplay_g_u_i_ae7e5a5e93f71e23e47da45f63ef1ad10}} 
+\index{GameplayGUI@{GameplayGUI}!GameplayGUI@{GameplayGUI}}
+\index{GameplayGUI@{GameplayGUI}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{GameplayGUI()}{GameplayGUI()}}
+{\footnotesize\ttfamily Gameplay\+G\+U\+I\+::\+Gameplay\+G\+UI (\begin{DoxyParamCaption}\item[{unsigned int}]{board\+Size }\end{DoxyParamCaption})}
+
+
+
+It creates the default version of game window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board\+Size} & It is the number of squares per side of board \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gameplay_g_u_i_a6e91ee1976b01fa164ad9f3b35335afe}\label{class_gameplay_g_u_i_a6e91ee1976b01fa164ad9f3b35335afe}} 
+\index{GameplayGUI@{GameplayGUI}!showGameOver@{showGameOver}}
+\index{showGameOver@{showGameOver}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{showGameOver()}{showGameOver()}}
+{\footnotesize\ttfamily void Gameplay\+G\+U\+I\+::show\+Game\+Over (\begin{DoxyParamCaption}\item[{int}]{black\+Score,  }\item[{int}]{white\+Score }\end{DoxyParamCaption})}
+
+
+
+This function handles the event of game over situation like showing the final scores of the players. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em black\+Score} & This contains the value of score of black player \\
+\hline
+{\em white\+Score} & This contains the value of score of white player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_gameplay_g_u_i_a0f0ff34da0c2fb266f3452d47f8bf0cf}\label{class_gameplay_g_u_i_a0f0ff34da0c2fb266f3452d47f8bf0cf}} 
+\index{GameplayGUI@{GameplayGUI}!update@{update}}
+\index{update@{update}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Gameplay\+G\+U\+I\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}}}]{current\+Player,  }\item[{int}]{message,  }\item[{std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} $>$$>$}]{board\+Configuration,  }\item[{int}]{black\+Score,  }\item[{int}]{white\+Score,  }\item[{std\+::string}]{move }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This function takes the variables that are needed to be updated and updates them as per the move made byb user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Player} & This contains the details of who is the player that just made a move \\
+\hline
+{\em message} & This contains details regarding whether a pop-\/up message is to be shown ,if yes then which one \\
+\hline
+{\em board\+Configuration} & This contains details of configuration of board after the move is made \\
+\hline
+{\em black\+Score} & This contains the value of score of black player \\
+\hline
+{\em white\+Score} & This contains the value of score of white player \\
+\hline
+{\em move} & This contains details of the move made by current player \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_observer_ab0b32d570b2a68a039e9ac78de0bab94}{Observer}}.
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_ac644c599f72c9d7417462cc16dc68baf}\label{class_gameplay_g_u_i_ac644c599f72c9d7417462cc16dc68baf}} 
+\index{GameplayGUI@{GameplayGUI}!updateBoard@{updateBoard}}
+\index{updateBoard@{updateBoard}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{updateBoard()}{updateBoard()}}
+{\footnotesize\ttfamily void Gameplay\+G\+U\+I\+::update\+Board (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} $>$$>$}]{board\+Configuration }\end{DoxyParamCaption})}
+
+
+
+This is a sub-\/function of the update function that takes the boardconfiguration and updates the visual interface of the board. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board\+Configuration} & This contains details of configuration of board after the move is made \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_gameplay_g_u_i_a29f72b8b17905b14925e0e6f857b92e4}\label{class_gameplay_g_u_i_a29f72b8b17905b14925e0e6f857b92e4}} 
+\index{GameplayGUI@{GameplayGUI}!updateMoveHistory@{updateMoveHistory}}
+\index{updateMoveHistory@{updateMoveHistory}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{updateMoveHistory()}{updateMoveHistory()}}
+{\footnotesize\ttfamily void Gameplay\+G\+U\+I\+::update\+Move\+History (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}}}]{current\+Player,  }\item[{std\+::string}]{move }\end{DoxyParamCaption})}
+
+
+
+This is sub-\/function of the update function that takes the details of the current player and move that has been made and updates the move\+History which inturn is shown on the chatbox. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Player} & This contains the details of who is the player that just made a move \\
+\hline
+{\em move} & This contains details of the move made by current player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_gameplay_g_u_i_a52f5413b591fb25c2884c1958d217dd5}\label{class_gameplay_g_u_i_a52f5413b591fb25c2884c1958d217dd5}} 
+\index{GameplayGUI@{GameplayGUI}!updateScore@{updateScore}}
+\index{updateScore@{updateScore}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{updateScore()}{updateScore()}}
+{\footnotesize\ttfamily void Gameplay\+G\+U\+I\+::update\+Score (\begin{DoxyParamCaption}\item[{int}]{black\+Score,  }\item[{int}]{white\+Score }\end{DoxyParamCaption})}
+
+
+
+This is a sub-\/function of the update function that takes the value of scores of both players and updates the visual interface of the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em black\+Score} & This contains the value of score of black player \\
+\hline
+{\em white\+Score} & This contains the value of score of white player \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_gameplay_g_u_i_ab458762ab71c5d86f58488d050a8aa9b}\label{class_gameplay_g_u_i_ab458762ab71c5d86f58488d050a8aa9b}} 
+\index{GameplayGUI@{GameplayGUI}!background@{background}}
+\index{background@{background}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{background}{background}}
+{\footnotesize\ttfamily tgui\+::\+Picture\+::\+Ptr Gameplay\+G\+U\+I\+::background}
+
+
+
+It is the background image of the game window. 
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a4292dd1e762072a44c734a7f206d9ca7}\label{class_gameplay_g_u_i_a4292dd1e762072a44c734a7f206d9ca7}} 
+\index{GameplayGUI@{GameplayGUI}!background\_nlm@{background\_nlm}}
+\index{background\_nlm@{background\_nlm}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{background\_nlm}{background\_nlm}}
+{\footnotesize\ttfamily tgui\+::\+Picture\+::\+Ptr Gameplay\+G\+U\+I\+::background\+\_\+nlm}
+
+
+
+It contains the image of the background of pop-\/up message. 
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a2211adf2f2929253a12546bd5de6b7af}\label{class_gameplay_g_u_i_a2211adf2f2929253a12546bd5de6b7af}} 
+\index{GameplayGUI@{GameplayGUI}!cellButtons@{cellButtons}}
+\index{cellButtons@{cellButtons}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{cellButtons}{cellButtons}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$tgui\+::\+Bitmap\+Button\+::\+Ptr$>$ $>$ Gameplay\+G\+U\+I\+::cell\+Buttons}
+
+
+
+It is the vector button map of the pieces of the board. 
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_af43ad3e83014a3859b920a99339deae3}\label{class_gameplay_g_u_i_af43ad3e83014a3859b920a99339deae3}} 
+\index{GameplayGUI@{GameplayGUI}!cellLetterLabels@{cellLetterLabels}}
+\index{cellLetterLabels@{cellLetterLabels}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{cellLetterLabels}{cellLetterLabels}}
+{\footnotesize\ttfamily tgui\+::\+Label\+::\+Ptr Gameplay\+G\+U\+I\+::cell\+Letter\+Labels\mbox{[}8\mbox{]}}
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_ae454c898e19d1ca2a23620949b8c2b14}\label{class_gameplay_g_u_i_ae454c898e19d1ca2a23620949b8c2b14}} 
+\index{GameplayGUI@{GameplayGUI}!cellNumberLabels@{cellNumberLabels}}
+\index{cellNumberLabels@{cellNumberLabels}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{cellNumberLabels}{cellNumberLabels}}
+{\footnotesize\ttfamily tgui\+::\+Label\+::\+Ptr Gameplay\+G\+U\+I\+::cell\+Number\+Labels\mbox{[}8\mbox{]}}
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a765520a342b16a97c1b4a1523e662fbc}\label{class_gameplay_g_u_i_a765520a342b16a97c1b4a1523e662fbc}} 
+\index{GameplayGUI@{GameplayGUI}!files@{files}}
+\index{files@{files}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{files}{files}}
+{\footnotesize\ttfamily std\+::string Gameplay\+G\+U\+I\+::files\mbox{[}5\mbox{]} = \{\char`\"{}./View/Images/green.\+png\char`\"{}, \char`\"{}./View/Images/white.\+png\char`\"{}, \char`\"{}./View/Images/black.\+png\char`\"{}, \char`\"{}./View/Images/legalblack.\+png\char`\"{}, \char`\"{}./View/Images/legalblack.\+png\char`\"{}\}}
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_aea37320dc5d1f1e65d2a1aa649d2d3f6}\label{class_gameplay_g_u_i_aea37320dc5d1f1e65d2a1aa649d2d3f6}} 
+\index{GameplayGUI@{GameplayGUI}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{gameOver}{gameOver}}
+{\footnotesize\ttfamily tgui\+::\+Panel\+::\+Ptr Gameplay\+G\+U\+I\+::game\+Over}
+
+
+
+It contains details of all widgets that are shown during game over. 
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a08c0bc9494fb8f2efab44f260292e616}\label{class_gameplay_g_u_i_a08c0bc9494fb8f2efab44f260292e616}} 
+\index{GameplayGUI@{GameplayGUI}!gameOverMessage@{gameOverMessage}}
+\index{gameOverMessage@{gameOverMessage}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{gameOverMessage}{gameOverMessage}}
+{\footnotesize\ttfamily tgui\+::\+Label\+::\+Ptr Gameplay\+G\+U\+I\+::game\+Over\+Message}
+
+
+
+It conatins the text of game\+Over message. 
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_aba5847a8518e93e31d503f903af1c0b2}\label{class_gameplay_g_u_i_aba5847a8518e93e31d503f903af1c0b2}} 
+\index{GameplayGUI@{GameplayGUI}!gui2@{gui2}}
+\index{gui2@{gui2}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{gui2}{gui2}}
+{\footnotesize\ttfamily tgui\+::\+Gui\+S\+F\+ML Gameplay\+G\+U\+I\+::gui2 \{\mbox{\hyperlink{class_gameplay_g_u_i_ac20580efc73c0ab16b3e514682f5f0b2}{window2}}\}}
+
+
+
+It makes up the game window using tgui functions. 
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_aa916eae4c220333582101d42962263ef}\label{class_gameplay_g_u_i_aa916eae4c220333582101d42962263ef}} 
+\index{GameplayGUI@{GameplayGUI}!mainMenu@{mainMenu}}
+\index{mainMenu@{mainMenu}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{mainMenu}{mainMenu}}
+{\footnotesize\ttfamily tgui\+::\+Button\+::\+Ptr Gameplay\+G\+U\+I\+::main\+Menu}
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a9fc88a02c7570a0d1136749c44c8f537}\label{class_gameplay_g_u_i_a9fc88a02c7570a0d1136749c44c8f537}} 
+\index{GameplayGUI@{GameplayGUI}!moveHistory@{moveHistory}}
+\index{moveHistory@{moveHistory}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{moveHistory}{moveHistory}}
+{\footnotesize\ttfamily tgui\+::\+Chat\+Box\+::\+Ptr Gameplay\+G\+U\+I\+::move\+History}
+
+
+
+It contains information of all the moves that were made. 
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a6a5063132ea43a708026dfc959c1344f}\label{class_gameplay_g_u_i_a6a5063132ea43a708026dfc959c1344f}} 
+\index{GameplayGUI@{GameplayGUI}!newGame@{newGame}}
+\index{newGame@{newGame}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{newGame}{newGame}}
+{\footnotesize\ttfamily tgui\+::\+Button\+::\+Ptr Gameplay\+G\+U\+I\+::new\+Game}
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a56974edde1f5d20054e18d4d64fb25c9}\label{class_gameplay_g_u_i_a56974edde1f5d20054e18d4d64fb25c9}} 
+\index{GameplayGUI@{GameplayGUI}!newGameButton@{newGameButton}}
+\index{newGameButton@{newGameButton}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{newGameButton}{newGameButton}}
+{\footnotesize\ttfamily tgui\+::\+Button\+::\+Ptr Gameplay\+G\+U\+I\+::new\+Game\+Button}
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a75d5dc28434ebbe4747c9892e482de66}\label{class_gameplay_g_u_i_a75d5dc28434ebbe4747c9892e482de66}} 
+\index{GameplayGUI@{GameplayGUI}!nlm\_message@{nlm\_message}}
+\index{nlm\_message@{nlm\_message}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{nlm\_message}{nlm\_message}}
+{\footnotesize\ttfamily tgui\+::\+Label\+::\+Ptr Gameplay\+G\+U\+I\+::nlm\+\_\+message}
+
+
+
+It contains the text of pop-\/up message. 
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a81b332fd063bb7d15429a7850ab56afa}\label{class_gameplay_g_u_i_a81b332fd063bb7d15429a7850ab56afa}} 
+\index{GameplayGUI@{GameplayGUI}!passButton@{passButton}}
+\index{passButton@{passButton}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{passButton}{passButton}}
+{\footnotesize\ttfamily tgui\+::\+Button\+::\+Ptr Gameplay\+G\+U\+I\+::pass\+Button}
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_afd13b75ee04acd5b95f8bccc5c68c473}\label{class_gameplay_g_u_i_afd13b75ee04acd5b95f8bccc5c68c473}} 
+\index{GameplayGUI@{GameplayGUI}!quitButton@{quitButton}}
+\index{quitButton@{quitButton}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{quitButton}{quitButton}}
+{\footnotesize\ttfamily tgui\+::\+Button\+::\+Ptr Gameplay\+G\+U\+I\+::quit\+Button}
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a9f1a2a643309e202f38bfdb3fcf17a99}\label{class_gameplay_g_u_i_a9f1a2a643309e202f38bfdb3fcf17a99}} 
+\index{GameplayGUI@{GameplayGUI}!scoreGameOver@{scoreGameOver}}
+\index{scoreGameOver@{scoreGameOver}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{scoreGameOver}{scoreGameOver}}
+{\footnotesize\ttfamily tgui\+::\+Label\+::\+Ptr Gameplay\+G\+U\+I\+::score\+Game\+Over}
+
+
+
+It contains the score of the game that is shown during game over. 
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a9168bda3bda4319ea7b3cff51080fd49}\label{class_gameplay_g_u_i_a9168bda3bda4319ea7b3cff51080fd49}} 
+\index{GameplayGUI@{GameplayGUI}!scoreLabel@{scoreLabel}}
+\index{scoreLabel@{scoreLabel}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{scoreLabel}{scoreLabel}}
+{\footnotesize\ttfamily tgui\+::\+Label\+::\+Ptr Gameplay\+G\+U\+I\+::score\+Label}
+
+
+
+It contains the current score of the game. 
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_a4bfcea421a63c55c6a643b018fa9618e}\label{class_gameplay_g_u_i_a4bfcea421a63c55c6a643b018fa9618e}} 
+\index{GameplayGUI@{GameplayGUI}!texture@{texture}}
+\index{texture@{texture}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{texture}{texture}}
+{\footnotesize\ttfamily \mbox{\hyperlink{title__page_8txt_ab6054f2db641cd66812772eedda2d205}{sf\+::\+Texture}} Gameplay\+G\+U\+I\+::texture}
+
+
+
+texture of the board pieces 
+
+\mbox{\Hypertarget{class_gameplay_g_u_i_ac20580efc73c0ab16b3e514682f5f0b2}\label{class_gameplay_g_u_i_ac20580efc73c0ab16b3e514682f5f0b2}} 
+\index{GameplayGUI@{GameplayGUI}!window2@{window2}}
+\index{window2@{window2}!GameplayGUI@{GameplayGUI}}
+\doxysubsubsection{\texorpdfstring{window2}{window2}}
+{\footnotesize\ttfamily sf\+::\+Render\+Window Gameplay\+G\+U\+I\+::window2 \{\{800, 600\}, \char`\"{}Othello\char`\"{}\}}
+
+
+
+It is the game window. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/\+View/\mbox{\hyperlink{game__play__ui_8h}{game\+\_\+play\+\_\+ui.\+h}}\item 
+source/\+View/\mbox{\hyperlink{game__play__ui_8cpp}{game\+\_\+play\+\_\+ui.\+cpp}}\end{DoxyCompactItemize}

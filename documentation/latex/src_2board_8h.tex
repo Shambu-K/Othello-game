@@ -1,0 +1,95 @@
+\hypertarget{src_2board_8h}{}\doxysection{src/board.h File Reference}
+\label{src_2board_8h}\index{src/board.h@{src/board.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for board.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{src_2board_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{src_2board_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_othello_board}{Othello\+Board}}
+\begin{DoxyCompactList}\small\item\em This class is the model of the application. It has all the game logic inside it. It is a derived class of \mbox{\hyperlink{class_subject}{Subject}}, and it is observed by View of the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} \{ \newline
+\mbox{\hyperlink{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba08d0012388564e95c3b4a7407cf04965}{piece\+::\+B\+L\+A\+CK}}, 
+\mbox{\hyperlink{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbab5bf627e448384cf3a4c35121ca6008d}{piece\+::\+W\+H\+I\+TE}}, 
+\mbox{\hyperlink{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbac81902aeef3f568f90e79040c38e89b4}{piece\+::\+L\+E\+G\+A\+L\+\_\+\+B\+L\+A\+CK}}, 
+\mbox{\hyperlink{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba2b05e814394bb036ba8392c8099a5cb2}{piece\+::\+L\+E\+G\+A\+L\+\_\+\+W\+H\+I\+TE}}, 
+\newline
+\mbox{\hyperlink{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbaba2b45bdc11e2a4a6e86aab2ac693cbb}{piece\+::\+E\+M\+P\+TY}}, 
+\mbox{\hyperlink{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba08d0012388564e95c3b4a7407cf04965}{piece\+::\+B\+L\+A\+CK}}, 
+\mbox{\hyperlink{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbab5bf627e448384cf3a4c35121ca6008d}{piece\+::\+W\+H\+I\+TE}}, 
+\mbox{\hyperlink{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbac81902aeef3f568f90e79040c38e89b4}{piece\+::\+L\+E\+G\+A\+L\+\_\+\+B\+L\+A\+CK}}, 
+\newline
+\mbox{\hyperlink{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba2b05e814394bb036ba8392c8099a5cb2}{piece\+::\+L\+E\+G\+A\+L\+\_\+\+W\+H\+I\+TE}}, 
+\mbox{\hyperlink{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbaba2b45bdc11e2a4a6e86aab2ac693cbb}{piece\+::\+E\+M\+P\+TY}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}\label{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}} 
+\index{board.h@{board.h}!piece@{piece}}
+\index{piece@{piece}!board.h@{board.h}}
+\doxysubsubsection{\texorpdfstring{piece}{piece}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLACK@{BLACK}!board.h@{board.h}}\index{board.h@{board.h}!BLACK@{BLACK}}}\mbox{\Hypertarget{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba08d0012388564e95c3b4a7407cf04965}\label{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba08d0012388564e95c3b4a7407cf04965}} 
+B\+L\+A\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WHITE@{WHITE}!board.h@{board.h}}\index{board.h@{board.h}!WHITE@{WHITE}}}\mbox{\Hypertarget{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbab5bf627e448384cf3a4c35121ca6008d}\label{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbab5bf627e448384cf3a4c35121ca6008d}} 
+W\+H\+I\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEGAL\_BLACK@{LEGAL\_BLACK}!board.h@{board.h}}\index{board.h@{board.h}!LEGAL\_BLACK@{LEGAL\_BLACK}}}\mbox{\Hypertarget{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbac81902aeef3f568f90e79040c38e89b4}\label{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbac81902aeef3f568f90e79040c38e89b4}} 
+L\+E\+G\+A\+L\+\_\+\+B\+L\+A\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEGAL\_WHITE@{LEGAL\_WHITE}!board.h@{board.h}}\index{board.h@{board.h}!LEGAL\_WHITE@{LEGAL\_WHITE}}}\mbox{\Hypertarget{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba2b05e814394bb036ba8392c8099a5cb2}\label{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba2b05e814394bb036ba8392c8099a5cb2}} 
+L\+E\+G\+A\+L\+\_\+\+W\+H\+I\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!board.h@{board.h}}\index{board.h@{board.h}!EMPTY@{EMPTY}}}\mbox{\Hypertarget{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbaba2b45bdc11e2a4a6e86aab2ac693cbb}\label{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbaba2b45bdc11e2a4a6e86aab2ac693cbb}} 
+E\+M\+P\+TY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLACK@{BLACK}!board.h@{board.h}}\index{board.h@{board.h}!BLACK@{BLACK}}}\mbox{\Hypertarget{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba08d0012388564e95c3b4a7407cf04965}\label{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba08d0012388564e95c3b4a7407cf04965}} 
+B\+L\+A\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WHITE@{WHITE}!board.h@{board.h}}\index{board.h@{board.h}!WHITE@{WHITE}}}\mbox{\Hypertarget{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbab5bf627e448384cf3a4c35121ca6008d}\label{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbab5bf627e448384cf3a4c35121ca6008d}} 
+W\+H\+I\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEGAL\_BLACK@{LEGAL\_BLACK}!board.h@{board.h}}\index{board.h@{board.h}!LEGAL\_BLACK@{LEGAL\_BLACK}}}\mbox{\Hypertarget{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbac81902aeef3f568f90e79040c38e89b4}\label{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbac81902aeef3f568f90e79040c38e89b4}} 
+L\+E\+G\+A\+L\+\_\+\+B\+L\+A\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEGAL\_WHITE@{LEGAL\_WHITE}!board.h@{board.h}}\index{board.h@{board.h}!LEGAL\_WHITE@{LEGAL\_WHITE}}}\mbox{\Hypertarget{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba2b05e814394bb036ba8392c8099a5cb2}\label{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cba2b05e814394bb036ba8392c8099a5cb2}} 
+L\+E\+G\+A\+L\+\_\+\+W\+H\+I\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!board.h@{board.h}}\index{board.h@{board.h}!EMPTY@{EMPTY}}}\mbox{\Hypertarget{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbaba2b45bdc11e2a4a6e86aab2ac693cbb}\label{src_2board_8h_a31382d7e79b6cf3e1225c53a55e8b5cbaba2b45bdc11e2a4a6e86aab2ac693cbb}} 
+E\+M\+P\+TY&\\
+\hline
+
+\end{DoxyEnumFields}

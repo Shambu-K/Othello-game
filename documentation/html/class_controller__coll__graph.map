@@ -1,0 +1,8 @@
+<map id="Controller" name="Controller">
+<area shape="rect" id="node1" title="This class is the controller of the application. It integrates model and the view of the application...." alt="" coords="119,171,205,197"/>
+<area shape="rect" id="node2" href="$class_gameplay_g_u_i.html" title="This is the view part of the application. It gets game information from the model and displays it on ..." alt="" coords="5,81,119,108"/>
+<area shape="rect" id="node3" href="$class_observer.html" title="This is an Observer base class. The View is derived from it. It observes from the Subject class for a..." alt="" coords="21,5,103,32"/>
+<area shape="rect" id="node4" href="$class_a_i.html" title="This class is the base class for different types of AI in the game." alt="" coords="143,81,181,108"/>
+<area shape="rect" id="node5" href="$class_othello_board.html" title="This class is the model of the application. It has all the game logic inside it. It is a derived clas..." alt="" coords="206,81,313,108"/>
+<area shape="rect" id="node6" href="$class_subject.html" title="This is the Subject base class. The model is derived from it. It is observed by the Observer class." alt="" coords="224,5,295,32"/>
+</map>

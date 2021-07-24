@@ -1,0 +1,98 @@
+\hypertarget{class_othello_game}{}\doxysection{Othello\+Game Class Reference}
+\label{class_othello_game}\index{OthelloGame@{OthelloGame}}
+
+
+{\ttfamily \#include $<$game.\+h$>$}
+
+
+
+Collaboration diagram for Othello\+Game\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{class_othello_game__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_othello_game_aa37603477bf592ca8924ad4415f4555a}{initialize\+Game}} (bool is\+Black\+AI, bool is\+White\+AI)
+\item 
+void \mbox{\hyperlink{class_othello_game_a788e0b480f9db661d23aca055a90ff62}{make\+Move}} (\mbox{\hyperlink{_common_types_8h_a37dbdc30935031c05304482e1be89d8f}{color}} col)
+\item 
+bool \mbox{\hyperlink{class_othello_game_abd5a4d25c43e90defc15d9557f9afa3f}{check\+Game\+Over}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_othello_board}{Othello\+Board}} \mbox{\hyperlink{class_othello_game_a8049695f74d6733ef3f661e3995785a4}{board}}
+\item 
+\mbox{\hyperlink{class_othello_player}{Othello\+Player}} \mbox{\hyperlink{class_othello_game_a90782eb985e4ae81529a5a4624210db4}{black\+Player}}
+\item 
+\mbox{\hyperlink{class_othello_player}{Othello\+Player}} \mbox{\hyperlink{class_othello_game_a47827ab51fed1d1878c5e66103941def}{white\+Player}}
+\item 
+\mbox{\hyperlink{_common_types_8h_a37dbdc30935031c05304482e1be89d8f}{color}} \mbox{\hyperlink{class_othello_game_a84a692454471c28a867451dc792e28a5}{current\+Player}} = \mbox{\hyperlink{_common_types_8h_a37dbdc30935031c05304482e1be89d8fa04de320a2fb9cf697c225bb5b52fc4a4}{color\+::\+\_\+\+B\+L\+A\+CK}}
+\item 
+bool \mbox{\hyperlink{class_othello_game_a9916388e3bb1cc579ffea36997b8649c}{game\+Over}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_othello_game_abd5a4d25c43e90defc15d9557f9afa3f}\label{class_othello_game_abd5a4d25c43e90defc15d9557f9afa3f}} 
+\index{OthelloGame@{OthelloGame}!checkGameOver@{checkGameOver}}
+\index{checkGameOver@{checkGameOver}!OthelloGame@{OthelloGame}}
+\doxysubsubsection{\texorpdfstring{checkGameOver()}{checkGameOver()}}
+{\footnotesize\ttfamily bool Othello\+Game\+::check\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_othello_game_aa37603477bf592ca8924ad4415f4555a}\label{class_othello_game_aa37603477bf592ca8924ad4415f4555a}} 
+\index{OthelloGame@{OthelloGame}!initializeGame@{initializeGame}}
+\index{initializeGame@{initializeGame}!OthelloGame@{OthelloGame}}
+\doxysubsubsection{\texorpdfstring{initializeGame()}{initializeGame()}}
+{\footnotesize\ttfamily void Othello\+Game\+::initialize\+Game (\begin{DoxyParamCaption}\item[{bool}]{is\+Black\+AI,  }\item[{bool}]{is\+White\+AI }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_othello_game_a788e0b480f9db661d23aca055a90ff62}\label{class_othello_game_a788e0b480f9db661d23aca055a90ff62}} 
+\index{OthelloGame@{OthelloGame}!makeMove@{makeMove}}
+\index{makeMove@{makeMove}!OthelloGame@{OthelloGame}}
+\doxysubsubsection{\texorpdfstring{makeMove()}{makeMove()}}
+{\footnotesize\ttfamily void Othello\+Game\+::make\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_common_types_8h_a37dbdc30935031c05304482e1be89d8f}{color}}}]{col }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_othello_game_a90782eb985e4ae81529a5a4624210db4}\label{class_othello_game_a90782eb985e4ae81529a5a4624210db4}} 
+\index{OthelloGame@{OthelloGame}!blackPlayer@{blackPlayer}}
+\index{blackPlayer@{blackPlayer}!OthelloGame@{OthelloGame}}
+\doxysubsubsection{\texorpdfstring{blackPlayer}{blackPlayer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_othello_player}{Othello\+Player}} Othello\+Game\+::black\+Player}
+
+\mbox{\Hypertarget{class_othello_game_a8049695f74d6733ef3f661e3995785a4}\label{class_othello_game_a8049695f74d6733ef3f661e3995785a4}} 
+\index{OthelloGame@{OthelloGame}!board@{board}}
+\index{board@{board}!OthelloGame@{OthelloGame}}
+\doxysubsubsection{\texorpdfstring{board}{board}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_othello_board}{Othello\+Board}} Othello\+Game\+::board}
+
+\mbox{\Hypertarget{class_othello_game_a84a692454471c28a867451dc792e28a5}\label{class_othello_game_a84a692454471c28a867451dc792e28a5}} 
+\index{OthelloGame@{OthelloGame}!currentPlayer@{currentPlayer}}
+\index{currentPlayer@{currentPlayer}!OthelloGame@{OthelloGame}}
+\doxysubsubsection{\texorpdfstring{currentPlayer}{currentPlayer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_common_types_8h_a37dbdc30935031c05304482e1be89d8f}{color}} Othello\+Game\+::current\+Player = \mbox{\hyperlink{_common_types_8h_a37dbdc30935031c05304482e1be89d8fa04de320a2fb9cf697c225bb5b52fc4a4}{color\+::\+\_\+\+B\+L\+A\+CK}}}
+
+\mbox{\Hypertarget{class_othello_game_a9916388e3bb1cc579ffea36997b8649c}\label{class_othello_game_a9916388e3bb1cc579ffea36997b8649c}} 
+\index{OthelloGame@{OthelloGame}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!OthelloGame@{OthelloGame}}
+\doxysubsubsection{\texorpdfstring{gameOver}{gameOver}}
+{\footnotesize\ttfamily bool Othello\+Game\+::game\+Over}
+
+\mbox{\Hypertarget{class_othello_game_a47827ab51fed1d1878c5e66103941def}\label{class_othello_game_a47827ab51fed1d1878c5e66103941def}} 
+\index{OthelloGame@{OthelloGame}!whitePlayer@{whitePlayer}}
+\index{whitePlayer@{whitePlayer}!OthelloGame@{OthelloGame}}
+\doxysubsubsection{\texorpdfstring{whitePlayer}{whitePlayer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_othello_player}{Othello\+Player}} Othello\+Game\+::white\+Player}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{game_8h}{game.\+h}}\item 
+src/\mbox{\hyperlink{game_8cpp}{game.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,49 @@
+\hypertarget{class_observer}{}\doxysection{Observer Class Reference}
+\label{class_observer}\index{Observer@{Observer}}
+
+
+This is an \mbox{\hyperlink{class_observer}{Observer}} base class. The View is derived from it. It observes from the \mbox{\hyperlink{class_subject}{Subject}} class for any information.  
+
+
+
+
+{\ttfamily \#include $<$Observer.\+h$>$}
+
+
+
+Inheritance diagram for Observer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{class_observer__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_observer_ab0b32d570b2a68a039e9ac78de0bab94}{update}} (\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} current\+Player, int message, std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} $>$$>$ board\+Configuration, int black\+Score, int white\+Score, std\+::string move)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is an \mbox{\hyperlink{class_observer}{Observer}} base class. The View is derived from it. It observes from the \mbox{\hyperlink{class_subject}{Subject}} class for any information. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_observer_ab0b32d570b2a68a039e9ac78de0bab94}\label{class_observer_ab0b32d570b2a68a039e9ac78de0bab94}} 
+\index{Observer@{Observer}!update@{update}}
+\index{update@{update}!Observer@{Observer}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Observer\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}}}]{current\+Player,  }\item[{int}]{message,  }\item[{std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} $>$$>$}]{board\+Configuration,  }\item[{int}]{black\+Score,  }\item[{int}]{white\+Score,  }\item[{std\+::string}]{move }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_gameplay_g_u_i_a0f0ff34da0c2fb266f3452d47f8bf0cf}{Gameplay\+G\+UI}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+View/\mbox{\hyperlink{_observer_8h}{Observer.\+h}}\end{DoxyCompactItemize}

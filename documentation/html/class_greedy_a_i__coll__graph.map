@@ -1,0 +1,4 @@
+<map id="GreedyAI" name="GreedyAI">
+<area shape="rect" id="node1" title="This is a derived class of AI. This AI selects the best possible move out of all possible moves." alt="" coords="5,80,88,107"/>
+<area shape="rect" id="node2" href="$class_a_i.html" title="This class is the base class for different types of AI in the game." alt="" coords="27,5,66,32"/>
+</map>

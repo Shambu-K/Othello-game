@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['s_186',['s',['../class_othello_board.html#a110b594fbbe249aaa2ade26bf1616e4f',1,'OthelloBoard']]],
+  ['scoregameover_187',['scoreGameOver',['../class_gameplay_g_u_i.html#a9f1a2a643309e202f38bfdb3fcf17a99',1,'GameplayGUI']]],
+  ['scorelabel_188',['scoreLabel',['../class_gameplay_g_u_i.html#a9168bda3bda4319ea7b3cff51080fd49',1,'GameplayGUI']]],
+  ['scrollbar_189',['Scrollbar',['../_baby_blue_8txt.html#a85c582a687a3c860443ed4482ead7806',1,'Scrollbar():&#160;BabyBlue.txt'],['../_black_8txt.html#a85c582a687a3c860443ed4482ead7806',1,'Scrollbar():&#160;Black.txt'],['../_transparent_grey_8txt.html#a85c582a687a3c860443ed4482ead7806',1,'Scrollbar():&#160;TransparentGrey.txt'],['../_tree_view_2_black_8txt.html#a85c582a687a3c860443ed4482ead7806',1,'Scrollbar():&#160;Black.txt'],['../title__page_8txt.html#a85c582a687a3c860443ed4482ead7806',1,'Scrollbar():&#160;title_page.txt']]],
+  ['searchlegalmoves_190',['searchLegalMoves',['../class_othello_board.html#ae319bde6b1236298317b857ea6050c75',1,'OthelloBoard']]],
+  ['selectedbackgroundcolor_191',['SelectedBackgroundColor',['../_black_8txt.html#a2c6400535b20b090419ae2c30e95ce58',1,'SelectedBackgroundColor():&#160;Black.txt'],['../_transparent_grey_8txt.html#a2c6400535b20b090419ae2c30e95ce58',1,'SelectedBackgroundColor():&#160;TransparentGrey.txt'],['../_tree_view_2_black_8txt.html#a2c6400535b20b090419ae2c30e95ce58',1,'SelectedBackgroundColor():&#160;Black.txt']]],
+  ['selectedbackgroundcolorhover_192',['SelectedBackgroundColorHover',['../_black_8txt.html#a3f4a47fa997683120dbd205c5f4e2d71',1,'SelectedBackgroundColorHover():&#160;Black.txt'],['../_tree_view_2_black_8txt.html#a3f4a47fa997683120dbd205c5f4e2d71',1,'SelectedBackgroundColorHover():&#160;Black.txt']]],
+  ['selectedtextbackgroundcolor_193',['SelectedTextBackgroundColor',['../_black_8txt.html#ae48d756be25fcdae48c467f26b39cd9b',1,'SelectedTextBackgroundColor():&#160;Black.txt'],['../_transparent_grey_8txt.html#ae48d756be25fcdae48c467f26b39cd9b',1,'SelectedTextBackgroundColor():&#160;TransparentGrey.txt']]],
+  ['selectedtextcolor_194',['SelectedTextColor',['../_black_8txt.html#a82412ffbf5eca144a1e14d76d206a9df',1,'SelectedTextColor():&#160;Black.txt'],['../_transparent_grey_8txt.html#a82412ffbf5eca144a1e14d76d206a9df',1,'SelectedTextColor():&#160;TransparentGrey.txt'],['../_tree_view_2_black_8txt.html#a82412ffbf5eca144a1e14d76d206a9df',1,'SelectedTextColor():&#160;Black.txt']]],
+  ['showgameover_195',['showGameOver',['../class_gameplay_g_u_i.html#a6e91ee1976b01fa164ad9f3b35335afe',1,'GameplayGUI']]],
+  ['showtextontitlebuttons_196',['ShowTextOnTitleButtons',['../_baby_blue_8txt.html#accd9004641be19f0fb3b908371f6b3d2',1,'ShowTextOnTitleButtons():&#160;BabyBlue.txt'],['../_black_8txt.html#accd9004641be19f0fb3b908371f6b3d2',1,'ShowTextOnTitleButtons():&#160;Black.txt'],['../_transparent_grey_8txt.html#accd9004641be19f0fb3b908371f6b3d2',1,'ShowTextOnTitleButtons():&#160;TransparentGrey.txt']]],
+  ['size_197',['Size',['../game__play_8txt.html#a1c40db1d9b56c27240e420765695f1c4',1,'Size():&#160;game_play.txt'],['../title__page_8txt.html#a1c40db1d9b56c27240e420765695f1c4',1,'Size():&#160;title_page.txt']]],
+  ['slider_198',['Slider',['../_black_8txt.html#a33ab66dc55ebf9142e184e184dd80415',1,'Slider():&#160;Black.txt'],['../_transparent_grey_8txt.html#a33ab66dc55ebf9142e184e184dd80415',1,'Slider():&#160;TransparentGrey.txt']]],
+  ['spinbutton_199',['SpinButton',['../_black_8txt.html#af281f7afeb40dbb80b7d288d075f6ad8',1,'SpinButton():&#160;Black.txt'],['../_transparent_grey_8txt.html#af281f7afeb40dbb80b7d288d075f6ad8',1,'SpinButton():&#160;TransparentGrey.txt']]],
+  ['subject_200',['Subject',['../class_subject.html',1,'']]],
+  ['subject_2eh_201',['Subject.h',['../_subject_8h.html',1,'']]],
+  ['switchplayer_202',['switchPlayer',['../class_othello_board.html#a220bbe3328a7b767d474892e7ab3c8e2',1,'OthelloBoard']]]
+];

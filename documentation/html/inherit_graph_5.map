@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_subject.html" title="This is the Subject base class. The model is derived from it. It is observed by the Observer class." alt="" coords="5,5,76,32"/>
+<area shape="rect" id="node2" href="$class_othello_board.html" title="This class is the model of the application. It has all the game logic inside it. It is a derived clas..." alt="" coords="124,5,231,32"/>
+</map>

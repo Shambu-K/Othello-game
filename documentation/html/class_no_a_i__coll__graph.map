@@ -1,0 +1,4 @@
+<map id="NoAI" name="NoAI">
+<area shape="rect" id="node1" title="This is a derived class of AI. It is a &quot;Null Object&quot; class which does nothing. It allows Player vs Pl..." alt="" coords="5,80,59,107"/>
+<area shape="rect" id="node2" href="$class_a_i.html" title="This class is the base class for different types of AI in the game." alt="" coords="13,5,51,32"/>
+</map>

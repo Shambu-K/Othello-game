@@ -1,0 +1,69 @@
+\hypertarget{class_greedy_a_i}{}\doxysection{Greedy\+AI Class Reference}
+\label{class_greedy_a_i}\index{GreedyAI@{GreedyAI}}
+
+
+This is a derived class of \mbox{\hyperlink{class_a_i}{AI}}. This \mbox{\hyperlink{class_a_i}{AI}} selects the best possible move out of all possible moves.  
+
+
+
+
+{\ttfamily \#include $<$Greedy\+A\+I.\+h$>$}
+
+
+
+Inheritance diagram for Greedy\+AI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{class_greedy_a_i__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Greedy\+AI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{class_greedy_a_i__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ unsigned int, unsigned int $>$ \mbox{\hyperlink{class_greedy_a_i_a51b4167bd0502b86686f9a4d37857563}{play}} (\mbox{\hyperlink{class_othello_board}{Othello\+Board}} board) override
+\begin{DoxyCompactList}\small\item\em This function selects the best move out of all possible available moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is a derived class of \mbox{\hyperlink{class_a_i}{AI}}. This \mbox{\hyperlink{class_a_i}{AI}} selects the best possible move out of all possible moves. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_greedy_a_i_a51b4167bd0502b86686f9a4d37857563}\label{class_greedy_a_i_a51b4167bd0502b86686f9a4d37857563}} 
+\index{GreedyAI@{GreedyAI}!play@{play}}
+\index{play@{play}!GreedyAI@{GreedyAI}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily std\+::pair$<$unsigned int, unsigned int$>$ Greedy\+A\+I\+::play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_othello_board}{Othello\+Board}}}]{board }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This function selects the best move out of all possible available moves. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & This is the model of the game. It has data about the present board configuration, the valid moves that \mbox{\hyperlink{class_a_i}{AI}} can make, so that the \mbox{\hyperlink{class_a_i}{AI}} can select the best move and return the move. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$unsigned int, unsigned int$>$ Returns the coordinate of the best move. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_a_i_aa892645cefdfe6628ad947f7e34b7f33}{AI}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+A\+I/\mbox{\hyperlink{_greedy_a_i_8h}{Greedy\+A\+I.\+h}}\end{DoxyCompactItemize}

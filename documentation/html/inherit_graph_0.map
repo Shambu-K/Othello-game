@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_a_i.html" title="This class is the base class for different types of AI in the game." alt="" coords="5,56,44,83"/>
+<area shape="rect" id="node2" href="$class_greedy_a_i.html" title="This is a derived class of AI. This AI selects the best possible move out of all possible moves." alt="" coords="95,5,178,32"/>
+<area shape="rect" id="node3" href="$class_no_a_i.html" title="This is a derived class of AI. It is a &quot;Null Object&quot; class which does nothing. It allows Player vs Pl..." alt="" coords="110,56,163,83"/>
+<area shape="rect" id="node4" href="$class_random_a_i.html" title="This is a derived class of AI." alt="" coords="92,107,181,133"/>
+</map>

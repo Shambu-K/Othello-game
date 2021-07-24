@@ -1,0 +1,4 @@
+<map id="RandomAI" name="RandomAI">
+<area shape="rect" id="node1" title="This is a derived class of AI." alt="" coords="5,80,95,107"/>
+<area shape="rect" id="node2" href="$class_a_i.html" title="This class is the base class for different types of AI in the game." alt="" coords="31,5,69,32"/>
+</map>

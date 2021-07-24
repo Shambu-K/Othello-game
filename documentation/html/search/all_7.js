@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['game_2ecpp_94',['game.cpp',['../game_8cpp.html',1,'']]],
+  ['game_2eh_95',['game.h',['../game_8h.html',1,'']]],
+  ['game_5fplay_2etxt_96',['game_play.txt',['../game__play_8txt.html',1,'']]],
+  ['game_5fplay_5fui_2ecpp_97',['game_play_ui.cpp',['../game__play__ui_8cpp.html',1,'']]],
+  ['game_5fplay_5fui_2eh_98',['game_play_ui.h',['../game__play__ui_8h.html',1,'']]],
+  ['gameover_99',['gameOver',['../class_gameplay_g_u_i.html#aea37320dc5d1f1e65d2a1aa649d2d3f6',1,'GameplayGUI::gameOver()'],['../class_othello_game.html#a9916388e3bb1cc579ffea36997b8649c',1,'OthelloGame::gameOver()']]],
+  ['gameovermessage_100',['gameOverMessage',['../class_gameplay_g_u_i.html#a08c0bc9494fb8f2efab44f260292e616',1,'GameplayGUI']]],
+  ['gameplaygui_101',['GameplayGUI',['../class_gameplay_g_u_i.html',1,'GameplayGUI'],['../class_gameplay_g_u_i.html#ae7e5a5e93f71e23e47da45f63ef1ad10',1,'GameplayGUI::GameplayGUI()']]],
+  ['generate_102',['generate',['../namespacegenerate.html',1,'']]],
+  ['generate_2epy_103',['generate.py',['../generate_8py.html',1,'']]],
+  ['getcoordinate_104',['getCoordinate',['../class_othello_player.html#a6009745ed9b0e61b1ac47e6e7a325455',1,'OthelloPlayer']]],
+  ['getflipcoins_105',['getFlipCoins',['../class_othello_board.html#a0281b5ce0cf19bd6dc7d84ea4b3c598e',1,'OthelloBoard']]],
+  ['getmove_106',['getMove',['../class_othello_player.html#a4e7c72bc35396630b84a7dd540c33cc5',1,'OthelloPlayer']]],
+  ['getmoveai_107',['getMoveAI',['../class_othello_player.html#a08c0e177f7d1f47418a6cf982a453055',1,'OthelloPlayer']]],
+  ['getmovehuman_108',['getMoveHuman',['../class_othello_player.html#ae4036b733c5b2d5589b22d8ba5bc5373',1,'OthelloPlayer']]],
+  ['greedyai_109',['GreedyAI',['../class_greedy_a_i.html',1,'']]],
+  ['greedyai_2eh_110',['GreedyAI.h',['../_greedy_a_i_8h.html',1,'']]],
+  ['gui2_111',['gui2',['../class_gameplay_g_u_i.html#aba5847a8518e93e31d503f903af1c0b2',1,'GameplayGUI']]]
+];

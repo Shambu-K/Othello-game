@@ -1,0 +1,500 @@
+\hypertarget{class_othello_board}{}\doxysection{Othello\+Board Class Reference}
+\label{class_othello_board}\index{OthelloBoard@{OthelloBoard}}
+
+
+This class is the model of the application. It has all the game logic inside it. It is a derived class of \mbox{\hyperlink{class_subject}{Subject}}, and it is observed by View of the application.  
+
+
+
+
+{\ttfamily \#include $<$board.\+h$>$}
+
+
+
+Inheritance diagram for Othello\+Board\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_othello_board__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Othello\+Board\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_othello_board__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_othello_board_aa22216a4f4485172d39dda578707bf8d}{compute\+Scores}} ()
+\begin{DoxyCompactList}\small\item\em This is a function to display the board on the command line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_a4353b83697f1cb3e9ca89fb765b604f0}{clear\+Moves}} ()
+\begin{DoxyCompactList}\small\item\em This function clears all the legal moves on the board configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_ae319bde6b1236298317b857ea6050c75}{search\+Legal\+Moves}} (\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} col)
+\begin{DoxyCompactList}\small\item\em This function searches all the possible legal moves for a particular player. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ \& \mbox{\hyperlink{class_othello_board_a0281b5ce0cf19bd6dc7d84ea4b3c598e}{get\+Flip\+Coins}} (\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} clr, std\+::pair$<$ unsigned int, unsigned int $>$ coord, std\+::pair$<$ int, int $>$ dir)
+\begin{DoxyCompactList}\small\item\em This function calculates the coins that can be flipped in a specific direction and store the details of them in flipcoins. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_othello_board_a8155785d1fd53e3b4c4f7737fd5dca9a}{Othello\+Board}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to initialize the board with the four initial central pieces at the beginning of the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_a1babc0aacc99f553a8762084eb2f84bd}{place\+Move}} (std\+::pair$<$ unsigned int, unsigned int $>$ coord)
+\begin{DoxyCompactList}\small\item\em This function is used to update the values in board\+Configuration due to the move made on coord. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_a418274d9bdf8f0d8501bea33efeb4c90}{update\+Board}} ()
+\begin{DoxyCompactList}\small\item\em This function updates the board\+Configuration and the score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_a220bbe3328a7b767d474892e7ab3c8e2}{switch\+Player}} ()
+\begin{DoxyCompactList}\small\item\em This function changes the current\+Player variable from one player to the opposite player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_a88cc0bbd9d3e0b4ccfb2409ea701b603}{register\+Observer}} (\mbox{\hyperlink{class_observer}{Observer}} $\ast$observer) override
+\begin{DoxyCompactList}\small\item\em This function adds a observer to the observer list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_a35474a3dbf56730d714f5a0fac70c860}{notify\+Observers}} () override
+\begin{DoxyCompactList}\small\item\em This function gives updates to all the observers on the observer list. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_othello_board_aefa4f9a819b9e575c87f2c498a6aa49b}{compute\+Message}} ()
+\begin{DoxyCompactList}\small\item\em This function computes which message is to be shown in pop-\/up message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_a2c9b67be56b47dc88474d445ad2ef492}{move\+Passed}} ()
+\begin{DoxyCompactList}\small\item\em This function updates the move\+Log with a P\+A\+SS move. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_a0e4a87a7c6acfdf1f653472bdc23ca3d}{reset}} ()
+\begin{DoxyCompactList}\small\item\em This function resets all the variables to the default new game situations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_a0a8e2b41b17f26333c450e25cf2d297d}{initialise}} ()
+\begin{DoxyCompactList}\small\item\em This function initialises/resets the board configuration and legal\+Moves map to default. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_othello_board_a8f753a9b789a997d5bbae3f1cc36ada5}{is\+Legal}} (std\+::pair$<$ unsigned int, unsigned int $>$ coord)
+\begin{DoxyCompactList}\small\item\em This contains whether a move is legal or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_acb5ff63bc33a7e53fdb0b5d6c4930ee3}{initialize\+Board}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to initialize the board with the four initial central pieces at the beginning of the game. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_othello_board_af7d977697129c3a598b2ed9ef740c3c0}{place\+Move}} (\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} clr, std\+::pair$<$ unsigned int, unsigned int $>$ coord)
+\begin{DoxyCompactList}\small\item\em This function is used to update the values in board\+Configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_othello_board_ada37f46601fe81336e418f6542e69e93}{update\+Board}} (\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} clr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} $>$ $>$ \mbox{\hyperlink{class_othello_board_aa951e3a3d2372f469d3af165c98f46a5}{board\+Configuration}}
+\begin{DoxyCompactList}\small\item\em This contains details of configuration of board. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ \mbox{\hyperlink{class_othello_board_a21e7ffab4daa0aeee873dff9fb462e5a}{flip\+Coins}}
+\begin{DoxyCompactList}\small\item\em This contains the details of the coins that will be flipped by a move in a specific direction. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ \mbox{\hyperlink{class_othello_board_a5718b478058474ff44c532cdcdbb405c}{flipped\+Coins}}
+\begin{DoxyCompactList}\small\item\em This contains the details of all the coins that can be flipped in all directions. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_othello_board_afa097be411a1afc6c8cea4e418965d23}{black\+Score}} = 2
+\item 
+unsigned int \mbox{\hyperlink{class_othello_board_a9abd5243128de7bfc110f8682ea71dca}{white\+Score}} = 2
+\item 
+unsigned int \mbox{\hyperlink{class_othello_board_ab13c3d30333c86b39a01960ef616e897}{board\+Size}} = 8
+\item 
+std\+::map$<$ std\+::pair$<$ unsigned int, unsigned int $>$, std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ $>$ \mbox{\hyperlink{class_othello_board_ad669147e4768b09f18bde1daef30d056}{legal\+Moves}}
+\begin{DoxyCompactList}\small\item\em This contains the details of all the possible moves for a player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} \mbox{\hyperlink{class_othello_board_ad996c91242a311b5d01520ae2be19c39}{current\+Player}} = \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cba08d0012388564e95c3b4a7407cf04965}{piece\+::\+B\+L\+A\+CK}}
+\begin{DoxyCompactList}\small\item\em This contains the details of who the current player is. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_othello_board_a43c101f5d0e060f3f5ed6aa1e4033d35}{turn\+Num}}
+\begin{DoxyCompactList}\small\item\em This contains the value of number of turns took place between both players. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_observer}{Observer}} $\ast$ $>$ \mbox{\hyperlink{class_othello_board_a5cb8db326af316569dda8fcd44a99b7e}{observer\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em This contains the details of all the observers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_othello_board_abab8ed2f00e276c26339f22ab2cc83a3}{message}} = 0
+\begin{DoxyCompactList}\small\item\em This contains the details of which message is to be delivered as pop-\/up message. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_othello_board_a1fa287600f9587791ed1fcab886582da}{move\+Log}}
+\begin{DoxyCompactList}\small\item\em This contains details of all the moves that have been made by the players in the current game. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_othello_board_a110b594fbbe249aaa2ade26bf1616e4f}{s}} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em This contains the details of what non-\/legal move is to be added to move\+Log ( such as P\+A\+SS ) \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_othello_board_a038898dbd8ec869f1dad338ce6101d1a}{a}}
+\begin{DoxyCompactList}\small\item\em This contains the details of the Y-\/coordinate in string form. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_othello_board_a71584053e33480f5c476168806c63ae6}{b}}
+\begin{DoxyCompactList}\small\item\em This contains the details of the X-\/coordinate in string form. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_othello_board_a4349d5f7d7e909a93df3457a6282da38}{pass\+\_\+count}} = 0
+\begin{DoxyCompactList}\small\item\em This contains value of number of passes made between players. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is the model of the application. It has all the game logic inside it. It is a derived class of \mbox{\hyperlink{class_subject}{Subject}}, and it is observed by View of the application. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_othello_board_a8155785d1fd53e3b4c4f7737fd5dca9a}\label{class_othello_board_a8155785d1fd53e3b4c4f7737fd5dca9a}} 
+\index{OthelloBoard@{OthelloBoard}!OthelloBoard@{OthelloBoard}}
+\index{OthelloBoard@{OthelloBoard}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{OthelloBoard()}{OthelloBoard()}}
+{\footnotesize\ttfamily Othello\+Board\+::\+Othello\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to initialize the board with the four initial central pieces at the beginning of the game. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_othello_board_a4353b83697f1cb3e9ca89fb765b604f0}\label{class_othello_board_a4353b83697f1cb3e9ca89fb765b604f0}} 
+\index{OthelloBoard@{OthelloBoard}!clearMoves@{clearMoves}}
+\index{clearMoves@{clearMoves}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{clearMoves()}{clearMoves()}}
+{\footnotesize\ttfamily void Othello\+Board\+::clear\+Moves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function clears all the legal moves on the board configuration. 
+
+\mbox{\Hypertarget{class_othello_board_aefa4f9a819b9e575c87f2c498a6aa49b}\label{class_othello_board_aefa4f9a819b9e575c87f2c498a6aa49b}} 
+\index{OthelloBoard@{OthelloBoard}!computeMessage@{computeMessage}}
+\index{computeMessage@{computeMessage}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{computeMessage()}{computeMessage()}}
+{\footnotesize\ttfamily int Othello\+Board\+::compute\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function computes which message is to be shown in pop-\/up message. 
+
+\mbox{\Hypertarget{class_othello_board_aa22216a4f4485172d39dda578707bf8d}\label{class_othello_board_aa22216a4f4485172d39dda578707bf8d}} 
+\index{OthelloBoard@{OthelloBoard}!computeScores@{computeScores}}
+\index{computeScores@{computeScores}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{computeScores()}{computeScores()}}
+{\footnotesize\ttfamily void Othello\+Board\+::compute\+Scores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This is a function to display the board on the command line. 
+
+This function clears everything previously present in the terminal, and displays new board configuration. This function calls display\+Scores() and display\+Moves() to display scores of both the players and legal moves of the current player.
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & is used to specify whose turn it is currently.\\
+\hline
+\end{DoxyParams}
+This function calculates the current scores of the players \mbox{\Hypertarget{class_othello_board_a0281b5ce0cf19bd6dc7d84ea4b3c598e}\label{class_othello_board_a0281b5ce0cf19bd6dc7d84ea4b3c598e}} 
+\index{OthelloBoard@{OthelloBoard}!getFlipCoins@{getFlipCoins}}
+\index{getFlipCoins@{getFlipCoins}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{getFlipCoins()}{getFlipCoins()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ \& Othello\+Board\+::get\+Flip\+Coins (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}}}]{clr,  }\item[{std\+::pair$<$ unsigned int, unsigned int $>$}]{coord,  }\item[{std\+::pair$<$ int, int $>$}]{dir }\end{DoxyParamCaption})}
+
+
+
+This function calculates the coins that can be flipped in a specific direction and store the details of them in flipcoins. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clr} & This represents the color of the current plyer \\
+\hline
+{\em coord} & This reperesents the coordinates of the board piece around which we are searching for coins that can be flipped \\
+\hline
+{\em dir} & This represents the direction in which we are searching for coins that can be flipped \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::pair$<$unsigned int,unsigned int$>$$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_othello_board_a0a8e2b41b17f26333c450e25cf2d297d}\label{class_othello_board_a0a8e2b41b17f26333c450e25cf2d297d}} 
+\index{OthelloBoard@{OthelloBoard}!initialise@{initialise}}
+\index{initialise@{initialise}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{initialise()}{initialise()}}
+{\footnotesize\ttfamily void Othello\+Board\+::initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function initialises/resets the board configuration and legal\+Moves map to default. 
+
+\mbox{\Hypertarget{class_othello_board_acb5ff63bc33a7e53fdb0b5d6c4930ee3}\label{class_othello_board_acb5ff63bc33a7e53fdb0b5d6c4930ee3}} 
+\index{OthelloBoard@{OthelloBoard}!initializeBoard@{initializeBoard}}
+\index{initializeBoard@{initializeBoard}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{initializeBoard()}{initializeBoard()}}
+{\footnotesize\ttfamily void Othello\+Board\+::initialize\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to initialize the board with the four initial central pieces at the beginning of the game. 
+
+This function also initialises the legal\+Moves map. It also automatically calls the display\+Board() function to display the board first time. \mbox{\Hypertarget{class_othello_board_a8f753a9b789a997d5bbae3f1cc36ada5}\label{class_othello_board_a8f753a9b789a997d5bbae3f1cc36ada5}} 
+\index{OthelloBoard@{OthelloBoard}!isLegal@{isLegal}}
+\index{isLegal@{isLegal}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{isLegal()}{isLegal()}}
+{\footnotesize\ttfamily bool Othello\+Board\+::is\+Legal (\begin{DoxyParamCaption}\item[{std\+::pair$<$ unsigned int, unsigned int $>$}]{coord }\end{DoxyParamCaption})}
+
+
+
+This contains whether a move is legal or not. 
+
+This function checks if it is a legal move on a particular coordinate.
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & This represents the coordinate of the board piece which we are checking if a legal move can be made there \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_othello_board_a2c9b67be56b47dc88474d445ad2ef492}\label{class_othello_board_a2c9b67be56b47dc88474d445ad2ef492}} 
+\index{OthelloBoard@{OthelloBoard}!movePassed@{movePassed}}
+\index{movePassed@{movePassed}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{movePassed()}{movePassed()}}
+{\footnotesize\ttfamily void Othello\+Board\+::move\+Passed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function updates the move\+Log with a P\+A\+SS move. 
+
+\mbox{\Hypertarget{class_othello_board_a35474a3dbf56730d714f5a0fac70c860}\label{class_othello_board_a35474a3dbf56730d714f5a0fac70c860}} 
+\index{OthelloBoard@{OthelloBoard}!notifyObservers@{notifyObservers}}
+\index{notifyObservers@{notifyObservers}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{notifyObservers()}{notifyObservers()}}
+{\footnotesize\ttfamily void Othello\+Board\+::notify\+Observers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This function gives updates to all the observers on the observer list. 
+
+
+
+Implements \mbox{\hyperlink{class_subject}{Subject}}.
+
+\mbox{\Hypertarget{class_othello_board_af7d977697129c3a598b2ed9ef740c3c0}\label{class_othello_board_af7d977697129c3a598b2ed9ef740c3c0}} 
+\index{OthelloBoard@{OthelloBoard}!placeMove@{placeMove}}
+\index{placeMove@{placeMove}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{placeMove()}{placeMove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Othello\+Board\+::place\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}}}]{clr,  }\item[{std\+::pair$<$ unsigned int, unsigned int $>$}]{coord }\end{DoxyParamCaption})}
+
+
+
+This function is used to update the values in board\+Configuration. 
+
+\mbox{\Hypertarget{class_othello_board_a1babc0aacc99f553a8762084eb2f84bd}\label{class_othello_board_a1babc0aacc99f553a8762084eb2f84bd}} 
+\index{OthelloBoard@{OthelloBoard}!placeMove@{placeMove}}
+\index{placeMove@{placeMove}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{placeMove()}{placeMove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Othello\+Board\+::place\+Move (\begin{DoxyParamCaption}\item[{std\+::pair$<$ unsigned int, unsigned int $>$}]{coord }\end{DoxyParamCaption})}
+
+
+
+This function is used to update the values in board\+Configuration due to the move made on coord. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & This contains the coordinates of the board piece on which a move is made \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_othello_board_a88cc0bbd9d3e0b4ccfb2409ea701b603}\label{class_othello_board_a88cc0bbd9d3e0b4ccfb2409ea701b603}} 
+\index{OthelloBoard@{OthelloBoard}!registerObserver@{registerObserver}}
+\index{registerObserver@{registerObserver}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{registerObserver()}{registerObserver()}}
+{\footnotesize\ttfamily void Othello\+Board\+::register\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_observer}{Observer}} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This function adds a observer to the observer list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_subject}{Subject}}.
+
+\mbox{\Hypertarget{class_othello_board_a0e4a87a7c6acfdf1f653472bdc23ca3d}\label{class_othello_board_a0e4a87a7c6acfdf1f653472bdc23ca3d}} 
+\index{OthelloBoard@{OthelloBoard}!reset@{reset}}
+\index{reset@{reset}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Othello\+Board\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function resets all the variables to the default new game situations. 
+
+\mbox{\Hypertarget{class_othello_board_ae319bde6b1236298317b857ea6050c75}\label{class_othello_board_ae319bde6b1236298317b857ea6050c75}} 
+\index{OthelloBoard@{OthelloBoard}!searchLegalMoves@{searchLegalMoves}}
+\index{searchLegalMoves@{searchLegalMoves}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{searchLegalMoves()}{searchLegalMoves()}}
+{\footnotesize\ttfamily void Othello\+Board\+::search\+Legal\+Moves (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}}}]{clr }\end{DoxyParamCaption})}
+
+
+
+This function searches all the possible legal moves for a particular player. 
+
+This function is used to get Legalmoves and store them in legal\+Moves.
+
+
+\begin{DoxyParams}{Parameters}
+{\em clr} & This represents the color of the current player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_othello_board_a220bbe3328a7b767d474892e7ab3c8e2}\label{class_othello_board_a220bbe3328a7b767d474892e7ab3c8e2}} 
+\index{OthelloBoard@{OthelloBoard}!switchPlayer@{switchPlayer}}
+\index{switchPlayer@{switchPlayer}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{switchPlayer()}{switchPlayer()}}
+{\footnotesize\ttfamily void Othello\+Board\+::switch\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function changes the current\+Player variable from one player to the opposite player. 
+
+\mbox{\Hypertarget{class_othello_board_a418274d9bdf8f0d8501bea33efeb4c90}\label{class_othello_board_a418274d9bdf8f0d8501bea33efeb4c90}} 
+\index{OthelloBoard@{OthelloBoard}!updateBoard@{updateBoard}}
+\index{updateBoard@{updateBoard}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{updateBoard()}{updateBoard()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Othello\+Board\+::update\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function updates the board\+Configuration and the score. 
+
+\mbox{\Hypertarget{class_othello_board_ada37f46601fe81336e418f6542e69e93}\label{class_othello_board_ada37f46601fe81336e418f6542e69e93}} 
+\index{OthelloBoard@{OthelloBoard}!updateBoard@{updateBoard}}
+\index{updateBoard@{updateBoard}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{updateBoard()}{updateBoard()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Othello\+Board\+::update\+Board (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}}}]{clr }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_othello_board_a038898dbd8ec869f1dad338ce6101d1a}\label{class_othello_board_a038898dbd8ec869f1dad338ce6101d1a}} 
+\index{OthelloBoard@{OthelloBoard}!a@{a}}
+\index{a@{a}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{a}{a}}
+{\footnotesize\ttfamily char Othello\+Board\+::a}
+
+
+
+This contains the details of the Y-\/coordinate in string form. 
+
+\mbox{\Hypertarget{class_othello_board_a71584053e33480f5c476168806c63ae6}\label{class_othello_board_a71584053e33480f5c476168806c63ae6}} 
+\index{OthelloBoard@{OthelloBoard}!b@{b}}
+\index{b@{b}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{b}{b}}
+{\footnotesize\ttfamily char Othello\+Board\+::b}
+
+
+
+This contains the details of the X-\/coordinate in string form. 
+
+\mbox{\Hypertarget{class_othello_board_afa097be411a1afc6c8cea4e418965d23}\label{class_othello_board_afa097be411a1afc6c8cea4e418965d23}} 
+\index{OthelloBoard@{OthelloBoard}!blackScore@{blackScore}}
+\index{blackScore@{blackScore}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{blackScore}{blackScore}}
+{\footnotesize\ttfamily unsigned int Othello\+Board\+::black\+Score = 2}
+
+\mbox{\Hypertarget{class_othello_board_aa951e3a3d2372f469d3af165c98f46a5}\label{class_othello_board_aa951e3a3d2372f469d3af165c98f46a5}} 
+\index{OthelloBoard@{OthelloBoard}!boardConfiguration@{boardConfiguration}}
+\index{boardConfiguration@{boardConfiguration}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{boardConfiguration}{boardConfiguration}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} $>$ $>$ Othello\+Board\+::board\+Configuration}
+
+
+
+This contains details of configuration of board. 
+
+\mbox{\Hypertarget{class_othello_board_ab13c3d30333c86b39a01960ef616e897}\label{class_othello_board_ab13c3d30333c86b39a01960ef616e897}} 
+\index{OthelloBoard@{OthelloBoard}!boardSize@{boardSize}}
+\index{boardSize@{boardSize}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{boardSize}{boardSize}}
+{\footnotesize\ttfamily unsigned int Othello\+Board\+::board\+Size = 8}
+
+\mbox{\Hypertarget{class_othello_board_ad996c91242a311b5d01520ae2be19c39}\label{class_othello_board_ad996c91242a311b5d01520ae2be19c39}} 
+\index{OthelloBoard@{OthelloBoard}!currentPlayer@{currentPlayer}}
+\index{currentPlayer@{currentPlayer}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{currentPlayer}{currentPlayer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} Othello\+Board\+::current\+Player = \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cba08d0012388564e95c3b4a7407cf04965}{piece\+::\+B\+L\+A\+CK}}}
+
+
+
+This contains the details of who the current player is. 
+
+\mbox{\Hypertarget{class_othello_board_a21e7ffab4daa0aeee873dff9fb462e5a}\label{class_othello_board_a21e7ffab4daa0aeee873dff9fb462e5a}} 
+\index{OthelloBoard@{OthelloBoard}!flipCoins@{flipCoins}}
+\index{flipCoins@{flipCoins}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{flipCoins}{flipCoins}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ Othello\+Board\+::flip\+Coins}
+
+
+
+This contains the details of the coins that will be flipped by a move in a specific direction. 
+
+\mbox{\Hypertarget{class_othello_board_a5718b478058474ff44c532cdcdbb405c}\label{class_othello_board_a5718b478058474ff44c532cdcdbb405c}} 
+\index{OthelloBoard@{OthelloBoard}!flippedCoins@{flippedCoins}}
+\index{flippedCoins@{flippedCoins}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{flippedCoins}{flippedCoins}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ Othello\+Board\+::flipped\+Coins}
+
+
+
+This contains the details of all the coins that can be flipped in all directions. 
+
+\mbox{\Hypertarget{class_othello_board_ad669147e4768b09f18bde1daef30d056}\label{class_othello_board_ad669147e4768b09f18bde1daef30d056}} 
+\index{OthelloBoard@{OthelloBoard}!legalMoves@{legalMoves}}
+\index{legalMoves@{legalMoves}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{legalMoves}{legalMoves}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::pair$<$ unsigned int, unsigned int $>$, std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ $>$ Othello\+Board\+::legal\+Moves}
+
+
+
+This contains the details of all the possible moves for a player. 
+
+\mbox{\Hypertarget{class_othello_board_abab8ed2f00e276c26339f22ab2cc83a3}\label{class_othello_board_abab8ed2f00e276c26339f22ab2cc83a3}} 
+\index{OthelloBoard@{OthelloBoard}!message@{message}}
+\index{message@{message}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{message}{message}}
+{\footnotesize\ttfamily int Othello\+Board\+::message = 0}
+
+
+
+This contains the details of which message is to be delivered as pop-\/up message. 
+
+\mbox{\Hypertarget{class_othello_board_a1fa287600f9587791ed1fcab886582da}\label{class_othello_board_a1fa287600f9587791ed1fcab886582da}} 
+\index{OthelloBoard@{OthelloBoard}!moveLog@{moveLog}}
+\index{moveLog@{moveLog}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{moveLog}{moveLog}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Othello\+Board\+::move\+Log}
+
+
+
+This contains details of all the moves that have been made by the players in the current game. 
+
+\mbox{\Hypertarget{class_othello_board_a5cb8db326af316569dda8fcd44a99b7e}\label{class_othello_board_a5cb8db326af316569dda8fcd44a99b7e}} 
+\index{OthelloBoard@{OthelloBoard}!observer\_list@{observer\_list}}
+\index{observer\_list@{observer\_list}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{observer\_list}{observer\_list}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_observer}{Observer}}$\ast$$>$ Othello\+Board\+::observer\+\_\+list}
+
+
+
+This contains the details of all the observers. 
+
+\mbox{\Hypertarget{class_othello_board_a4349d5f7d7e909a93df3457a6282da38}\label{class_othello_board_a4349d5f7d7e909a93df3457a6282da38}} 
+\index{OthelloBoard@{OthelloBoard}!pass\_count@{pass\_count}}
+\index{pass\_count@{pass\_count}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{pass\_count}{pass\_count}}
+{\footnotesize\ttfamily int Othello\+Board\+::pass\+\_\+count = 0}
+
+
+
+This contains value of number of passes made between players. 
+
+\mbox{\Hypertarget{class_othello_board_a110b594fbbe249aaa2ade26bf1616e4f}\label{class_othello_board_a110b594fbbe249aaa2ade26bf1616e4f}} 
+\index{OthelloBoard@{OthelloBoard}!s@{s}}
+\index{s@{s}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{s}{s}}
+{\footnotesize\ttfamily std\+::string Othello\+Board\+::s = \char`\"{}\char`\"{}}
+
+
+
+This contains the details of what non-\/legal move is to be added to move\+Log ( such as P\+A\+SS ) 
+
+\mbox{\Hypertarget{class_othello_board_a43c101f5d0e060f3f5ed6aa1e4033d35}\label{class_othello_board_a43c101f5d0e060f3f5ed6aa1e4033d35}} 
+\index{OthelloBoard@{OthelloBoard}!turnNum@{turnNum}}
+\index{turnNum@{turnNum}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{turnNum}{turnNum}}
+{\footnotesize\ttfamily unsigned int Othello\+Board\+::turn\+Num}
+
+
+
+This contains the value of number of turns took place between both players. 
+
+\mbox{\Hypertarget{class_othello_board_a9abd5243128de7bfc110f8682ea71dca}\label{class_othello_board_a9abd5243128de7bfc110f8682ea71dca}} 
+\index{OthelloBoard@{OthelloBoard}!whiteScore@{whiteScore}}
+\index{whiteScore@{whiteScore}!OthelloBoard@{OthelloBoard}}
+\doxysubsubsection{\texorpdfstring{whiteScore}{whiteScore}}
+{\footnotesize\ttfamily unsigned int Othello\+Board\+::white\+Score = 2}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Model/\mbox{\hyperlink{source_2_model_2board_8h}{board.\+h}}\item 
+source/\+Model/\mbox{\hyperlink{source_2_model_2board_8cpp}{board.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_observer.html" title="This is an Observer base class. The View is derived from it. It observes from the Subject class for a..." alt="" coords="5,5,87,32"/>
+<area shape="rect" id="node2" href="$class_gameplay_g_u_i.html" title="This is the view part of the application. It gets game information from the model and displays it on ..." alt="" coords="135,5,248,32"/>
+</map>

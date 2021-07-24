@@ -1,0 +1,71 @@
+\hypertarget{class_random_a_i}{}\doxysection{Random\+AI Class Reference}
+\label{class_random_a_i}\index{RandomAI@{RandomAI}}
+
+
+This is a derived class of \mbox{\hyperlink{class_a_i}{AI}}.  
+
+
+
+
+{\ttfamily \#include $<$Random\+A\+I.\+h$>$}
+
+
+
+Inheritance diagram for Random\+AI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{class_random_a_i__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Random\+AI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{class_random_a_i__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ unsigned int, unsigned int $>$ \mbox{\hyperlink{class_random_a_i_a66f545c796e3e28604587d7ece201f80}{play}} (\mbox{\hyperlink{class_othello_board}{Othello\+Board}} board) override
+\begin{DoxyCompactList}\small\item\em This function selects a random move out of all possible moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is a derived class of \mbox{\hyperlink{class_a_i}{AI}}. 
+
+It selects a random move out of possible valid moves. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_random_a_i_a66f545c796e3e28604587d7ece201f80}\label{class_random_a_i_a66f545c796e3e28604587d7ece201f80}} 
+\index{RandomAI@{RandomAI}!play@{play}}
+\index{play@{play}!RandomAI@{RandomAI}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily std\+::pair$<$unsigned int, unsigned int$>$ Random\+A\+I\+::play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_othello_board}{Othello\+Board}}}]{board }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This function selects a random move out of all possible moves. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & This is the model of the game. It has data about the present board configuration, the valid moves that \mbox{\hyperlink{class_a_i}{AI}} can make, so that the \mbox{\hyperlink{class_a_i}{AI}} can select the required move and place the move. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$unsigned int, unsigned int$>$ Returns coordinate of a random valid square on the board. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_a_i_aa892645cefdfe6628ad947f7e34b7f33}{AI}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+A\+I/\mbox{\hyperlink{_random_a_i_8h}{Random\+A\+I.\+h}}\end{DoxyCompactItemize}

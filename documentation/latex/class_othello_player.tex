@@ -1,0 +1,96 @@
+\hypertarget{class_othello_player}{}\doxysection{Othello\+Player Class Reference}
+\label{class_othello_player}\index{OthelloPlayer@{OthelloPlayer}}
+
+
+{\ttfamily \#include $<$player.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_othello_player_a22a1b21758f100c448fe8541852331bd}{initialize\+Player}} (\mbox{\hyperlink{_common_types_8h_a37dbdc30935031c05304482e1be89d8f}{color}} \+\_\+col, bool \+\_\+is\+AI, unsigned int \+\_\+board\+Size)
+\item 
+std\+::optional$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ \mbox{\hyperlink{class_othello_player_a4e7c72bc35396630b84a7dd540c33cc5}{get\+Move}} (std\+::map$<$ std\+::pair$<$ unsigned int, unsigned int $>$, std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$$>$$>$ \&legal\+Moves, bool \&\mbox{\hyperlink{class_othello_player_a41322381fdfdfbbebed3848070379aec}{pass}})
+\item 
+std\+::optional$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ \mbox{\hyperlink{class_othello_player_ae4036b733c5b2d5589b22d8ba5bc5373}{get\+Move\+Human}} (std\+::map$<$ std\+::pair$<$ unsigned int, unsigned int $>$, std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$$>$$>$ \&legal\+Moves, bool \&\mbox{\hyperlink{class_othello_player_a41322381fdfdfbbebed3848070379aec}{pass}})
+\item 
+std\+::optional$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ \mbox{\hyperlink{class_othello_player_a08c0e177f7d1f47418a6cf982a453055}{get\+Move\+AI}} (std\+::map$<$ std\+::pair$<$ unsigned int, unsigned int $>$, std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$$>$$>$ \&legal\+Moves, bool \&\mbox{\hyperlink{class_othello_player_a41322381fdfdfbbebed3848070379aec}{pass}})
+\item 
+std\+::optional$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ \mbox{\hyperlink{class_othello_player_a6009745ed9b0e61b1ac47e6e7a325455}{get\+Coordinate}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_common_types_8h_a37dbdc30935031c05304482e1be89d8f}{color}} \mbox{\hyperlink{class_othello_player_a5eaad528078c2ffb29c5834cac2f38c5}{col}}
+\item 
+bool \mbox{\hyperlink{class_othello_player_a907a82a1eab4243622085966f33a5d0b}{is\+AI}}
+\item 
+unsigned int \mbox{\hyperlink{class_othello_player_acdecf7ccdda7904648d2463a097542fc}{board\+Size}}
+\item 
+bool \mbox{\hyperlink{class_othello_player_a41322381fdfdfbbebed3848070379aec}{pass}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_othello_player_a6009745ed9b0e61b1ac47e6e7a325455}\label{class_othello_player_a6009745ed9b0e61b1ac47e6e7a325455}} 
+\index{OthelloPlayer@{OthelloPlayer}!getCoordinate@{getCoordinate}}
+\index{getCoordinate@{getCoordinate}!OthelloPlayer@{OthelloPlayer}}
+\doxysubsubsection{\texorpdfstring{getCoordinate()}{getCoordinate()}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ Othello\+Player\+::get\+Coordinate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_othello_player_a4e7c72bc35396630b84a7dd540c33cc5}\label{class_othello_player_a4e7c72bc35396630b84a7dd540c33cc5}} 
+\index{OthelloPlayer@{OthelloPlayer}!getMove@{getMove}}
+\index{getMove@{getMove}!OthelloPlayer@{OthelloPlayer}}
+\doxysubsubsection{\texorpdfstring{getMove()}{getMove()}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ Othello\+Player\+::get\+Move (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::pair$<$ unsigned int, unsigned int $>$, std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$$>$$>$ \&}]{legal\+Moves,  }\item[{bool \&}]{pass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_othello_player_a08c0e177f7d1f47418a6cf982a453055}\label{class_othello_player_a08c0e177f7d1f47418a6cf982a453055}} 
+\index{OthelloPlayer@{OthelloPlayer}!getMoveAI@{getMoveAI}}
+\index{getMoveAI@{getMoveAI}!OthelloPlayer@{OthelloPlayer}}
+\doxysubsubsection{\texorpdfstring{getMoveAI()}{getMoveAI()}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ Othello\+Player\+::get\+Move\+AI (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::pair$<$ unsigned int, unsigned int $>$, std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$$>$$>$ \&}]{legal\+Moves,  }\item[{bool \&}]{pass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_othello_player_ae4036b733c5b2d5589b22d8ba5bc5373}\label{class_othello_player_ae4036b733c5b2d5589b22d8ba5bc5373}} 
+\index{OthelloPlayer@{OthelloPlayer}!getMoveHuman@{getMoveHuman}}
+\index{getMoveHuman@{getMoveHuman}!OthelloPlayer@{OthelloPlayer}}
+\doxysubsubsection{\texorpdfstring{getMoveHuman()}{getMoveHuman()}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ Othello\+Player\+::get\+Move\+Human (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::pair$<$ unsigned int, unsigned int $>$, std\+::vector$<$ std\+::pair$<$ unsigned int, unsigned int $>$$>$$>$ \&}]{legal\+Moves,  }\item[{bool \&}]{pass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_othello_player_a22a1b21758f100c448fe8541852331bd}\label{class_othello_player_a22a1b21758f100c448fe8541852331bd}} 
+\index{OthelloPlayer@{OthelloPlayer}!initializePlayer@{initializePlayer}}
+\index{initializePlayer@{initializePlayer}!OthelloPlayer@{OthelloPlayer}}
+\doxysubsubsection{\texorpdfstring{initializePlayer()}{initializePlayer()}}
+{\footnotesize\ttfamily void Othello\+Player\+::initialize\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_common_types_8h_a37dbdc30935031c05304482e1be89d8f}{color}}}]{\+\_\+col,  }\item[{bool}]{\+\_\+is\+AI,  }\item[{unsigned int}]{\+\_\+board\+Size }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_othello_player_acdecf7ccdda7904648d2463a097542fc}\label{class_othello_player_acdecf7ccdda7904648d2463a097542fc}} 
+\index{OthelloPlayer@{OthelloPlayer}!boardSize@{boardSize}}
+\index{boardSize@{boardSize}!OthelloPlayer@{OthelloPlayer}}
+\doxysubsubsection{\texorpdfstring{boardSize}{boardSize}}
+{\footnotesize\ttfamily unsigned int Othello\+Player\+::board\+Size}
+
+\mbox{\Hypertarget{class_othello_player_a5eaad528078c2ffb29c5834cac2f38c5}\label{class_othello_player_a5eaad528078c2ffb29c5834cac2f38c5}} 
+\index{OthelloPlayer@{OthelloPlayer}!col@{col}}
+\index{col@{col}!OthelloPlayer@{OthelloPlayer}}
+\doxysubsubsection{\texorpdfstring{col}{col}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_common_types_8h_a37dbdc30935031c05304482e1be89d8f}{color}} Othello\+Player\+::col}
+
+\mbox{\Hypertarget{class_othello_player_a907a82a1eab4243622085966f33a5d0b}\label{class_othello_player_a907a82a1eab4243622085966f33a5d0b}} 
+\index{OthelloPlayer@{OthelloPlayer}!isAI@{isAI}}
+\index{isAI@{isAI}!OthelloPlayer@{OthelloPlayer}}
+\doxysubsubsection{\texorpdfstring{isAI}{isAI}}
+{\footnotesize\ttfamily bool Othello\+Player\+::is\+AI}
+
+\mbox{\Hypertarget{class_othello_player_a41322381fdfdfbbebed3848070379aec}\label{class_othello_player_a41322381fdfdfbbebed3848070379aec}} 
+\index{OthelloPlayer@{OthelloPlayer}!pass@{pass}}
+\index{pass@{pass}!OthelloPlayer@{OthelloPlayer}}
+\doxysubsubsection{\texorpdfstring{pass}{pass}}
+{\footnotesize\ttfamily bool Othello\+Player\+::pass}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{player_8h}{player.\+h}}\item 
+src/\mbox{\hyperlink{player_8cpp}{player.\+cpp}}\end{DoxyCompactItemize}

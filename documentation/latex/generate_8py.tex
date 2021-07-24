@@ -1,0 +1,22 @@
+\hypertarget{generate_8py}{}\doxysection{source/\+View/\+Forms/themes/development/\+Black/generate.py File Reference}
+\label{generate_8py}\index{source/View/Forms/themes/development/Black/generate.py@{source/View/Forms/themes/development/Black/generate.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacegenerate}{generate}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{namespacegenerate_a89f426fa3fb9805afc9bf3d2ecafab8e}{generate.\+mapping}} = \{\}
+\item 
+\mbox{\hyperlink{namespacegenerate_aad3e2c86b5e557193c174d8ccb3a5547}{generate.\+data}} = json.\+load(f)
+\item 
+\mbox{\hyperlink{namespacegenerate_a6227059824c28727acb2772c44d10cc5}{generate.\+frame}} = data\mbox{[}\textquotesingle{}frames\textquotesingle{}\mbox{]}\mbox{[}image\+Filename\mbox{]}\mbox{[}\textquotesingle{}frame\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacegenerate_a4bc6d141aff0039ab76280c54eec0184}{generate.\+filename\+Without\+Extension}} = os.\+path.\+splitext(image\+Filename)\mbox{[}0\mbox{]}
+\item 
+\mbox{\hyperlink{namespacegenerate_acd38049bfc03e053edcad60e86bbfcab}{generate.\+contents}} = f.\+read()
+\item 
+\mbox{\hyperlink{namespacegenerate_a4effbb49c0a808ce2ff9b181cf20ec59}{generate.\+changed\+Contents}} = Template(contents).substitute(mapping)
+\end{DoxyCompactItemize}

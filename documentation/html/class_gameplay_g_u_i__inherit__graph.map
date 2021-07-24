@@ -1,0 +1,4 @@
+<map id="GameplayGUI" name="GameplayGUI">
+<area shape="rect" id="node1" title="This is the view part of the application. It gets game information from the model and displays it on ..." alt="" coords="5,80,119,107"/>
+<area shape="rect" id="node2" href="$class_observer.html" title="This is an Observer base class. The View is derived from it. It observes from the Subject class for a..." alt="" coords="21,5,103,32"/>
+</map>

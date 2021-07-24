@@ -1,0 +1,63 @@
+\hypertarget{class_a_i}{}\doxysection{AI Class Reference}
+\label{class_a_i}\index{AI@{AI}}
+
+
+This class is the base class for different types of \mbox{\hyperlink{class_a_i}{AI}} in the game.  
+
+
+
+
+{\ttfamily \#include $<$A\+I.\+h$>$}
+
+
+
+Inheritance diagram for AI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{class_a_i__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::pair$<$ unsigned int, unsigned int $>$ \mbox{\hyperlink{class_a_i_aa892645cefdfe6628ad947f7e34b7f33}{play}} (\mbox{\hyperlink{class_othello_board}{Othello\+Board}} board)=0
+\begin{DoxyCompactList}\small\item\em This is a virtual function \mbox{\hyperlink{class_a_i_aa892645cefdfe6628ad947f7e34b7f33}{play()}} that is overridden by the derived classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is the base class for different types of \mbox{\hyperlink{class_a_i}{AI}} in the game. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_i_aa892645cefdfe6628ad947f7e34b7f33}\label{class_a_i_aa892645cefdfe6628ad947f7e34b7f33}} 
+\index{AI@{AI}!play@{play}}
+\index{play@{play}!AI@{AI}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily virtual std\+::pair$<$unsigned int, unsigned int$>$ A\+I\+::play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_othello_board}{Othello\+Board}}}]{board }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+This is a virtual function \mbox{\hyperlink{class_a_i_aa892645cefdfe6628ad947f7e34b7f33}{play()}} that is overridden by the derived classes. 
+
+It returns the best move based on the type of the \mbox{\hyperlink{class_a_i}{AI}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & This is the model of the game. It has data about the present board configuration, the valid moves that \mbox{\hyperlink{class_a_i}{AI}} can make, so that the \mbox{\hyperlink{class_a_i}{AI}} can select the required move and place the move. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$unsigned int, unsigned int$>$ The coordinate of the square in which the \mbox{\hyperlink{class_a_i}{AI}} makes it move, 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_no_a_i_a28c56eea2ef60a37bd11c0e98b6b1939}{No\+AI}}, \mbox{\hyperlink{class_random_a_i_a66f545c796e3e28604587d7ece201f80}{Random\+AI}}, and \mbox{\hyperlink{class_greedy_a_i_a51b4167bd0502b86686f9a4d37857563}{Greedy\+AI}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+A\+I/\mbox{\hyperlink{_a_i_8h}{A\+I.\+h}}\end{DoxyCompactItemize}

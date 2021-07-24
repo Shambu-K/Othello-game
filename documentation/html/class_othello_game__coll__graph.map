@@ -1,0 +1,6 @@
+<map id="OthelloGame" name="OthelloGame">
+<area shape="rect" id="node1" title=" " alt="" coords="63,185,171,212"/>
+<area shape="rect" id="node2" href="$class_othello_player.html" title=" " alt="" coords="5,81,116,108"/>
+<area shape="rect" id="node3" href="$class_othello_board.html" title="This class is the model of the application. It has all the game logic inside it. It is a derived clas..." alt="" coords="141,81,247,108"/>
+<area shape="rect" id="node4" href="$class_subject.html" title="This is the Subject base class. The model is derived from it. It is observed by the Observer class." alt="" coords="159,5,229,32"/>
+</map>

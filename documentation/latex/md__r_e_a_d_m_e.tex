@@ -1,0 +1,76 @@
+\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Table of Contents}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyEnumerate}
+\item \href{\#about-the-project}{\texttt{ About The Project}}  
+\item \href{\#getting-started}{\texttt{ Getting Started}} 
+\begin{DoxyItemize}
+\item \href{\#installing-dependencies}{\texttt{ Installing Dependencies}} 
+\end{DoxyItemize}
+\item \href{\#build}{\texttt{ Build}} 
+\item \href{\#usage}{\texttt{ Usage}} 
+\begin{DoxyItemize}
+\item \href{\#using-gui-version}{\texttt{ Using gui version}} 
+\item \href{\#using-cli-version}{\texttt{ Using cli version}} 
+\end{DoxyItemize}
+\item \href{\#license}{\texttt{ License}} 
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{About the project}\label{md__r_e_a_d_m_e_autotoc_md2}
+A project with both single and double player based Othello game\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{Getting started}\label{md__r_e_a_d_m_e_autotoc_md3}
+Before playing the game some dependies are needed which are listed below.\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{Installing Dependencies}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item g++-\/10 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt-\/get update}
+\DoxyCodeLine{sudo apt install g++-\/10}
+\end{DoxyCode}
+
+\item fmt library 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt update}
+\DoxyCodeLine{sudo apt install libfmt-\/dev}
+\end{DoxyCode}
+
+\item S\+F\+ML library 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt update}
+\DoxyCodeLine{sudo apt-\/get install libsfml-\/dev}
+\end{DoxyCode}
+
+\item T\+G\+UI library 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo add-\/apt-\/repository ppa:texus/tgui}
+\DoxyCodeLine{sudo apt-\/get update}
+\DoxyCodeLine{sudo apt-\/get install libtgui-\/0.9-\/dev}
+\end{DoxyCode}
+
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{Build}\label{md__r_e_a_d_m_e_autotoc_md5}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone https://github.com/IITH-\/CS1023/cs1023-\/sdf-\/project-\/team-\/15.git Othello\_Game}
+\DoxyCodeLine{cd Othello\_Game}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#to build the executable for gui version}
+\DoxyCodeLine{make all}
+\DoxyCodeLine{\#to run the executable for gui version}
+\DoxyCodeLine{make run}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#to build the executable for cli version}
+\DoxyCodeLine{make all\_cli}
+\DoxyCodeLine{\#to run the executable for cli version}
+\DoxyCodeLine{make run\_cli}
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{Usage}\label{md__r_e_a_d_m_e_autotoc_md6}
+How to play the game and some rules\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{Using gui version}\label{md__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item First select the mode of play
+\item Press the mouse where you want to place your coin
+\item Press \char`\"{}pass\char`\"{} if you dont want to play your turn (Remember if both players press pass at the same turn then the game will be over there).
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{Using cli version}\label{md__r_e_a_d_m_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item Enter the coordinate of the block where you want to place your coin
+\item The game will end if the board is totally filled
+\item If you want to exit the game press \char`\"{}\+Crtl+\+C\char`\"{}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysection{License}\label{md__r_e_a_d_m_e_autotoc_md9}
+Distributed under the G\+NU G\+PL v3.\+0 License. See \mbox{[}L\+I\+C\+E\+N\+SE\mbox{]}(L\+I\+C\+E\+N\+SE) for more information. 

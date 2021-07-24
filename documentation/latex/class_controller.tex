@@ -1,0 +1,189 @@
+\hypertarget{class_controller}{}\doxysection{Controller Class Reference}
+\label{class_controller}\index{Controller@{Controller}}
+
+
+This class is the controller of the application. It integrates model and the view of the application. It also takes input from the user and passes information to the model.  
+
+
+
+
+{\ttfamily \#include $<$controller.\+h$>$}
+
+
+
+Collaboration diagram for Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{class_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_controller_a98a65b4574fadc5e6c90c307ce98e1e9}{connect\+\_\+bitmap\+\_\+buttons}} ()
+\begin{DoxyCompactList}\small\item\em This function connects each of the 64 board buttons in view to a corresponding action in the model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_a51a59ce7f74f5210f5bf9701b0ce9348}{connect\+\_\+other\+\_\+buttons}} ()
+\begin{DoxyCompactList}\small\item\em This function connects the other buttons of the view (New Game, Quit, Pass, Main Menu) to a corresponding action. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_a693e55240b13a2814ce0206857ed8b8f}{update\+Game\+State}} (std\+::pair$<$ unsigned int, unsigned int $>$ coord)
+\begin{DoxyCompactList}\small\item\em This function gets a coordinate from the user and passes it to the model to update the game state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_a0b0a2c7817014126db73ff2d1ca4eb10}{A\+I\+Play}} (\mbox{\hyperlink{class_othello_board}{Othello\+Board}} board)
+\begin{DoxyCompactList}\small\item\em This function lets the \mbox{\hyperlink{class_a_i}{AI}} play after every move the player makes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_controller_a51a61e3352488bc3ccfb313cbd5e5c2c}{Controller}} (int options)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_controller}{Controller}}\+:\+: \mbox{\hyperlink{class_controller}{Controller}} object based on the options the user selects in the title page It also initializes model and view objects and registers the view as an oberver to the model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_acc8f99b5346c7fc000271908ea42ee9e}{decide\+AI}} (int options)
+\begin{DoxyCompactList}\small\item\em This functions selects the type of \mbox{\hyperlink{class_a_i}{A\+I(\+Random, Greedy, No\+A\+I)}} based on option selected by the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} \mbox{\hyperlink{class_controller_a7395f350fefeb7cae1141800e80e1cac}{current\+P\+Layer}} = \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cba08d0012388564e95c3b4a7407cf04965}{piece\+::\+B\+L\+A\+CK}}
+\item 
+\mbox{\hyperlink{class_othello_board}{Othello\+Board}} \mbox{\hyperlink{class_controller_a27fe1524386f5cf4a420f0e0d34325d4}{model}}
+\item 
+\mbox{\hyperlink{class_gameplay_g_u_i}{Gameplay\+G\+UI}} \mbox{\hyperlink{class_controller_ae8f926190b0b6c93457ae26e1b604a20}{view}}
+\item 
+\mbox{\hyperlink{class_a_i}{AI}} $\ast$ \mbox{\hyperlink{class_controller_ac81b354e9ae6d116762b13db2beaf4cb}{A\+Iplayer}}
+\item 
+sf\+::\+Clock \mbox{\hyperlink{class_controller_a2a21d5aebca725f502890374ff29d598}{black\+Timer}}
+\item 
+sf\+::\+Clock \mbox{\hyperlink{class_controller_af63bd58d6c96547d614b481dd8f702a3}{white\+Timer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is the controller of the application. It integrates model and the view of the application. It also takes input from the user and passes information to the model. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_controller_a51a61e3352488bc3ccfb313cbd5e5c2c}\label{class_controller_a51a61e3352488bc3ccfb313cbd5e5c2c}} 
+\index{Controller@{Controller}!Controller@{Controller}}
+\index{Controller@{Controller}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{Controller()}{Controller()}}
+{\footnotesize\ttfamily Controller\+::\+Controller (\begin{DoxyParamCaption}\item[{int}]{options }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_controller}{Controller}}\+:\+: \mbox{\hyperlink{class_controller}{Controller}} object based on the options the user selects in the title page It also initializes model and view objects and registers the view as an oberver to the model. 
+
+It has the main game loop of the application
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & This variable tells the mode of gameplay the user has selected in the title page. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_controller_a0b0a2c7817014126db73ff2d1ca4eb10}\label{class_controller_a0b0a2c7817014126db73ff2d1ca4eb10}} 
+\index{Controller@{Controller}!AIPlay@{AIPlay}}
+\index{AIPlay@{AIPlay}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{AIPlay()}{AIPlay()}}
+{\footnotesize\ttfamily void Controller\+::\+A\+I\+Play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_othello_board}{Othello\+Board}}}]{board }\end{DoxyParamCaption})}
+
+
+
+This function lets the \mbox{\hyperlink{class_a_i}{AI}} play after every move the player makes. 
+
+If the \mbox{\hyperlink{class_a_i}{AI}} is \mbox{\hyperlink{class_no_a_i}{No\+AI}}, the program waits until the second player has made a move. Otherwise, it makes a move as soon as the first player makes a move,
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & This is the model of the game. It has data about the present board configuration, the valid moves that \mbox{\hyperlink{class_a_i}{AI}} can make, so that the \mbox{\hyperlink{class_a_i}{AI}} can select the required move and place the move. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_controller_a98a65b4574fadc5e6c90c307ce98e1e9}\label{class_controller_a98a65b4574fadc5e6c90c307ce98e1e9}} 
+\index{Controller@{Controller}!connect\_bitmap\_buttons@{connect\_bitmap\_buttons}}
+\index{connect\_bitmap\_buttons@{connect\_bitmap\_buttons}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{connect\_bitmap\_buttons()}{connect\_bitmap\_buttons()}}
+{\footnotesize\ttfamily void Controller\+::connect\+\_\+bitmap\+\_\+buttons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function connects each of the 64 board buttons in view to a corresponding action in the model. 
+
+This function is the main connection between the controller and the model, it captures the user interactions and sends it to the model (which has the game logic). \mbox{\Hypertarget{class_controller_a51a59ce7f74f5210f5bf9701b0ce9348}\label{class_controller_a51a59ce7f74f5210f5bf9701b0ce9348}} 
+\index{Controller@{Controller}!connect\_other\_buttons@{connect\_other\_buttons}}
+\index{connect\_other\_buttons@{connect\_other\_buttons}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{connect\_other\_buttons()}{connect\_other\_buttons()}}
+{\footnotesize\ttfamily void Controller\+::connect\+\_\+other\+\_\+buttons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function connects the other buttons of the view (New Game, Quit, Pass, Main Menu) to a corresponding action. 
+
+\mbox{\Hypertarget{class_controller_acc8f99b5346c7fc000271908ea42ee9e}\label{class_controller_acc8f99b5346c7fc000271908ea42ee9e}} 
+\index{Controller@{Controller}!decideAI@{decideAI}}
+\index{decideAI@{decideAI}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{decideAI()}{decideAI()}}
+{\footnotesize\ttfamily void Controller\+::decide\+AI (\begin{DoxyParamCaption}\item[{int}]{options }\end{DoxyParamCaption})}
+
+
+
+This functions selects the type of \mbox{\hyperlink{class_a_i}{A\+I(\+Random, Greedy, No\+A\+I)}} based on option selected by the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & This variable tells the mode of gameplay the user has selected in the title page. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_controller_a693e55240b13a2814ce0206857ed8b8f}\label{class_controller_a693e55240b13a2814ce0206857ed8b8f}} 
+\index{Controller@{Controller}!updateGameState@{updateGameState}}
+\index{updateGameState@{updateGameState}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{updateGameState()}{updateGameState()}}
+{\footnotesize\ttfamily void Controller\+::update\+Game\+State (\begin{DoxyParamCaption}\item[{std\+::pair$<$ unsigned int, unsigned int $>$}]{coord }\end{DoxyParamCaption})}
+
+
+
+This function gets a coordinate from the user and passes it to the model to update the game state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & This variable is the coordinate of the square the user has clicked on. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_controller_ac81b354e9ae6d116762b13db2beaf4cb}\label{class_controller_ac81b354e9ae6d116762b13db2beaf4cb}} 
+\index{Controller@{Controller}!AIplayer@{AIplayer}}
+\index{AIplayer@{AIplayer}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{AIplayer}{AIplayer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_i}{AI}}$\ast$ Controller\+::\+A\+Iplayer}
+
+\mbox{\Hypertarget{class_controller_a2a21d5aebca725f502890374ff29d598}\label{class_controller_a2a21d5aebca725f502890374ff29d598}} 
+\index{Controller@{Controller}!blackTimer@{blackTimer}}
+\index{blackTimer@{blackTimer}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{blackTimer}{blackTimer}}
+{\footnotesize\ttfamily sf\+::\+Clock Controller\+::black\+Timer}
+
+\mbox{\Hypertarget{class_controller_a7395f350fefeb7cae1141800e80e1cac}\label{class_controller_a7395f350fefeb7cae1141800e80e1cac}} 
+\index{Controller@{Controller}!currentPLayer@{currentPLayer}}
+\index{currentPLayer@{currentPLayer}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{currentPLayer}{currentPLayer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cb}{piece}} Controller\+::current\+P\+Layer = \mbox{\hyperlink{_common_types_8h_a31382d7e79b6cf3e1225c53a55e8b5cba08d0012388564e95c3b4a7407cf04965}{piece\+::\+B\+L\+A\+CK}}}
+
+\mbox{\Hypertarget{class_controller_a27fe1524386f5cf4a420f0e0d34325d4}\label{class_controller_a27fe1524386f5cf4a420f0e0d34325d4}} 
+\index{Controller@{Controller}!model@{model}}
+\index{model@{model}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_othello_board}{Othello\+Board}} Controller\+::model}
+
+\mbox{\Hypertarget{class_controller_ae8f926190b0b6c93457ae26e1b604a20}\label{class_controller_ae8f926190b0b6c93457ae26e1b604a20}} 
+\index{Controller@{Controller}!view@{view}}
+\index{view@{view}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{view}{view}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_gameplay_g_u_i}{Gameplay\+G\+UI}} Controller\+::view}
+
+\mbox{\Hypertarget{class_controller_af63bd58d6c96547d614b481dd8f702a3}\label{class_controller_af63bd58d6c96547d614b481dd8f702a3}} 
+\index{Controller@{Controller}!whiteTimer@{whiteTimer}}
+\index{whiteTimer@{whiteTimer}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{whiteTimer}{whiteTimer}}
+{\footnotesize\ttfamily sf\+::\+Clock Controller\+::white\+Timer}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Controller/\mbox{\hyperlink{controller_8h}{controller.\+h}}\item 
+source/\+Controller/\mbox{\hyperlink{controller_8cpp}{controller.\+cpp}}\end{DoxyCompactItemize}

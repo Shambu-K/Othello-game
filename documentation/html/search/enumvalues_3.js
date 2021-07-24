@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['legal_5fblack_540',['LEGAL_BLACK',['../_common_types_8h.html#a31382d7e79b6cf3e1225c53a55e8b5cbac81902aeef3f568f90e79040c38e89b4',1,'LEGAL_BLACK():&#160;CommonTypes.h'],['../src_2board_8h.html#a31382d7e79b6cf3e1225c53a55e8b5cbac81902aeef3f568f90e79040c38e89b4',1,'LEGAL_BLACK():&#160;board.h'],['../_common_types_8h.html#a31382d7e79b6cf3e1225c53a55e8b5cbac81902aeef3f568f90e79040c38e89b4',1,'LEGAL_BLACK():&#160;CommonTypes.h'],['../src_2board_8h.html#a31382d7e79b6cf3e1225c53a55e8b5cbac81902aeef3f568f90e79040c38e89b4',1,'LEGAL_BLACK():&#160;board.h']]],
+  ['legal_5fwhite_541',['LEGAL_WHITE',['../_common_types_8h.html#a31382d7e79b6cf3e1225c53a55e8b5cba2b05e814394bb036ba8392c8099a5cb2',1,'LEGAL_WHITE():&#160;CommonTypes.h'],['../src_2board_8h.html#a31382d7e79b6cf3e1225c53a55e8b5cba2b05e814394bb036ba8392c8099a5cb2',1,'LEGAL_WHITE():&#160;board.h'],['../_common_types_8h.html#a31382d7e79b6cf3e1225c53a55e8b5cba2b05e814394bb036ba8392c8099a5cb2',1,'LEGAL_WHITE():&#160;CommonTypes.h'],['../src_2board_8h.html#a31382d7e79b6cf3e1225c53a55e8b5cba2b05e814394bb036ba8392c8099a5cb2',1,'LEGAL_WHITE():&#160;board.h']]]
+];

@@ -1,0 +1,69 @@
+\hypertarget{class_no_a_i}{}\doxysection{No\+AI Class Reference}
+\label{class_no_a_i}\index{NoAI@{NoAI}}
+
+
+This is a derived class of \mbox{\hyperlink{class_a_i}{AI}}. It is a \char`\"{}\+Null Object\char`\"{} class which does nothing. It allows Player vs Player mode by not making any move.  
+
+
+
+
+{\ttfamily \#include $<$No\+A\+I.\+h$>$}
+
+
+
+Inheritance diagram for No\+AI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=120pt]{class_no_a_i__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for No\+AI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=120pt]{class_no_a_i__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ unsigned int, unsigned int $>$ \mbox{\hyperlink{class_no_a_i_a28c56eea2ef60a37bd11c0e98b6b1939}{play}} (\mbox{\hyperlink{class_othello_board}{Othello\+Board}} board) override
+\begin{DoxyCompactList}\small\item\em This function does nothing and returns an invalid coord. It allows the next player to make a move with this behaviour. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is a derived class of \mbox{\hyperlink{class_a_i}{AI}}. It is a \char`\"{}\+Null Object\char`\"{} class which does nothing. It allows Player vs Player mode by not making any move. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_no_a_i_a28c56eea2ef60a37bd11c0e98b6b1939}\label{class_no_a_i_a28c56eea2ef60a37bd11c0e98b6b1939}} 
+\index{NoAI@{NoAI}!play@{play}}
+\index{play@{play}!NoAI@{NoAI}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily std\+::pair$<$unsigned int, unsigned int$>$ No\+A\+I\+::play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_othello_board}{Othello\+Board}}}]{board }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This function does nothing and returns an invalid coord. It allows the next player to make a move with this behaviour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & This is the model of the game. It has data about the present board configuration, the valid moves that \mbox{\hyperlink{class_a_i}{AI}} can make, so that the \mbox{\hyperlink{class_a_i}{AI}} can select the required move and place the move. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$unsigned int, unsigned int$>$ It returns an invalid coordinate of a square. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_a_i_aa892645cefdfe6628ad947f7e34b7f33}{AI}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+A\+I/\mbox{\hyperlink{_no_a_i_8h}{No\+A\+I.\+h}}\end{DoxyCompactItemize}
