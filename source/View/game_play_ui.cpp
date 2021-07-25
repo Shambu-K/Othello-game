@@ -319,7 +319,7 @@ void GameplayGUI::showGameOver(int blackScore, int whiteScore)
     gameOver->add(mainMenu);
 
     //setting the position of the newgame button
-    newGame->setPosition(350, 400);
+    newGame->setPosition(370, 400);
     //adding the newgame button to the game over widget
     gameOver->add(newGame);
 }

@@ -1,19 +1,17 @@
 .PHONY: all_cli clean_cli run_cli all clean run doc
 
-SRC = src/
-OBJS = objs/
 OBJECTS = board.o player.o game.o main.o
 EXECUTABLE = othello.exe
 SOURCE = source/
 
 all_cli:
-	cd $(SRC); make all; mv $(EXECUTABLE) ..;
+	cd $(SOURCE);make all;
 
 run_cli:
-	make all_cli; gnome-terminal --maximize -- ./$(EXECUTABLE); 
+	cd $(SOURCE) ; make run;
 
 clean_cli:
-	rm -f $(EXECUTABLE); cd $(OBJS); rm -f *.o;
+	cd $(SOURCE); make clean;
 
 all:
 	cd $(SOURCE);make all;
@@ -24,14 +22,6 @@ run:
 clean:
 	cd $(SOURCE); make clean;
 
-all2:
-	cd $(SOURCE);make all;
-
-run2:
-	cd $(SOURCE) ; make run;
-
-clean2:
-	cd $(SOURCE); make clean;
 
 doc:
 	doxygen Doxyfile;
