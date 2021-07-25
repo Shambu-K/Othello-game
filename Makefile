@@ -3,15 +3,16 @@
 OBJECTS = board.o player.o game.o main.o
 EXECUTABLE = othello.exe
 SOURCE = source/
+SOURCE2 = source2/
 
 all_cli:
-	cd $(SOURCE);make all;
+	cd $(SOURCE2);make all;
 
 run_cli:
-	cd $(SOURCE) ; make run;
+	cd $(SOURCE2) ; make run;
 
 clean_cli:
-	cd $(SOURCE); make clean;
+	cd $(SOURCE2); make clean;
 
 all:
 	cd $(SOURCE);make all;
