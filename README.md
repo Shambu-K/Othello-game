@@ -26,6 +26,9 @@
 ## About the project
 A project with both single and double player based Othello game
 
+## Design Patterns
+![img](images/Class_Diagram.png "Class Hierarchy")
+
 ## Getting started
 Before playing the game some dependies are needed which are listed below.
 
