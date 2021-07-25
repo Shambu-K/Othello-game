@@ -28,7 +28,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About the project
 A project with both single and double player based Othello game
-![img](images/Screenshot\ from\ 2021-07-25\ 10-14-39.png "Class Hierarchy")
+![img](images/screenshots/Screenshot from 2021-07-25 10-14-39.png "Title Page")
 
 ## Design Patterns
 ![img](images/Class_Diagram.png "Class Hierarchy")
