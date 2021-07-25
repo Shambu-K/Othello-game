@@ -7,7 +7,7 @@ EXECUTABLE = othello.exe
 SOURCE = source/
 
 all_cli:
-	cd $(SRC); make all; mv $(EXECUTABLE) ..; mv $(OBJECTS) ../objs/;
+	cd $(SRC); make all; mv $(EXECUTABLE) ..;
 
 run_cli:
 	make all_cli; gnome-terminal --maximize -- ./$(EXECUTABLE); 
@@ -22,6 +22,15 @@ run:
 	cd $(SOURCE) ; make run;
 
 clean:
+	cd $(SOURCE); make clean;
+
+all2:
+	cd $(SOURCE);make all;
+
+run2:
+	cd $(SOURCE) ; make run;
+
+clean2:
 	cd $(SOURCE); make clean;
 
 doc:
