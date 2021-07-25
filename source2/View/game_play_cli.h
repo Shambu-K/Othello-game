@@ -3,6 +3,7 @@
 
 #include "View/Observer.h"
 #include <string>
+#include <vector>
 /**
  * @brief This is the view part of the application. It gets game information from the model
  * and displays it on the screen.
