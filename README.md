@@ -34,7 +34,7 @@ A project with both single and double player based Othello game
 ![img](images/Class_Diagram.png "Class Hierarchy")
 
 The design patterns used in the project were
- - MVC (Model - View Controller) design pattern
+ - MVC (Model - View - Controller) design pattern
  - Strategy
  - Null Object
 
