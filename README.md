@@ -6,6 +6,9 @@
       <a href="#about-the-project">About The Project</a>
     </li>
     <li>
+      <a href="#design-patterns">Design Patterns</a>
+    </li>
+    <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#installing-dependencies">Installing Dependencies</a></li>
@@ -25,6 +28,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About the project
 A project with both single and double player based Othello game
+![img](images/Screenshot\ from\ 2021-07-25\ 10-14-39.png "Class Hierarchy")
 
 ## Design Patterns
 ![img](images/Class_Diagram.png "Class Hierarchy")
