@@ -25,6 +25,7 @@ class GreedyAI : public AI
             if(itr.second.size() > max_Captures)
             {
                 resultCoord = itr.first;
+                max_Captures=itr.second.size();
             }
         }
         return resultCoord;
