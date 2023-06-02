@@ -171,8 +171,8 @@ void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vect
     //hiding the pop-up message
     if(nlm_message->isVisible() && message==0)
     {
-            nlm_message->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 500);
-            background_nlm->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 500);
+            nlm_message->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 500);
+            background_nlm->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 500);
     }
 
     //displaying no legal moves pop-up message for black player
@@ -181,9 +181,9 @@ void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vect
         //setting the text for no legal moves for black
         nlm_message->setText("No legal moves for Black Player");
         //displaying the text for no legal moves for black with a motion effect
-        nlm_message->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+        nlm_message->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 1000);
         //displaying the background for pop-up message with a motion effect
-        background_nlm->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+        background_nlm->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 1000);
     }
     //displaying no legal moves pop-up message for white player
     else if(message==2)
@@ -191,9 +191,9 @@ void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vect
         //setting the text for no legal moves for white
         nlm_message->setText("No legal moves for White Player!");
         //displaying the text for no legal moves for white with a motion effect
-        nlm_message->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+        nlm_message->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 1000);
         //displaying the background for pop-up message with a motion effect
-        background_nlm->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+        background_nlm->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 1000);
     }
     //displaying game over
     else if(message==3)
@@ -207,9 +207,9 @@ void GameplayGUI::update(piece currentPlayer, int message, std::vector<std::vect
         //setting up text for illegal move
         nlm_message->setText("Illegal Move!!");
         //displaying the text for illegal move with a motion effect
-        nlm_message->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+        nlm_message->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 1000);
         //displaying the background for pop-up message with a motion effect
-        background_nlm->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 1000);
+        background_nlm->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 1000);
     }
 }
 
