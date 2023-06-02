@@ -7,6 +7,7 @@
 #include "AI/NoAI.h"
 #include "AI/GreedyAI.h"
 #include "AI/RandomAI.h"
+#include "AI/MinimaxAI.h"
 
 /**
  * @brief This class is the controller of the application. It integrates model and 

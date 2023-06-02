@@ -116,7 +116,7 @@ RadioButtonGroup.radiobuttons {
 
     RadioButton.RadioButton2 {
         Enabled = true;
-        Position = (0, 80);
+        Position = (0, 90);
         Renderer = &2;
         Size = (18, 18);
         Text = "Player vs Random";
@@ -124,10 +124,18 @@ RadioButtonGroup.radiobuttons {
     }
 
     RadioButton.RadioButton3 {
-        Position = (0, 40);
+        Position = (0, 60);
         Renderer = &2;
         Size = (18, 18);
         Text = "Player vs Greedy";
+        TextSize = 13;
+    }
+
+    RadioButton.RadioButton4 {
+        Position = (0, 30);
+        Renderer = &2;
+        Size = (18, 18);
+        Text = "Player vs Minimax";
         TextSize = 13;
     }
 

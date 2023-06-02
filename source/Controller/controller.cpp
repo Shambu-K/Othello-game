@@ -36,7 +36,7 @@ Controller::Controller(int options) : model(), view(DEFAULT_BOARD_SIZE)
 }
 
 /**
- * @brief This functions selects the type of AI(Random, Greedy, NoAI) based on option selected by the user.
+ * @brief This functions selects the type of AI(Random, Greedy, Minimax, NoAI) based on option selected by the user.
  * 
  * @param options This variable tells the mode of gameplay the user has selected in the title page.
  */
@@ -47,7 +47,7 @@ void Controller::decideAI(int options)
         case 1 : AIplayer = new NoAI();         break;
         case 2 : AIplayer = new RandomAI();       break;
         case 3 : AIplayer = new GreedyAI();     break;
-        // case 4 : AIplayer = new MinimaxAI();    break;
+        case 4 : AIplayer = new MinimaxAI();    break;
         default : AIplayer = new NoAI();
     }
 }

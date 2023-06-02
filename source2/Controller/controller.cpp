@@ -33,7 +33,7 @@ void Controller::decideAI(int options)
         case 1 : AIplayer = new NoAI();         break;
         case 2 : AIplayer = new RandomAI();       break;
         case 3 : AIplayer = new GreedyAI();     break;
-        // case 4 : AIplayer = new MinimaxAI();    break;
+        case 4 : AIplayer = new MinimaxAI();    break;
         default : AIplayer = new NoAI();
     }
 }

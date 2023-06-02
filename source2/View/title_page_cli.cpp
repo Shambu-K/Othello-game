@@ -18,10 +18,11 @@ int main()
     pr("1. Player vs Player\n");
     pr("2. Player vs Random\n");
     pr("3. Player vs Greedy\n");
-    pr("4. Exit\n");
+    pr("4. Player vs Minimax\n");
+    pr("5. Exit\n");
 
     std::cin >> option;
-    if(option!=4)
+    if(option!=5)
         Controller controller(option);
     
 }
